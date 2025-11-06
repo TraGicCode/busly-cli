@@ -1,0 +1,35 @@
+﻿# Use .NET 9 SDK to build
+FROM mcr.microsoft.com/dotnet/sdk:9.0.305 AS build
+WORKDIR /src
+
+# Copy project file and restore dependencies (better layer caching)
+COPY src/NServiceBusCLI.Console/NServiceBusCLI.Console.csproj ./NServiceBusCLI.Console/
+RUN dotnet restore "NServiceBusCLI.Console/NServiceBusCLI.Console.csproj" \
+    -r linux-musl-x64
+
+# Copy source code and build
+COPY src/NServiceBusCLI.Console/ ./NServiceBusCLI.Console/
+
+RUN dotnet publish "./NServiceBusCLI.Console/NServiceBusCLI.Console.csproj" \
+    -c Release \
+    -r linux-musl-x64 \
+    -o /app/publish \
+    --no-restore \
+    -p:PublishSingleFile=true \
+    -p:PublishTrimmed=true \
+    -p:TrimMode=partial \
+    -p:EnableCompressionInSingleFile=true \
+    -p:SelfContained=true
+
+# Use minimal runtime for smaller image size
+FROM mcr.microsoft.com/dotnet/runtime-deps:9.0-alpine AS final
+WORKDIR /app
+
+# Copy published app
+COPY --from=build /app/publish .
+
+# Change ownership to non-root user
+RUN chown -R $APP_UID:$APP_UID /app
+USER $APP_UID
+
+ENTRYPOINT ["./NServiceBusCLI.Console"]
