@@ -1,0 +1,87 @@
+import Tabs from "@theme/Tabs";
+
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+# Quick Start
+
+This guide walks you through how you can install Busly CLI, which was built from the ground up for cross-platform compatibility and offers a variety of installation options to suit different environments and use cases.
+
+## Installation
+
+Busly CLI was built from the ground up for cross-platform compatibility and offers a variety of installation options to suit different environments and use cases.
+
+<Tabs>
+<TabItem value="choco" label="Chocolatey">
+
+```bash
+choco install busly-cli -y
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker">
+
+To pull the busy-cli image and run it as a Docker container:
+
+```bash
+docker pull tragiccode/busly-cli
+docker run --rm tragiccode/busly-cli --help
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET tool (via NuGet)">
+
+```bash
+dotnet tool install --global dotnet-busly-cli
+```
+
+</TabItem>
+<TabItem value="github" label="GitHub Releases">
+
+Download the latest release [Here](https://github.com/TraGicCode/busly-cli-new/releases)
+
+</TabItem>
+</Tabs>
+
+## Configure a transport
+
+Next, lets configure a rabbitmq transport called `local-rabbitmq` that will tell the cli how to send messages to RabbitMQ running in a docker container on our local computer.
+
+```yaml title="~/.busly-cli/config.yaml" showLineNumbers
+current-transport: local-rabbitmq
+transports:
+  - name: local-rabbitmq
+    rabbitmq-transport-config:
+      amqp-connection-string: amqp://localhost
+```
+
+To confirm that your configuration file is valid and that busly-cli is using the local-rabbitmq transport by running:
+
+```bash
+busly transport current
+```
+
+:::note
+This guide uses RabbitMQ for simplicity, but Busly supports multiple NServiceBus transports.
+
+Check out the [Transports section](#) for other options.
+:::
+
+## Run RabbitMQ
+
+The quickest way to get RabbitMQ running on your machine is using Docker. Run the following command:
+
+```bash
+docker run -d \
+  --name rabbitmq \
+  -p 5672:5672 \
+  -p 15672:15672 \
+  rabbitmq:4-management
+```
+
+Once the container is running, open the RabbitMQ Management UI in your browser at http://localhost:15672 and log in with the default credentials, username: guest and password: guest, to verify that RabbitMQ is running correctly.
+
+## Create a Test NServiceBus Endpoint
+
+## Send a command
+

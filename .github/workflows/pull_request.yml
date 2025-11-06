@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Pull Request
+on:
+  pull_request:
+  schedule:
+    # Runs every night at 2 AM UTC. This is to detect flakey builds
+    - cron: '0 2 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    - name: Run Build in Dev Container
+      uses: devcontainers/ci@v0.3
+      with:
+        runCmd: |
+          dotnet cake

@@ -1,0 +1,22 @@
+name: Build and Publish .NET Tool
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Build and Pack as .NET tool
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: |
+             dotnet cake --target Pack-DotNetTool
+
+      - name: Publish to NuGet (optional)
+        if: startsWith(github.ref, 'refs/tags/')
+        run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
