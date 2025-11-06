@@ -1,0 +1,21 @@
+{
+  "name": "NServiceBus CLI Dev Container",
+  "image": "mcr.microsoft.com/dotnet/sdk:9.0.306",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "postCreateCommand": "dotnet restore && dotnet tool restore",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  }
+}

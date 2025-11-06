@@ -1,0 +1,16 @@
+name: Dependabot Cake
+on:
+  workflow_dispatch:
+  schedule:
+    # runs every monday at 9 am
+    - cron:  '0 9 * * 1'
+
+jobs:
+  dependabot-cake:
+    runs-on: ubuntu-latest # linux, because this is a docker-action
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: check/update cake dependencies
+        uses: nils-org/dependabot-cake-action@v1
