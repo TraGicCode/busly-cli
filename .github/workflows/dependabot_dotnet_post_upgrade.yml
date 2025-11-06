@@ -1,0 +1,51 @@
+name: Dependabot .NET SDK Post-Upgrade - Sync Dev Container Image Version
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]  # or your default branch
+    paths:
+      - 'global.json'
+
+jobs:
+  update-dev-container-image-version:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Extract SDK version from global.json
+        id: extract_version
+        run: |
+          sdk_version=$(jq -r '.sdk.version' global.json)
+          echo "Extracted SDK version: $sdk_version"
+          echo "sdk_version=$sdk_version" >> $GITHUB_OUTPUT
+
+      - name: Update devcontainer image
+        run: |
+          sdk_version=${{ steps.extract_version.outputs.sdk_version }}
+          image="mcr.microsoft.com/dotnet/sdk:$sdk_version"
+          echo "Updating image to: $image"
+
+          # Update the image line using jq
+          jq --arg image "$image" '.image = $image' .devcontainer/devcontainer.json > tmp.json
+          mv tmp.json .devcontainer/devcontainer.json
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .devcontainer/devcontainer.json
+          git commit -m "chore: Update devcontainer image to match SDK ${{ steps.extract_version.outputs.sdk_version }}" || echo "No changes to commit"
+          git push
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
