@@ -22,7 +22,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter" Version="5.2.0" />
-    <PackageReference Include="Spectre.Console.Testing" Version="0.53.0" />
+    <PackageReference Include="Spectre.Console.Testing" Version="0.54.0" />
     <PackageReference Include="Testcontainers.LocalStack" Version="4.8.1" />
     <PackageReference Include="Testcontainers.RabbitMq" Version="4.8.1" />
     <PackageReference Include="Testcontainers.ServiceBus" Version="4.8.1" />
