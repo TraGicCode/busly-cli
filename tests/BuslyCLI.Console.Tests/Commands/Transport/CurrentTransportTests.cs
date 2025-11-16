@@ -4,6 +4,7 @@ using BuslyCLI.DependencyInjection;
 using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Extensions.DependencyInjection;
+using Spectre.Console.Cli.Testing;
 using Spectre.Console.Testing;
 
 namespace BuslyCLI.Console.Tests.Commands.Transport;
