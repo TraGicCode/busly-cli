@@ -1,4 +1,5 @@
 ﻿namespace BuslyCLI.Console.Tests.TestHelpers;
+
 using System;
 using System.IO;
 
