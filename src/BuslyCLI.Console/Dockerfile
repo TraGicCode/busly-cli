@@ -1,5 +1,5 @@
 ﻿# Use .NET 9 SDK to build
-FROM mcr.microsoft.com/dotnet/sdk:9.0.305 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0.100 AS build
 WORKDIR /src
 
 # Copy project file and restore dependencies (better layer caching)
@@ -22,7 +22,7 @@ RUN dotnet publish "./BuslyCLI.Console/BuslyCLI.Console.csproj" \
     -p:SelfContained=true
 
 # Use minimal runtime for smaller image size
-FROM mcr.microsoft.com/dotnet/runtime-deps:9.0-alpine AS final
+FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-alpine AS final
 WORKDIR /app
 
 # Copy published app
