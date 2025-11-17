@@ -12,6 +12,8 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>busly-logo-128x128.png</PackageIcon>
+    <RepositoryUrl>https://github.com/TraGicCode/busly-cli</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
