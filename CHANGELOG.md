@@ -5,9 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [0.1.0](https://github.com/TraGicCode/busly-cli/tree/0.1.0) - 2025-11-17
+## [0.2.0](https://github.com/TraGicCode/busly-cli/tree/0.2.0) - 2025-11-17
 
-[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.0.1...0.1.0)
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.1.0...0.2.0)
+
+### Added
+
+- Fix github repo url for nuget package [#25](https://github.com/TraGicCode/busly-cli/pull/25) ([TraGicCode](https://github.com/TraGicCode))
+
+## [v0.1.0](https://github.com/TraGicCode/busly-cli/tree/v0.1.0) - 2025-11-16
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.0.1...v0.1.0)
 
 ### Added
 
