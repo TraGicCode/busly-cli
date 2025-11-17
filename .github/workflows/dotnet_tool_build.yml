@@ -1,7 +1,12 @@
 name: Build and Publish .NET Tool
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+
 
 jobs:
   build-and-pack:

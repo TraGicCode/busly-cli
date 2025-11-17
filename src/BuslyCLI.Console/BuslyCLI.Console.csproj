@@ -7,8 +7,8 @@
     <RootNamespace>BuslyCLI</RootNamespace>
     <PackAsTool>true</PackAsTool>
     <!-- Dotnet tool packageid in nuget -->
-    <PackageId>dotnet-busly-cli</PackageId>
-    <ToolCommandName>busly-cli</ToolCommandName>
+    <PackageId>dotnet-busly</PackageId>
+    <ToolCommandName>dotnet-busly</ToolCommandName>
   </PropertyGroup>
 
   <ItemGroup>
