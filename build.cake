@@ -1,5 +1,6 @@
 var target = Argument("target", "Build");
 var configuration = Argument("configuration", "Release");
+var version = Argument("package-version", "0.1.0"); // default version if none is passed
 
 var srcDirectory = "./src";
 var consoleCsproj = $"{srcDirectory}/BuslyCLI.Console/BuslyCLI.Console.csproj";
@@ -74,6 +75,10 @@ Task("Pack-DotNetTool")
     {
         Configuration = configuration,
         OutputDirectory = "./artifacts/nupkgs",
+        MSBuildSettings = new DotNetMSBuildSettings
+        {
+            Version = version,
+        },
     });
 });
 
