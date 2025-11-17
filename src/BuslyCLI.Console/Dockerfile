@@ -1,5 +1,7 @@
 ﻿# Use .NET 9 SDK to build
 FROM mcr.microsoft.com/dotnet/sdk:10.0.100 AS build
+
+ARG APP_VERSION=0.1.0
 WORKDIR /src
 
 COPY Directory.Build.props ./
@@ -21,7 +23,8 @@ RUN dotnet publish "./BuslyCLI.Console/BuslyCLI.Console.csproj" \
     -p:PublishTrimmed=true \
     -p:TrimMode=partial \
     -p:EnableCompressionInSingleFile=true \
-    -p:SelfContained=true
+    -p:SelfContained=true \
+    -p:InformationalVersion=$APP_VERSION
 
 # Use minimal runtime for smaller image size
 FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-alpine AS final

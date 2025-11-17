@@ -1,3 +1,4 @@
+using System.Reflection;
 using BuslyCLI.Commands.Command;
 using BuslyCLI.Commands.Demo;
 using BuslyCLI.Commands.Event;
@@ -14,7 +15,8 @@ public static class AppConfiguration
         {
             config.SetApplicationName("busly");
             // TODO: Allow this to get set via the CLI version
-            config.SetApplicationVersion("1.0.0");
+            var assembly = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>();
+            config.SetApplicationVersion(assembly.InformationalVersion);
             config.AddBranch("transport", transport =>
             {
                 transport.SetDescription("Manage transport configurations.");

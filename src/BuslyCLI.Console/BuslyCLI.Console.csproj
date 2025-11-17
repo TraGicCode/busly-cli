@@ -14,6 +14,8 @@
     <PackageIcon>busly-logo-128x128.png</PackageIcon>
     <RepositoryUrl>https://github.com/TraGicCode/busly-cli</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <InformationalVersion>0.1.0</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>
