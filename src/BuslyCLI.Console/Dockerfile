@@ -2,6 +2,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0.100 AS build
 WORKDIR /src
 
+COPY Directory.Build.props ./
+
 # Copy project file and restore dependencies (better layer caching)
 COPY src/BuslyCLI.Console/BuslyCLI.Console.csproj ./BuslyCLI.Console/
 RUN dotnet restore "BuslyCLI.Console/BuslyCLI.Console.csproj" \
