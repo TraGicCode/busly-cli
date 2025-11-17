@@ -29,11 +29,17 @@ jobs:
           username: tragiccode
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      # Revisit this.  We should probably be triggering this off of a tag event.
+      # Which would automatically tag the image with the version and latest and allow us to remove
+      # the manual 'tags' property below
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: tragiccode/busly-cli
+          tags: |
+            ${{ inputs.version }}
+            latest
 
       - name: Build and push Docker image
         id: push
