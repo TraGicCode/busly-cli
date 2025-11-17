@@ -1,0 +1,65 @@
+name: "🦕 Docusaurus Documentation Website (PR Preview)" 
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+defaults:
+  run:
+    working-directory: website
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build website
+        run: npm run build
+        env:
+          DOCUSAURUS_BASE_URL: /pr-preview/pr-${{ github.event.pull_request.number }}/
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./website/build/
+          
+      # - name: Comment PR
+      #   uses: actions/github-script@v7
+      #   with:
+      #     script: |
+      #       const url = `https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-preview/pr-${{ github.event.pull_request.number }}/`;
+      #       const comment = `### 📖 Documentation Preview
+            
+      #       The documentation preview for this PR is available at:
+      #       ${url}
+            
+      #       This preview will be updated automatically when the PR is updated.`;
+            
+      #       github.rest.issues.createComment({
+      #         issue_number: context.issue.number,
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         body: comment
+      #       });

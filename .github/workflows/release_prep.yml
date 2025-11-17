@@ -1,0 +1,49 @@
+﻿name: "Release Prep"
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "The version number for the next release."
+        required: true
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          clean: true
+          fetch-depth: 0
+
+      - name: "generate changelog"
+        run: |
+          gh extension install chelnak/gh-changelog
+          gh changelog new --next-version ${{ github.event.inputs.version }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "commit changes"
+        run: |
+          git config --local user.email "${{ github.repository_owner }}@users.noreply.github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Release prep v${{ github.event.inputs.version }}"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Release prep v${{ github.event.inputs.version }}"
+          branch: "release-prep"
+          delete-branch: true
+          title: "Release prep v${{ github.event.inputs.version }}"
+          base: "main"
+          body: |
+            Automated release-prep from commit ${{ github.sha }}.
+          labels: "maintenance"
