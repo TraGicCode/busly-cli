@@ -47,6 +47,8 @@ jobs:
         with:
           context: .
           file: ./src/BuslyCLI.Console/Dockerfile
+          build-args: |
+            APP_VERSION=${{ inputs.version }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

@@ -27,9 +27,12 @@ Task("Compile")
     .IsDependentOn("Clean")
     .Does(() =>
 {
+    var msBuildSettings = new DotNetMSBuildSettings()
+      .WithProperty("InformationalVersion", version);
     DotNetBuild(solution, new DotNetBuildSettings
     {
         Configuration = configuration,
+        MSBuildSettings = msBuildSettings,
     });
 });
 
