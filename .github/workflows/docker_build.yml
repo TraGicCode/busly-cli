@@ -6,6 +6,9 @@ on:
       version:
         required: true
         type: string
+permissions:
+  id-token: write
+  attestations: write
 
 jobs:
   build:
