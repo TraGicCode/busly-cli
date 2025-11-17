@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.changelog.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version from CHANGELOG.md
+        id: changelog
+        run: |
+          version=$(grep -m 1 -oP '^##\s*\[\K[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
+          echo "version=$version" >> $GITHUB_OUTPUT
+  tag:
+    needs: get-version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Create and push git tag
+        run: |
+          version=${{ needs.get-version.outputs.version }}
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git tag "v$version"
+          git push origin "v$version"
+  docker:
+    needs: get-version
+    uses: ./.github/workflows/docker_build.yml
+    with:
+      version: ${{ needs.get-version.outputs.version }}
+    secrets: inherit
+
+  nuget:
+    needs: get-version
+    uses: ./.github/workflows/dotnet_tool_build.yml
+    with:
+      version: ${{ needs.get-version.outputs.version }}
+    secrets: inherit
