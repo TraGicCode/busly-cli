@@ -20,7 +20,7 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           runCmd: |
-             dotnet cake --target Pack-DotNetTool --version ${{ inputs.version }}
+             dotnet cake --target Pack-DotNetTool --package-version ${{ inputs.version }}
 
       - name: Publish to NuGet (optional)
         run: dotnet nuget push ./artifacts/nupkgs/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
