@@ -20,7 +20,7 @@ Built for speed and simplicity, this tool streamlines common **messaging**, **te
 
 ## Docs
 
-Under Construction
+Under Construction. Stay tuned.
 
 ## Disclaimer
 
