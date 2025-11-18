@@ -19,7 +19,7 @@ jobs:
       - name: Extract version from CHANGELOG.md
         id: changelog
         run: |
-          version=$(grep -m 1 -oP '^##\s*\[\K[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
+          version=$(grep -m 1 -oP '^##\s*\[v[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
           echo "version=$version" >> $GITHUB_OUTPUT
 
       # - name: Create and push git tag
