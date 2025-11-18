@@ -19,7 +19,7 @@ jobs:
       - name: Extract version from CHANGELOG.md
         id: changelog
         run: |
-          version=$(grep -m 1 -oP '^##\s*\[v[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
+          version=$(grep -m 1 -oP '^##\s*\[\Kv[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
           echo "version=$version" >> $GITHUB_OUTPUT
 
       # - name: Create and push git tag
@@ -37,8 +37,7 @@ jobs:
       - name: "Generate Release Changelog"
         run: |
           gh extension install chelnak/gh-changelog
-          gh changelog new --latest
-          gh changelog new --next-version v${{ steps.changelog.outputs.version }} --latest
+          gh changelog new --next-version ${{ steps.changelog.outputs.version }} --latest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -48,8 +47,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.changelog.outputs.version }}
-          release_name: Release v${{ steps.changelog.outputs.version }}
+          tag_name: ${{ steps.changelog.outputs.version }}
+          release_name: Release ${{ steps.changelog.outputs.version }}
           draft: false
           prerelease: false
           body_path: CHANGELOG.md
