@@ -31,10 +31,13 @@ jobs:
 
       #     git tag "v$version"
       #     git push origin "v$version"
+
+      # gh changelog new --latest
       - name: "Generate Release Changelog"
         run: |
           gh extension install chelnak/gh-changelog
           gh changelog new --latest
+          gh changelog new --next-version ${{ steps.changelog.outputs.version }} --latest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -44,8 +47,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.changelog.outputs.version }}
+          release_name: Release ${{ steps.changelog.outputs.version }}
           draft: false
           prerelease: false
           body_path: CHANGELOG.md
