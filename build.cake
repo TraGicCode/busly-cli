@@ -44,6 +44,7 @@ Task("Test")
     {
         Configuration = configuration,
         NoBuild = true,
+        NoRestore = true,
     });
 });
 
@@ -72,11 +73,14 @@ Task("Format-Fix")
 });
 
 Task("Pack-DotNetTool")
+    .IsDependentOn("Compile")
     .Does(() =>
 {
     DotNetPack(consoleCsproj, new DotNetPackSettings
     {
         Configuration = configuration,
+        NoRestore = true,
+        NoBuild = true,
         OutputDirectory = "./artifacts/nupkgs",
         MSBuildSettings = new DotNetMSBuildSettings
         {
