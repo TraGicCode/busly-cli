@@ -1,9 +1,8 @@
 name: Build and Publish .NET Tool
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]
 
 jobs:
   build-and-pack:

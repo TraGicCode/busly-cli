@@ -41,6 +41,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # This creates a tag but doesn't trigger a "push event of the tag" FYI
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
