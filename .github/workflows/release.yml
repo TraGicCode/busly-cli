@@ -22,17 +22,6 @@ jobs:
           version=$(grep -m 1 -oP '^##\s*\[\Kv[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
           echo "version=$version" >> $GITHUB_OUTPUT
 
-      # - name: Create and push git tag
-      #   run: |
-      #     version=${{ steps.changelog.outputs.version }}
-
-      #     git config user.name "github-actions[bot]"
-      #     git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      #     git tag "v$version"
-      #     git push origin "v$version"
-
-
       # gh changelog new --latest
       - name: "Generate Release Changelog"
         run: |
@@ -44,12 +33,12 @@ jobs:
       # This creates a tag but doesn't trigger a "push event of the tag" FYI
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_FOR_RELEASE_PUBLISH }}
         with:
           tag_name: ${{ steps.changelog.outputs.version }}
-          release_name: Release ${{ steps.changelog.outputs.version }}
+          name: Release ${{ steps.changelog.outputs.version }}
           draft: false
           prerelease: false
           body_path: CHANGELOG.md
