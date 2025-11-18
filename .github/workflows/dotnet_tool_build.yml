@@ -2,7 +2,7 @@ name: Build and Publish .NET Tool
 
 on:
   release:
-    types: [published]
+    types: [released]
 
 jobs:
   build-and-pack:
