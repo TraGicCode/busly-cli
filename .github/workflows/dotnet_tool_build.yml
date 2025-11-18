@@ -1,12 +1,9 @@
 name: Build and Publish .NET Tool
 
 on:
-  workflow_call:
-    inputs:
-      version:
-        required: true
-        type: string
-
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   build-and-pack:
@@ -16,11 +13,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Get semver without "v"
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+
       - name: Build and Pack as .NET tool
         uses: devcontainers/ci@v0.3
         with:
           runCmd: |
-             dotnet cake --target Pack-DotNetTool --package-version ${{ inputs.version }}
+             dotnet cake --target Pack-DotNetTool --package-version ${{ steps.version.outputs.VERSION }}
 
       - name: Publish to NuGet (optional)
         run: dotnet nuget push ./artifacts/nupkgs/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}

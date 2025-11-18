@@ -8,47 +8,42 @@ permissions:
   id-token: write
   attestations: write
 
-
 jobs:
-  get-version:
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.changelog.outputs.version }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Extract version from CHANGELOG.md
-        id: changelog
-        run: |
-          version=$(grep -m 1 -oP '^##\s*\[\K[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
-          echo "version=$version" >> $GITHUB_OUTPUT
-  tag:
-    needs: get-version
+  create-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Create and push git tag
+      - name: Extract version from CHANGELOG.md
+        id: changelog
         run: |
-          version=${{ needs.get-version.outputs.version }}
+          version=$(grep -m 1 -oP '^##\s*\[\K[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
+          echo "version=$version" >> $GITHUB_OUTPUT
 
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      # - name: Create and push git tag
+      #   run: |
+      #     version=${{ steps.changelog.outputs.version }}
 
-          git tag "v$version"
-          git push origin "v$version"
-  docker:
-    needs: get-version
-    uses: ./.github/workflows/docker_build.yml
-    with:
-      version: ${{ needs.get-version.outputs.version }}
-    secrets: inherit
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
 
-  nuget:
-    needs: get-version
-    uses: ./.github/workflows/dotnet_tool_build.yml
-    with:
-      version: ${{ needs.get-version.outputs.version }}
-    secrets: inherit
+      #     git tag "v$version"
+      #     git push origin "v$version"
+      - name: "Generate Release Changelog"
+        run: |
+          gh extension install chelnak/gh-changelog
+          gh changelog new --latest
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          body_path: CHANGELOG.md

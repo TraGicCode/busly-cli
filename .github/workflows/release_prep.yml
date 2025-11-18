@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "The version number for the next release."
+        description: "The version number for the next release (e.g. 1.0.2)"
         required: true
+
 permissions:
   contents: write
   pull-requests: write
