@@ -1,4 +1,5 @@
 name: "🦕 Docusaurus Documentation Website (PR Preview)"
+concurrency: preview-${{ github.ref }}
 
 on:
   pull_request:
@@ -10,8 +11,8 @@ on:
       - synchronize
       - closed
     paths:
-      - 'website/**'
-      - '.github/workflows/pull_request_docs_preview.yml'
+      - "website/**"
+      - ".github/workflows/pull_request_docs_preview.yml"
 
 permissions:
   contents: write
