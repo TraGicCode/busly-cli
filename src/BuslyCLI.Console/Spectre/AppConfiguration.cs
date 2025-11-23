@@ -53,7 +53,9 @@ public static class AppConfiguration
                 demo.AddCommand<StartDemoCommand>("start")
                     .WithDescription("Start a demo endpoint that can receive any command and a single 'Messages.Events.OrderPlaced' event.");
             });
+#if DEBUG
             config.PropagateExceptions();
+#endif
         };
     }
 }
