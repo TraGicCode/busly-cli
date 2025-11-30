@@ -42,7 +42,11 @@ jobs:
       - name: Create Archive
         run: |
           TARGET_DIR="./artifacts/binaries/${{ matrix.os }}"
-          OUTPUT_BASE="./artifacts/github-release-archives/busly-cli-${{ github.event.release.tag_name }}-${{ matrix.os }}"
+          ARCHIVE_DIR="./artifacts/github-release-archives"
+          OUTPUT_BASE="${ARCHIVE_DIR}/busly-cli-${{ github.event.release.tag_name }}-${{ matrix.os }}"
+
+          # Ensure the output directory exists
+          mkdir -p "$(dirname "$ARCHIVE_DIR")"
 
           if [[ "${{ matrix.os }}" == "win-x64" ]]; then
             zip -r "${OUTPUT_BASE}.zip" . -C "$TARGET_DIR"
