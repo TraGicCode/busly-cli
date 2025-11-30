@@ -43,7 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_FOR_RELEASE_PUBLISH }}
         with:
           tag_name: ${{ steps.changelog.outputs.version }}
-          name: Release ${{ steps.changelog.outputs.version }}
+          name: ${{ steps.changelog.outputs.version }}
           draft: false
           prerelease: false
           body_path: CHANGELOG.md
