@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.23.0](https://github.com/TraGicCode/busly-cli/tree/v0.23.0) - 2025-11-30
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.22.0...v0.23.0)
+
+### Added
+
+- chore/fix gh release zip name issue [#102](https://github.com/TraGicCode/busly-cli/pull/102) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.22.0](https://github.com/TraGicCode/busly-cli/tree/v0.22.0) - 2025-11-30
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.21.0...v0.22.0)
