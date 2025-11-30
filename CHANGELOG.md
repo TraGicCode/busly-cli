@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.18.0](https://github.com/TraGicCode/busly-cli/tree/v0.18.0) - 2025-11-30
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.17.1...v0.18.0)
+
+### Added
+
+- Add documentation for configuring the learning transport within busly [#90](https://github.com/TraGicCode/busly-cli/pull/90) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.17.1](https://github.com/TraGicCode/busly-cli/tree/v0.17.1) - 2025-11-23
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.17.0...v0.17.1)
