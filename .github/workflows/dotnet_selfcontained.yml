@@ -43,18 +43,17 @@ jobs:
         run: |
           TARGET_DIR="./artifacts/binaries/${{ matrix.os }}"
           ARCHIVE_DIR="./artifacts/github-release-archives"
-          OUTPUT_BASE="${ARCHIVE_DIR}/busly-cli-${{ github.event.release.tag_name }}-${{ matrix.os }}"
+          OUTPUT_ARCHIVE="../../github-release-archives/busly-cli-${{ github.event.release.tag_name }}-${{ matrix.os }}"
 
           # Ensure the output directory exists
           mkdir -p "$ARCHIVE_DIR"
 
-          # Change to the target directory so archive contains only files
           cd "$TARGET_DIR"
 
           if [[ "${{ matrix.os }}" == "win-x64" ]]; then
-            zip -r "$OUTPUT_BASE.zip" .
+            zip -r "$OUTPUT_ARCHIVE.zip" .
           else
-            tar -czf "$OUTPUT_BASE.tar.gz" .
+            tar -czf "$OUTPUT_ARCHIVE.tar.gz" .
           fi
 
       - name: Upload Release Asset
