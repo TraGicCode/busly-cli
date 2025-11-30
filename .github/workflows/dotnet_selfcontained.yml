@@ -1,0 +1,61 @@
+name: Build and Upload .NET binary
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [linux-x64, linux-arm64, win-x64, osx-x64, osx-arm64]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Extract version (without v)
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+                # Extract version from release tag (remove any 'v' prefix)
+                VERSION="${{ github.event.release.tag_name }}"
+                VERSION=${VERSION#v}  # Remove 'v' prefix if present
+              else
+                VERSION="${{ github.event.inputs.version }}"
+                VERSION=${VERSION#v}  # Remove 'v' prefix if present
+              fi
+
+              echo "version=$VERSION" >> $GITHUB_OUTPUT
+              echo "Syncing version: $VERSION"
+
+      - name: Build & Publish
+        run: |
+          dotnet publish ./src/BuslyCLI.Console/BuslyCLI.Console.csproj \
+            --configuration Release \
+            --runtime ${{ matrix.os }} \
+            --self-contained true \
+            --output ./artifacts/binaries/${{ matrix.os }} \
+            /p:PublishSingleFile=true
+
+      - name: Create Archive
+        run: |
+          TARGET_DIR="./artifacts/binaries/${{ matrix.os }}"
+          OUTPUT_BASE="./artifacts/github-release-archives/busly-cli-${{ github.event.release.tag_name }}-${{ matrix.os }}"
+
+          if [[ "${{ matrix.os }}" == "win-x64" ]]; then
+            zip -r "${OUTPUT_BASE}.zip" . -C "$TARGET_DIR"
+          else
+            tar -czf "${OUTPUT_BASE}.tar.gz" -C "$TARGET_DIR" .
+          fi
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./artifacts/github-release-archives/busly-cli-${{ github.event.release.tag_name }}-${{ matrix.os }}.${{ matrix.os == 'win-x64' && 'zip' || 'tar.gz' }}
+          asset_name: busyly-cli${{ github.event.release.tag_name }}-${{ matrix.os }}.${{ matrix.os == 'win-x64' && 'zip' || 'tar.gz' }}
+          asset_content_type: ${{ matrix.os == 'win-x64' && 'application/zip' || 'application/gzip' }}
