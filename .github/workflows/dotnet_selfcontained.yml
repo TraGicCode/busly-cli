@@ -37,7 +37,6 @@ jobs:
             --runtime ${{ matrix.os }} \
             --self-contained true \
             --output ./artifacts/binaries/${{ matrix.os }} \
-            --no-restore \
             -p:InformationalVersion=${{ steps.version.outputs.version }}
 
       - name: Create Archive
