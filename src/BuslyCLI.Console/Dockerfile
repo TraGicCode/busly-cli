@@ -9,21 +9,17 @@ COPY Directory.Build.props ./
 # Copy project file and restore dependencies (better layer caching)
 COPY src/BuslyCLI.Console/BuslyCLI.Console.csproj ./BuslyCLI.Console/
 RUN dotnet restore "BuslyCLI.Console/BuslyCLI.Console.csproj" \
-    -r linux-musl-x64
+    --runtime linux-musl-x64
 
 # Copy source code and build
 COPY src/BuslyCLI.Console/ ./BuslyCLI.Console/
 
 RUN dotnet publish "./BuslyCLI.Console/BuslyCLI.Console.csproj" \
-    -c Release \
-    -r linux-musl-x64 \
-    -o /app/publish \
+    --configuration Release \
+    --runtime linux-musl-x64 \
+    --self-contained true \
+    --output /app/publish \
     --no-restore \
-    -p:PublishSingleFile=true \
-    -p:PublishTrimmed=true \
-    -p:TrimMode=partial \
-    -p:EnableCompressionInSingleFile=true \
-    -p:SelfContained=true \
     -p:InformationalVersion=$APP_VERSION
 
 # Use minimal runtime for smaller image size
