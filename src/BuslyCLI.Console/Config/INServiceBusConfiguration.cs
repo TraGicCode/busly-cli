@@ -1,4 +1,5 @@
-﻿using YamlDotNet.Serialization;
+﻿using FluentValidation;
+using YamlDotNet.Serialization;
 
 namespace BuslyCLI.Config;
 
@@ -9,7 +10,7 @@ public interface INServiceBusConfiguration
     Task PersistConfiguration(string path, NServiceBusConfig config);
 }
 
-public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerializer yamlSerializer) : INServiceBusConfiguration
+public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerializer yamlSerializer, IValidator<NServiceBusConfig> validator) : INServiceBusConfiguration
 {
 
     public async Task<NServiceBusConfig> GetConfigurationAsync(string path)
@@ -17,6 +18,8 @@ public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerialize
         if (File.Exists(path))
         {
             var yaml = await File.ReadAllTextAsync(path);
+            var config = yamlDeserializer.Deserialize<NServiceBusConfig>(yaml);
+            await validator.ValidateAsync(config, opts => opts.ThrowOnFailures());
             return yamlDeserializer.Deserialize<NServiceBusConfig>(yaml);
         }
 

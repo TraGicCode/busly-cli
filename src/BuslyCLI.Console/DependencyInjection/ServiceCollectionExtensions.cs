@@ -1,5 +1,7 @@
 ﻿using BuslyCLI.Config;
+using BuslyCLI.Config.Validators;
 using BuslyCLI.Factories;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -11,6 +13,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddBuslyCLIServices(this IServiceCollection services)
     {
         services.AddScoped<IRawEndpointFactory, RawEndpointFactory>();
+        services.AddValidatorsFromAssemblyContaining<RootConfigValidator>();
 
         return services;
     }
