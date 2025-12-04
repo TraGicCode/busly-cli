@@ -43,11 +43,13 @@ public class RawEndpointFactory : IRawEndpointFactory
 
     private RabbitMQTransport CreateRabbitMQTransport(RabbitmqTransportConfig rabbitmqTransportConfig)
     {
-        var t = new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum),
-            rabbitmqTransportConfig.AmqpConnectionString)
+        var t = new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), rabbitmqTransportConfig.AmqpConnectionString);
+
+        if (rabbitmqTransportConfig.ManagementApi != null)
         {
-            ManagementApiConfiguration = CreateManagementApiConfig(rabbitmqTransportConfig.ManagementApi)
-        };
+            t.ManagementApiConfiguration =
+                CreateManagementApiConfig(rabbitmqTransportConfig.ManagementApi);
+        }
         return t;
     }
 
