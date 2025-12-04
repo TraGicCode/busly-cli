@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.24.2](https://github.com/TraGicCode/busly-cli/tree/v0.24.2) - 2025-12-01
+## [v0.25.0](https://github.com/TraGicCode/busly-cli/tree/v0.25.0) - 2025-12-04
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.24.2...v0.25.0)
+
+### Added
+
+- Add fluentvalidation to be able to handle issues in busly config file [#115](https://github.com/TraGicCode/busly-cli/pull/115) ([TraGicCode](https://github.com/TraGicCode))
+
+## [v0.24.2](https://github.com/TraGicCode/busly-cli/tree/v0.24.2) - 2025-11-30
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.24.1...v0.24.2)
 
