@@ -20,6 +20,10 @@ updates:
     directory: "/website"
     schedule:
       interval: "daily"
+    groups:
+      react-dependencies:
+        patterns:
+          - "react*"
   - package-ecosystem: "devcontainers" # See documentation for possible values
     directory: "/"
     schedule:
