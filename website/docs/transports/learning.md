@@ -12,20 +12,20 @@ To use the Learning Transport, define it under `transports` and reference it as 
 current-transport: local-learning
 
 transports:
-    - name: local-learning
-      learning-transport-config:
-          storage-directory: C:\Source\tutorials-quickstart\.learningtransport
-          restrict-payload-size: true
+  - name: local-learning
+    learning-transport-config:
+      storage-directory: C:\Source\tutorials-quickstart\.learningtransport
+      restrict-payload-size: true
 ```
 
 ---
 
 ## `learning-transport-config` Fields
 
-| Field                   | Required | Type    | Default | Description                                                                                           |
-| ----------------------- | -------- | ------- | ------- | ----------------------------------------------------------------------------------------------------- |
-| `storage-directory`     | **Yes**  | string  | —       | Absolute path where Learning Transport stores message files. Busly will not start without this value. |
-| `restrict-payload-size` | No       | boolean | `true`  | Enforces the NServiceBus payload size limit. Set to `false` if you need to send larger payloads.      |
+| Field                   | Required | Type    | Default | Description                                                                                      |
+| ----------------------- | -------- | ------- | ------- | ------------------------------------------------------------------------------------------------ |
+| `storage-directory`     | **Yes**  | string  | —       | Absolute path where Learning Transport stores message files.                                     |
+| `restrict-payload-size` | No       | boolean | `true`  | Enforces the NServiceBus payload size limit. Set to `false` if you need to send larger payloads. |
 
 ---
 
