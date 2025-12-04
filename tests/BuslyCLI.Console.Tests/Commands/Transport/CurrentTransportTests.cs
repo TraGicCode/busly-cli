@@ -1,5 +1,4 @@
-﻿using BuslyCLI.Config;
-using BuslyCLI.Console.Tests.TestHelpers;
+﻿using BuslyCLI.Console.Tests.TestHelpers;
 using BuslyCLI.DependencyInjection;
 using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,9 +17,6 @@ public class CurrentTransportTests
     {
         var registrations = new ServiceCollection();
         registrations.AddBuslyCLIServices();
-        registrations.AddYamlDeserializer();
-        registrations.AddYamlSerializer();
-        registrations.AddSingleton<INServiceBusConfiguration, NServiceBusConfiguration>();
         using var registrar = new DependencyInjectionRegistrar(registrations);
         _sut = new CommandAppTester(registrar);
         _sut.Configure(AppConfiguration.GetSpectreCommandConfiguration());

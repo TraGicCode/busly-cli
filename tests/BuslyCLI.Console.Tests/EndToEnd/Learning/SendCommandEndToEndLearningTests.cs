@@ -1,6 +1,5 @@
 using System.Text;
 using System.Text.Json;
-using BuslyCLI.Config;
 using BuslyCLI.Console.Tests.EndToEnd.Infrastructure;
 using BuslyCLI.Console.Tests.TestHelpers;
 using BuslyCLI.DependencyInjection;
@@ -8,7 +7,6 @@ using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Testing;
-using Spectre.Console.Testing;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.Learning;
 
@@ -20,9 +18,6 @@ public class SendCommandEndToEndLearningTests
     {
         var registrations = new ServiceCollection();
         registrations.AddBuslyCLIServices();
-        registrations.AddYamlDeserializer();
-        registrations.AddYamlSerializer();
-        registrations.AddSingleton<INServiceBusConfiguration, NServiceBusConfiguration>();
         using var registrar = new DependencyInjectionRegistrar(registrations);
         _sut = new CommandAppTester(registrar);
         _sut.Configure(AppConfiguration.GetSpectreCommandConfiguration());

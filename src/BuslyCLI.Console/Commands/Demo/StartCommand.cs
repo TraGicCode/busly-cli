@@ -13,7 +13,7 @@ public class StartDemoCommand(IAnsiConsole console, IRawEndpointFactory rawEndpo
     public override async Task<int> ExecuteAsync(CommandContext context, CurrentTransportSettings settings, CancellationToken cancellationToken)
     {
         console.WriteLine("Starting demo endpoint for quick start guide...");
-        var config = await nServiceBusConfiguration.GetConfigurationAsync(settings.Config.Path);
+        var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
         var rawEndpoint = await rawEndpointFactory.CreateRawEndpoint(Constants.DemoDefaultOriginatingEndpoint, config.CurrentTransportConfig);
 
         await rawEndpoint.StartEndpoint();

@@ -11,7 +11,7 @@ public class SendCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusCon
 {
     public override async Task<int> ExecuteAsync(CommandContext context, SendCommandSettings settings, CancellationToken cancellationToken)
     {
-        var config = await nServiceBusConfiguration.GetConfigurationAsync(settings.Config.Path);
+        var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
         var rawEndpoint = await rawEndpointFactory.CreateRawSendOnlyEndpoint(Constants.DefaultOriginatingEndpoint, config.CurrentTransportConfig);
         // TODO: Validate body is valid json/xml
         var headers = new Dictionary<string, string>

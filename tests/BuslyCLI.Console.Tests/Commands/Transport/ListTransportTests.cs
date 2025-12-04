@@ -1,5 +1,4 @@
-﻿using BuslyCLI.Config;
-using BuslyCLI.Console.Tests.TestHelpers;
+﻿using BuslyCLI.Console.Tests.TestHelpers;
 using BuslyCLI.DependencyInjection;
 using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,19 +17,18 @@ public class ListTransportTests
     {
         var registrations = new ServiceCollection();
         registrations.AddBuslyCLIServices();
-        registrations.AddYamlDeserializer();
-        registrations.AddYamlSerializer();
-        registrations.AddSingleton<INServiceBusConfiguration, NServiceBusConfiguration>();
         using var registrar = new DependencyInjectionRegistrar(registrations);
         _sut = new CommandAppTester(registrar);
         _sut.Configure(AppConfiguration.GetSpectreCommandConfiguration());
     }
 
     [Test]
-    public void ShouldOutputAnEmptyGrid()
+    public void ShouldOutputAnEmptyGridWhenConfigFileIsEmptyYaml()
     {
         // Arrange
-        var yamlFile = "---";
+        var yamlFile = """
+                       ---
+                       """;
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
         var result = _sut.Run("transport", "list", "--config", configFile.FilePath);
 
@@ -38,6 +36,20 @@ public class ListTransportTests
         Assert.That(result.Output, Is.EqualTo("CURRENT  NAME  TRANSPORT-TYPE"));
     }
 
+    [Test]
+    public void ShouldOutputAnEmptyGridWhenTransportArrayIsEmpty()
+    {
+        // Arrange
+        var yamlFile = """
+                       ---
+                       transports:
+                       """;
+        using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
+        var result = _sut.Run("transport", "list", "--config", configFile.FilePath);
+
+        Assert.That(result.ExitCode, Is.EqualTo(0));
+        Assert.That(result.Output, Is.EqualTo("CURRENT  NAME  TRANSPORT-TYPE"));
+    }
     [Test]
     public void ShouldOutputASingleTransport()
     {

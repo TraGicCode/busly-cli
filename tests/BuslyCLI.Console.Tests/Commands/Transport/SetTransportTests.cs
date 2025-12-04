@@ -1,5 +1,4 @@
-﻿using BuslyCLI.Config;
-using BuslyCLI.Console.Tests.TestHelpers;
+﻿using BuslyCLI.Console.Tests.TestHelpers;
 using BuslyCLI.DependencyInjection;
 using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,9 +17,6 @@ public class SetTransportTests
     {
         var registrations = new ServiceCollection();
         registrations.AddBuslyCLIServices();
-        registrations.AddYamlDeserializer();
-        registrations.AddYamlSerializer();
-        registrations.AddSingleton<INServiceBusConfiguration, NServiceBusConfiguration>();
         using var registrar = new DependencyInjectionRegistrar(registrations);
         _sut = new CommandAppTester(registrar);
         _sut.Configure(AppConfiguration.GetSpectreCommandConfiguration());
@@ -59,21 +55,25 @@ public class SetTransportTests
         // Arrange
         var yamlFile = """
                        ---
+                       current-transport: local-learning
                        transports:
                          - name: local-learning
+                           learning-transport-config:
+                             storage-directory: .learningtransport
+                         - name: local-learning2
                            learning-transport-config:
                              storage-directory: .learningtransport
                        """;
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "set", "local-learning", "--config", configFile.FilePath);
+        var result = _sut.Run("transport", "set", "local-learning2", "--config", configFile.FilePath);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
         Assert.That(result.Output, Is.EqualTo(
             $"""
-                 Switched to transport "local-learning".
+                 Switched to transport "local-learning2".
                  """.NormalizeLineEndings()
         ));
     }
