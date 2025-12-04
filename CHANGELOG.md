@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.27.0](https://github.com/TraGicCode/busly-cli/tree/v0.27.0) - 2025-12-04
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.26.0...v0.27.0)
+
+### Added
+
+- Update docs for amazon-sqs transport along with config validation [#127](https://github.com/TraGicCode/busly-cli/pull/127) ([TraGicCode](https://github.com/TraGicCode))
+- Update docs for azure-service-bus transport along with config validation [#126](https://github.com/TraGicCode/busly-cli/pull/126) ([TraGicCode](https://github.com/TraGicCode))
+
+### Other
+
+- Add our first blog post [#123](https://github.com/TraGicCode/busly-cli/pull/123) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.26.0](https://github.com/TraGicCode/busly-cli/tree/v0.26.0) - 2025-12-04
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.25.0...v0.26.0)
