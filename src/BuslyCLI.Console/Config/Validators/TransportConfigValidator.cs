@@ -10,10 +10,17 @@ public class TransportConfigValidator : AbstractValidator<TransportConfig>
 
         RuleFor(x => x.Config)
             .NotEmpty()
-            .WithMessage("Transport must define exactly one transport configuration.");
+            .WithMessage("Transport must define exactly one transport configuration.")
+            .SetInheritanceValidator(v =>
+            {
+                v.Add(new LearningTransportConfigValidator());
+                v.Add(new RabbitMQTransportConfigValidator());
+                v.Add(new AzureServiceBusTransportConfigValidator());
+            });
 
-        RuleFor(x => x.LearningTransportConfig)
-            .SetValidator(new LearningTransportConfigValidator())
-            .When(x => x.Config is not null);
+        // RuleFor(x => x.LearningTransportConfig)
+        //     .SetValidator(new LearningTransportConfigValidator())
+        //     .When(x => x.Config is not null);
+
     }
 }
