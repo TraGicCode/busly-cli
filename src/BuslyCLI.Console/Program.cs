@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using BuslyCLI.Config;
 using BuslyCLI.DependencyInjection;
 using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,9 +13,6 @@ if (args.Contains("--attach", StringComparer.OrdinalIgnoreCase))
 
 var registrations = new ServiceCollection();
 registrations.AddBuslyCLIServices();
-registrations.AddYamlDeserializer();
-registrations.AddYamlSerializer();
-registrations.AddSingleton<INServiceBusConfiguration, NServiceBusConfiguration>();
 using var registrar = new DependencyInjectionRegistrar(registrations);
 var app = new CommandApp(registrar);
 app.Configure(AppConfiguration.GetSpectreCommandConfiguration());

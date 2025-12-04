@@ -32,9 +32,9 @@ public class ListTransportsCommand(IAnsiConsole console, INServiceBusConfigurati
         // Add header row
         grid.AddRow("CURRENT", "NAME", "TRANSPORT-TYPE");
 
-        var nsbConfiguration = await nservicebusConfiguration.GetConfigurationAsync(settings.Config.Path);
+        var nsbConfiguration = await nservicebusConfiguration.GetUnValidatedConfigurationAsync(settings.Config.Path);
 
-        if (nsbConfiguration != null)
+        if (nsbConfiguration is { Transports: not null })
         {
             foreach (var transport in nsbConfiguration.Transports)
             {

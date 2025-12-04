@@ -13,12 +13,15 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddBuslyCLIServices(this IServiceCollection services)
     {
         services.AddScoped<IRawEndpointFactory, RawEndpointFactory>();
+        services.AddSingleton<INServiceBusConfiguration, NServiceBusConfiguration>();
         services.AddValidatorsFromAssemblyContaining<RootConfigValidator>();
+        services.AddYamlDeserializer();
+        services.AddYamlSerializer();
 
         return services;
     }
 
-    public static IServiceCollection AddYamlDeserializer(this IServiceCollection services)
+    private static IServiceCollection AddYamlDeserializer(this IServiceCollection services)
     {
         services.AddSingleton(
             new DeserializerBuilder()
@@ -39,7 +42,7 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    public static IServiceCollection AddYamlSerializer(this IServiceCollection services)
+    private static IServiceCollection AddYamlSerializer(this IServiceCollection services)
     {
         services.AddSingleton(
             new SerializerBuilder()

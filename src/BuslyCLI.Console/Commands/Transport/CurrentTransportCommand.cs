@@ -9,7 +9,7 @@ public class CurrentTransportCommand(IAnsiConsole console, INServiceBusConfigura
 {
     public override async Task<int> ExecuteAsync(CommandContext context, CurrentTransportSettings settings, CancellationToken cancellationToken)
     {
-        var nsbConfiguration = await nservicebusConfiguration.GetConfigurationAsync(settings.Config.Path);
+        var nsbConfiguration = await nservicebusConfiguration.GetUnValidatedConfigurationAsync(settings.Config.Path);
 
         console.WriteLine(nsbConfiguration != null && nsbConfiguration.CurrentTransport is not null ? nsbConfiguration.CurrentTransport : "Current transport is not set.");
         return 0;
