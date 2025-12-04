@@ -16,6 +16,7 @@ public class TransportConfigValidator : AbstractValidator<TransportConfig>
                 v.Add(new LearningTransportConfigValidator());
                 v.Add(new RabbitMQTransportConfigValidator());
                 v.Add(new AzureServiceBusTransportConfigValidator());
+                v.Add(new AmazonsqsTransportConfigValidator());
             });
 
         // RuleFor(x => x.LearningTransportConfig)
