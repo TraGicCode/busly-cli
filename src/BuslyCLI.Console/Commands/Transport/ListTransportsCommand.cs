@@ -55,6 +55,10 @@ public class ListTransportsCommand(IAnsiConsole console, INServiceBusConfigurati
                 return "rabbitmq";
             case LearningTransportConfig learningConfig:
                 return "learning";
+            case AzureServiceBusTransportConfig azureServiceBusConfig:
+                return "azure-service-bus";
+            case AmazonsqsTransportConfig amazonsqsTransportConfig:
+                return "amazon-sqs";
             default:
                 throw new ApplicationException("Unknown transport type");
         }
