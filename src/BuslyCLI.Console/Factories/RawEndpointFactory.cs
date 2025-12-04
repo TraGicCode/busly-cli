@@ -1,4 +1,5 @@
-﻿using Amazon.Runtime;
+﻿using Amazon;
+using Amazon.Runtime;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
 using BuslyCLI.Config;
@@ -73,19 +74,27 @@ public class RawEndpointFactory : IRawEndpointFactory
 
     private TransportDefinition CreateAmazonSQSTransport(AmazonsqsTransportConfig amazonsqsTransportConfig)
     {
-        var credentials = new BasicAWSCredentials("test", "test");
-
-        var sqsClient = new AmazonSQSClient(credentials, new AmazonSQSConfig
+        var credentials = new BasicAWSCredentials(amazonsqsTransportConfig.AccessKey, amazonsqsTransportConfig.SecretKey);
+        var amazonSqsConfig = new AmazonSQSConfig();
+        var amazonSnsConfig = new AmazonSimpleNotificationServiceConfig();
+        if (!string.IsNullOrWhiteSpace(amazonsqsTransportConfig.RegionName))
         {
-            ServiceURL = amazonsqsTransportConfig.ServiceUrl,
-            AuthenticationRegion = amazonsqsTransportConfig.RegionName,
-        });
 
-        var snsClient = new AmazonSimpleNotificationServiceClient(credentials, new AmazonSimpleNotificationServiceConfig
+            amazonSqsConfig.RegionEndpoint = RegionEndpoint.GetBySystemName(amazonsqsTransportConfig.RegionName);
+            amazonSnsConfig.RegionEndpoint = RegionEndpoint.GetBySystemName(amazonsqsTransportConfig.RegionName);
+        }
+
+        // If ServiceUrl is passed, we are assuming we are using LocalStack
+        // Without this, local stack will try to really authenticate with aws which will fail
+        if (!string.IsNullOrWhiteSpace(amazonsqsTransportConfig.ServiceUrl))
         {
-            ServiceURL = amazonsqsTransportConfig.ServiceUrl,
-            AuthenticationRegion = amazonsqsTransportConfig.RegionName,
-        });
+            amazonSnsConfig.ServiceURL = amazonsqsTransportConfig.ServiceUrl;
+            amazonSqsConfig.ServiceURL = amazonsqsTransportConfig.ServiceUrl;
+        }
+
+        var sqsClient = new AmazonSQSClient(credentials, amazonSqsConfig);
+
+        var snsClient = new AmazonSimpleNotificationServiceClient(credentials, amazonSnsConfig);
 
         return new SqsTransport(sqsClient, snsClient);
     }

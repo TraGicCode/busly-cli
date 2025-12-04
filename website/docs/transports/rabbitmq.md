@@ -55,6 +55,8 @@ amqp-connection-string: amqp://guest:guest@localhost:5672/
 amqp-connection-string: amqps://user:pass@rabbitmq.example.com:5671/my-vhost
 ```
 
+---
+
 ### `management-api` (optional)
 
 Allows Busly to interact with the RabbitMQ Management API for monitoring or queue management.
