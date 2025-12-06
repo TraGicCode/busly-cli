@@ -33,7 +33,9 @@ public static class ServiceCollectionExtensions
                     {
                         { "learning-transport-config", typeof(LearningTransportConfig) },
                         { "rabbitmq-transport-config", typeof(RabbitmqTransportConfig) },
-                        { "amazonsqs-transport-config", typeof(AmazonsqsTransportConfig) }
+                        { "amazonsqs-transport-config", typeof(AmazonsqsTransportConfig) },
+                        { "azure-service-bus-transport-config", typeof(AzureServiceBusTransportConfig) },
+                        { "sql-server-transport-config", typeof(SqlServerTransportConfig) }
                     };
 
                     o.AddUniqueKeyTypeDiscriminator<ITransportConfig>(keyMappings);

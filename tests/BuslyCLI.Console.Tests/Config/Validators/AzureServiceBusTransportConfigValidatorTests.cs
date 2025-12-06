@@ -31,7 +31,7 @@ public class AzureServiceBusTransportConfigValidatorTests
     }
 
     [Test]
-    public async Task ShouldNotErrorStorageDirectoryIsPassed()
+    public async Task ShouldNotErrorConnectionStringIsPassed()
     {
         // Arrange
         var azureServiceBusTransportConfig = new AzureServiceBusTransportConfig

@@ -90,4 +90,11 @@ public class TestEndpointFactory
 
         return new TestEndpoint(infrastructure);
     }
+
+    public async Task<TestEndpoint> CreateSqlServerTestEndpoint(string sqlConnectionString)
+    {
+        var name = GenerateUniqueEndpointName();
+        var transport = new SqlServerTransport(sqlConnectionString);
+        return await InternalCreateTestEndpoint(name, transport);
+    }
 }

@@ -10,10 +10,13 @@ public class TransportConfig
     public AmazonsqsTransportConfig AmazonsqsTransportConfig { get; set; }
     public AzureServiceBusTransportConfig AzureServiceBusTransportConfig { get; set; }
 
+    public SqlServerTransportConfig SqlServerTransportConfig { get; set; }
+
     // Helper property to unify config access:
     [YamlIgnore]
     public ITransportConfig Config => (ITransportConfig)LearningTransportConfig
                                       ?? (ITransportConfig)RabbitmqTransportConfig
                                       ?? (ITransportConfig)AmazonsqsTransportConfig
-                                      ?? (ITransportConfig)AzureServiceBusTransportConfig;
+                                      ?? (ITransportConfig)AzureServiceBusTransportConfig
+                                      ?? SqlServerTransportConfig;
 }
