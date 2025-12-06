@@ -30,6 +30,8 @@ public class RawEndpointFactory : IRawEndpointFactory
                 return CreateRabbitMQTransport(rabbitmqTransportConfig);
             case AzureServiceBusTransportConfig azureServiceBusTransportConfig:
                 return CreateAzureServiceBusTransport(azureServiceBusTransportConfig.ConnectionString);
+            case AzureStorageQueuesTransportConfig azureStorageQueuesTransportConfig:
+                return CreateAzureStorageQueuesTransport(azureStorageQueuesTransportConfig.ConnectionString);
             case AmazonsqsTransportConfig amazonSqsTransportConfig:
                 return CreateAmazonSQSTransport(amazonSqsTransportConfig);
             case SqlServerTransportConfig sqlServerTransportConfig:
@@ -43,6 +45,11 @@ public class RawEndpointFactory : IRawEndpointFactory
             default:
                 throw new ApplicationException("Unknown transport type: " + transportConfig.Config.GetType().Name);
         }
+    }
+
+    private TransportDefinition CreateAzureStorageQueuesTransport(string connectionString)
+    {
+        return new AzureStorageQueueTransport(connectionString);
     }
 
     private TransportDefinition CreateSqlServerTransport(SqlServerTransportConfig sqlServerTransportConfig)

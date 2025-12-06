@@ -35,6 +35,7 @@ public static class ServiceCollectionExtensions
                         { "rabbitmq-transport-config", typeof(RabbitmqTransportConfig) },
                         { "amazonsqs-transport-config", typeof(AmazonsqsTransportConfig) },
                         { "azure-service-bus-transport-config", typeof(AzureServiceBusTransportConfig) },
+                        { "azure-storage-queues-transport-config", typeof(AzureStorageQueuesTransportConfig) },
                         { "sql-server-transport-config", typeof(SqlServerTransportConfig) }
                     };
 

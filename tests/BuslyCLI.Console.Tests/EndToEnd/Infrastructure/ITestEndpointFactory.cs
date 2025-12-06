@@ -1,6 +1,7 @@
 ﻿using Amazon.Runtime;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
+using NServiceBus.Settings;
 using NServiceBus.Transport;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.Infrastructure;
@@ -67,6 +68,7 @@ public class TestEndpointFactory
     private static async Task<TestEndpoint> InternalCreateTestEndpoint(string endpointName,
         TransportDefinition transport)
     {
+
         var hostSettings = new HostSettings(
             endpointName,
             endpointName,
@@ -76,7 +78,8 @@ public class TestEndpointFactory
                 TestContext.Out.WriteLine("Critical error: " + exception);
             },
             // TODO: This needs to be false for "Azure Service Bus Emulator" tests to pass
-            transport is not AzureServiceBusTransport);
+            transport is not AzureServiceBusTransport
+            );
 
         var infrastructure = await transport.Initialize(hostSettings, [
             new ReceiveSettings(
@@ -95,6 +98,13 @@ public class TestEndpointFactory
     {
         var name = GenerateUniqueEndpointName();
         var transport = new SqlServerTransport(sqlConnectionString);
+        return await InternalCreateTestEndpoint(name, transport);
+    }
+
+    public async Task<TestEndpoint> CreateAzureStorageQueuesTestEndpoint(string connectionString)
+    {
+        var name = GenerateUniqueEndpointName();
+        var transport = new AzureStorageQueueTransport(connectionString);
         return await InternalCreateTestEndpoint(name, transport);
     }
 }

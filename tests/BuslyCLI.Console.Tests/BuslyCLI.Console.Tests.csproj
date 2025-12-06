@@ -24,6 +24,7 @@
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter" Version="5.2.0" />
     <PackageReference Include="Spectre.Console.Cli.Testing" Version="1.0.0-alpha.0.11" />
+    <PackageReference Include="Testcontainers.Azurite" Version="4.9.0" />
     <PackageReference Include="Testcontainers.LocalStack" Version="4.9.0" />
     <PackageReference Include="Testcontainers.MsSql" Version="4.9.0" />
     <PackageReference Include="Testcontainers.RabbitMq" Version="4.9.0" />
