@@ -1,5 +1,6 @@
 ﻿using Amazon;
 using Amazon.Runtime;
+using Amazon.S3;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
 using BuslyCLI.Config;
@@ -77,6 +78,7 @@ public class RawEndpointFactory : IRawEndpointFactory
         var credentials = new BasicAWSCredentials(amazonsqsTransportConfig.AccessKey, amazonsqsTransportConfig.SecretKey);
         var amazonSqsConfig = new AmazonSQSConfig();
         var amazonSnsConfig = new AmazonSimpleNotificationServiceConfig();
+        var amazonS3Config = new AmazonS3Config();
         if (!string.IsNullOrWhiteSpace(amazonsqsTransportConfig.RegionName))
         {
 
@@ -92,9 +94,20 @@ public class RawEndpointFactory : IRawEndpointFactory
             amazonSqsConfig.ServiceURL = amazonsqsTransportConfig.ServiceUrl;
         }
 
-        var sqsClient = new AmazonSQSClient(credentials, amazonSqsConfig);
+        if (amazonsqsTransportConfig.S3BucketSettings is not null)
+        {
+            amazonS3Config.ServiceURL = amazonsqsTransportConfig.ServiceUrl;
+            amazonS3Config.RegionEndpoint = RegionEndpoint.GetBySystemName(amazonsqsTransportConfig.RegionName);
+        }
 
+        var sqsClient = new AmazonSQSClient(credentials, amazonSqsConfig);
         var snsClient = new AmazonSimpleNotificationServiceClient(credentials, amazonSnsConfig);
+
+        var sqsTransport = new SqsTransport(sqsClient, snsClient);
+        if (amazonsqsTransportConfig.S3BucketSettings is not null)
+        {
+            sqsTransport.S3 = new S3Settings(amazonsqsTransportConfig.S3BucketSettings.BucketName, amazonsqsTransportConfig.S3BucketSettings.KeyPrefix, new AmazonS3Client(amazonS3Config));
+        }
 
         return new SqsTransport(sqsClient, snsClient);
     }
