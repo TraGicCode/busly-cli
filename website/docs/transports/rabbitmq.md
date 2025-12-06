@@ -22,10 +22,12 @@ transports:
 
 ## `rabbitmq-transport-config` Fields
 
-| Field                    | Required | Type   | Default | Description                                                       |
-| ------------------------ | -------- | ------ | ------- | ----------------------------------------------------------------- |
-| `amqp-connection-string` | **Yes**  | string | —       | Full AMQP connection string used to connect to RabbitMQ.          |
-| `management-api`         | No       | object | —       | Optional configuration to connect to the RabbitMQ Management API. |
+| Field                    | Required | Type   | Default      | Description                                                       |
+| ------------------------ | -------- | ------ | ------------ | ----------------------------------------------------------------- |
+| `amqp-connection-string` | **Yes**  | string | —            | Full AMQP connection string used to connect to RabbitMQ.          |
+| `routing-toplogy`        | No       | string | conventional | Routing toplogy to be used (Conventional or Direct).              |
+| `queue-type`             | No       | string | quorum       | Type of queues RabbitMQ is using (Quorum or Classic).             |
+| `management-api`         | No       | object | —            | Optional configuration to connect to the RabbitMQ Management API. |
 
 ---
 
@@ -53,6 +55,38 @@ amqp-connection-string: amqp://guest:guest@localhost:5672/
 
 ```yaml
 amqp-connection-string: amqps://user:pass@rabbitmq.example.com:5671/my-vhost
+```
+
+---
+
+### `routing-topology` (optional)
+
+The Routing topology to be used for the transport
+
+Examples:
+
+```yaml
+routing-toplogy: conventional
+```
+
+```yaml
+routing-toplogy: direct
+```
+
+---
+
+### `queue-type` (optional)
+
+The type of queues being used.
+
+Examples:
+
+```yaml
+queue-type: quorum
+```
+
+```yaml
+queue-type: classic
 ```
 
 ---
