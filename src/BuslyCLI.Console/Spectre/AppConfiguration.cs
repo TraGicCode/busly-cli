@@ -3,7 +3,9 @@ using BuslyCLI.Commands.Command;
 using BuslyCLI.Commands.Demo;
 using BuslyCLI.Commands.Event;
 using BuslyCLI.Commands.Transport;
+using Spectre.Console;
 using Spectre.Console.Cli;
+using YamlDotNet.Core;
 
 namespace BuslyCLI.Spectre;
 
@@ -53,9 +55,24 @@ public static class AppConfiguration
                 demo.AddCommand<StartDemoCommand>("start")
                     .WithDescription("Start a demo endpoint that can receive any command and a single 'Messages.Events.OrderPlaced' event.");
             });
-#if DEBUG
-            config.PropagateExceptions();
-#endif
+
+            config.SetExceptionHandler((ex, _) =>
+            {
+                // if (ex.InnerException is OptionsValidationException)
+                // {
+                //     AnsiConsole.Write(new Markup($"{ConsoleExtensions.ErrorMarkup}{ex.InnerException.Message}"));
+                //     return;
+                // }
+                // if (ex is CommandAppException)
+                // {
+                //     AnsiConsole.Write(new Markup($"{ConsoleExtensions.ErrorMarkup}{ex.Message}"));
+                //     return;
+                // }
+                // AnsiConsole.WriteException(ex, ExceptionFormats.ShortenPaths);
+                AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything);
+            });
+
+
         };
     }
 }

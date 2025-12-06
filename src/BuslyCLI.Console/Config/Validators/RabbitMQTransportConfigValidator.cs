@@ -9,6 +9,9 @@ public class RabbitMQTransportConfigValidator : AbstractValidator<RabbitmqTransp
         RuleFor(x => x.AmqpConnectionString)
             .NotEmpty();
 
+        RuleFor(x => x.RoutingTopology)
+            .IsInEnum();
+
         RuleFor(x => x.ManagementApi)
             .SetValidator(new ManagementApiConfigValidator());
     }
