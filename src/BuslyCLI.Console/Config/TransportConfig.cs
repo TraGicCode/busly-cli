@@ -9,7 +9,7 @@ public class TransportConfig
     public RabbitmqTransportConfig RabbitmqTransportConfig { get; set; }
     public AmazonsqsTransportConfig AmazonsqsTransportConfig { get; set; }
     public AzureServiceBusTransportConfig AzureServiceBusTransportConfig { get; set; }
-
+    public AzureStorageQueuesTransportConfig AzureStorageQueuesTransportConfig { get; set; }
     public SqlServerTransportConfig SqlServerTransportConfig { get; set; }
 
     // Helper property to unify config access:
@@ -18,5 +18,6 @@ public class TransportConfig
                                       ?? (ITransportConfig)RabbitmqTransportConfig
                                       ?? (ITransportConfig)AmazonsqsTransportConfig
                                       ?? (ITransportConfig)AzureServiceBusTransportConfig
+                                      ?? (ITransportConfig)AzureStorageQueuesTransportConfig
                                       ?? SqlServerTransportConfig;
 }
