@@ -11,6 +11,7 @@ public class TransportConfig
     public AzureServiceBusTransportConfig AzureServiceBusTransportConfig { get; set; }
     public AzureStorageQueuesTransportConfig AzureStorageQueuesTransportConfig { get; set; }
     public SqlServerTransportConfig SqlServerTransportConfig { get; set; }
+    public PostgreSqlTransportConfig PostgreSqlTransportConfig { get; set; }
 
     // Helper property to unify config access:
     [YamlIgnore]
@@ -19,5 +20,6 @@ public class TransportConfig
                                       ?? (ITransportConfig)AmazonsqsTransportConfig
                                       ?? (ITransportConfig)AzureServiceBusTransportConfig
                                       ?? (ITransportConfig)AzureStorageQueuesTransportConfig
-                                      ?? SqlServerTransportConfig;
+                                      ?? (ITransportConfig)SqlServerTransportConfig
+                                      ?? PostgreSqlTransportConfig;
 }

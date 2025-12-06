@@ -36,6 +36,8 @@ public class RawEndpointFactory : IRawEndpointFactory
                 return CreateAmazonSQSTransport(amazonSqsTransportConfig);
             case SqlServerTransportConfig sqlServerTransportConfig:
                 return CreateSqlServerTransport(sqlServerTransportConfig);
+            case PostgreSqlTransportConfig postgreSqlTransportConfig:
+                return CreatePostgreSqlTransport(postgreSqlTransportConfig);
             case LearningTransportConfig learningTransportConfig:
                 return new LearningTransport
                 {
@@ -45,6 +47,12 @@ public class RawEndpointFactory : IRawEndpointFactory
             default:
                 throw new ApplicationException("Unknown transport type: " + transportConfig.Config.GetType().Name);
         }
+    }
+
+    private TransportDefinition CreatePostgreSqlTransport(PostgreSqlTransportConfig postgreSqlTransportConfig)
+    {
+        var transport = new PostgreSqlTransport(postgreSqlTransportConfig.ConnectionString);
+        return transport;
     }
 
     private TransportDefinition CreateAzureStorageQueuesTransport(string connectionString)

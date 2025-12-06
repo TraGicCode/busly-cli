@@ -1,7 +1,6 @@
 ﻿using Amazon.Runtime;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
-using NServiceBus.Settings;
 using NServiceBus.Transport;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.Infrastructure;
@@ -98,6 +97,13 @@ public class TestEndpointFactory
     {
         var name = GenerateUniqueEndpointName();
         var transport = new SqlServerTransport(sqlConnectionString);
+        return await InternalCreateTestEndpoint(name, transport);
+    }
+
+    public async Task<TestEndpoint> CreatePostgreSqlTransport(string connectionString)
+    {
+        var name = GenerateUniqueEndpointName();
+        var transport = new PostgreSqlTransport(connectionString);
         return await InternalCreateTestEndpoint(name, transport);
     }
 
