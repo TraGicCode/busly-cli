@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.28.0](https://github.com/TraGicCode/busly-cli/tree/v0.28.0) - 2025-12-06
+## [v0.29.0](https://github.com/TraGicCode/busly-cli/tree/v0.29.0) - 2025-12-06
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.28.0...v0.29.0)
+
+### Added
+
+- Add support for SqlServer Transport [#132](https://github.com/TraGicCode/busly-cli/pull/132) ([TraGicCode](https://github.com/TraGicCode))
+
+## [v0.28.0](https://github.com/TraGicCode/busly-cli/tree/v0.28.0) - 2025-12-05
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.27.0...v0.28.0)
 
