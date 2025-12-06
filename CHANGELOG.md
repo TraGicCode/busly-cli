@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.31.0](https://github.com/TraGicCode/busly-cli/tree/v0.31.0) - 2025-12-06
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.30.0...v0.31.0)
+
+### Added
+
+- Implement Postgre Sql transport [#138](https://github.com/TraGicCode/busly-cli/pull/138) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.30.0](https://github.com/TraGicCode/busly-cli/tree/v0.30.0) - 2025-12-06
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.29.1...v0.30.0)
