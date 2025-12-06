@@ -39,6 +39,15 @@ The Amazon SQS transport implementation currently works only with **AWS access k
 
 ---
 
+## `s3-bucket-settings` Fields
+
+| Field         | Required | Type   | Default | Description                                                              |
+| ------------- | -------- | ------ | ------- | ------------------------------------------------------------------------ |
+| `bucket-name` | yes      | string | —       | Name of the S3 bucket for storing large messages.                        |
+| `key-prefix`  | yes      | string | —       | This is the path within the specified S3 bucket to store large messages. |
+
+---
+
 ## Field Details
 
 ### `region-name` (required)
@@ -85,4 +94,18 @@ Examples:
 
 ```yaml
 service-url: http://127.0.0.1:32813/
+```
+
+---
+
+### `s3-bucket-settings` (optional)
+
+Used to configure S3 bucket storage for large messages.
+
+Examples:
+
+```yaml
+s3-bucket-settings:
+  bucket-name: nsb-sqs-messages
+  key-prefix: my/sample/path
 ```
