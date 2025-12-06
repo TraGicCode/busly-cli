@@ -163,16 +163,18 @@ public class RawEndpointFactory : IRawEndpointFactory
             },
             isReceiveEnabled);
 
-
-        var infrastructure = await transport.Initialize(hostSettings, new[]
-        {
-            new ReceiveSettings(
-                "Primary",
-                new QueueAddress(endpointName),
-                isReceiveEnabled,
-                false,
-                "error")
-        }, new string[0]);
+        var infrastructure = await transport.Initialize(hostSettings,
+            isReceiveEnabled
+                ?
+                [
+                    new ReceiveSettings(
+                        "Primary",
+                        new QueueAddress(endpointName),
+                        isReceiveEnabled,
+                        false,
+                        "error")
+                ]
+                : [], []);
 
 
         return infrastructure;

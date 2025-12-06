@@ -78,15 +78,15 @@ public class TestEndpointFactory
             // TODO: This needs to be false for "Azure Service Bus Emulator" tests to pass
             transport is not AzureServiceBusTransport);
 
-        var infrastructure = await transport.Initialize(hostSettings, new[]
-        {
+        var infrastructure = await transport.Initialize(hostSettings, [
             new ReceiveSettings(
                 "Primary",
                 new QueueAddress(endpointName),
                 true,
                 false,
                 "error")
-        }, new string[0]);
+        ], []);
+
 
         return new TestEndpoint(infrastructure);
     }
