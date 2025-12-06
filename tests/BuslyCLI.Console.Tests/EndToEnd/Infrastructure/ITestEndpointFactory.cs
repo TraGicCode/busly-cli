@@ -105,6 +105,8 @@ public class TestEndpointFactory
     {
         var name = GenerateUniqueEndpointName();
         var transport = new AzureStorageQueueTransport(connectionString);
+        transport.MessageWrapperSerializationDefinition = new SystemJsonSerializer();
+
         return await InternalCreateTestEndpoint(name, transport);
     }
 }

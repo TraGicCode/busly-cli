@@ -49,7 +49,9 @@ public class RawEndpointFactory : IRawEndpointFactory
 
     private TransportDefinition CreateAzureStorageQueuesTransport(string connectionString)
     {
-        return new AzureStorageQueueTransport(connectionString);
+        var transport = new AzureStorageQueueTransport(connectionString);
+        transport.MessageWrapperSerializationDefinition = new SystemJsonSerializer();
+        return transport;
     }
 
     private TransportDefinition CreateSqlServerTransport(SqlServerTransportConfig sqlServerTransportConfig)
