@@ -59,6 +59,8 @@ public class ListTransportsCommand(IAnsiConsole console, INServiceBusConfigurati
                 return "azure-service-bus";
             case AmazonsqsTransportConfig amazonsqsTransportConfig:
                 return "amazon-sqs";
+            case SqlServerTransportConfig sqlServerTransportConfig:
+                return "sql-server";
             default:
                 throw new ApplicationException("Unknown transport type");
         }
