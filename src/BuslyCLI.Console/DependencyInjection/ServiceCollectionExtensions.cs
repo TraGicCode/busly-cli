@@ -36,7 +36,8 @@ public static class ServiceCollectionExtensions
                         { "amazonsqs-transport-config", typeof(AmazonsqsTransportConfig) },
                         { "azure-service-bus-transport-config", typeof(AzureServiceBusTransportConfig) },
                         { "azure-storage-queues-transport-config", typeof(AzureStorageQueuesTransportConfig) },
-                        { "sql-server-transport-config", typeof(SqlServerTransportConfig) }
+                        { "sql-server-transport-config", typeof(SqlServerTransportConfig) },
+                        { "postgre-sql-transport-config", typeof(PostgreSqlTransportConfig) }
                     };
 
                     o.AddUniqueKeyTypeDiscriminator<ITransportConfig>(keyMappings);

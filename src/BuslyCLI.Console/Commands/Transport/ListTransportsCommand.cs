@@ -57,10 +57,14 @@ public class ListTransportsCommand(IAnsiConsole console, INServiceBusConfigurati
                 return "learning";
             case AzureServiceBusTransportConfig azureServiceBusConfig:
                 return "azure-service-bus";
+            case AzureStorageQueuesTransportConfig azureStorageQueuesTransportConfig:
+                return "azure-storage-queues";
             case AmazonsqsTransportConfig amazonsqsTransportConfig:
                 return "amazon-sqs";
             case SqlServerTransportConfig sqlServerTransportConfig:
                 return "sql-server";
+            case PostgreSqlTransportConfig postgreSqlTransportConfig:
+                return "postgre-sql";
             default:
                 throw new ApplicationException("Unknown transport type");
         }
