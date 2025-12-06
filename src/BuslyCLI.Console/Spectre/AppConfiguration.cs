@@ -58,8 +58,21 @@ public static class AppConfiguration
 
             config.SetExceptionHandler((ex, _) =>
             {
+                // if (ex.InnerException is OptionsValidationException)
+                // {
+                //     AnsiConsole.Write(new Markup($"{ConsoleExtensions.ErrorMarkup}{ex.InnerException.Message}"));
+                //     return;
+                // }
+                // if (ex is CommandAppException)
+                // {
+                //     AnsiConsole.Write(new Markup($"{ConsoleExtensions.ErrorMarkup}{ex.Message}"));
+                //     return;
+                // }
+                // AnsiConsole.WriteException(ex, ExceptionFormats.ShortenPaths);
                 AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything);
             });
+
+
         };
     }
 }
