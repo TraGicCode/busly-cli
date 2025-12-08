@@ -7,7 +7,7 @@ using NServiceBus.Unicast.Messages;
 
 namespace BuslyCLI.Factories;
 
-public class RawEndpoint(TransportInfrastructure infrastructure) : RawSendOnlyEndpoint(infrastructure)
+public class RawEndpoint(TransportInfrastructure infrastructure, string endpointName) : RawSendOnlyEndpoint(infrastructure, endpointName)
 {
     private static readonly TimeSpan IncomingMessageTimeout = TimeSpan.FromSeconds(5);
     private readonly BlockingCollection<IncomingMessage> _receivedMessages = new();

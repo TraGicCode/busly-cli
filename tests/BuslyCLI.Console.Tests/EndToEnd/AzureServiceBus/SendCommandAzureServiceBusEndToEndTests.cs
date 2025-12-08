@@ -1,8 +1,9 @@
 using System.Text;
 using System.Text.Json;
-using BuslyCLI.Console.Tests.EndToEnd.Infrastructure;
+using BuslyCLI.Config;
 using BuslyCLI.Console.Tests.TestHelpers;
 using BuslyCLI.DependencyInjection;
+using BuslyCLI.Factories;
 using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Extensions.DependencyInjection;
@@ -116,11 +117,17 @@ public class SendCommandAzureServiceBusEndToEndTests : AzureServiceBusEndToEndTe
         });
     }
 
-    private async Task RunWithTestEndpoint(Func<TestEndpoint, Task> testAction)
+    private async Task RunWithTestEndpoint(Func<RawEndpoint, Task> testAction)
     {
         var random = new Random();
         var testEndpointName = GeneratedTestEndpointNamesAndSubscribedEvent[random.Next(GeneratedTestEndpointNamesAndSubscribedEvent.Count)];
-        var testEndpoint = await new TestEndpointFactory().CreateAzureServiceBusTestEndpoint(testEndpointName.Item1, Container.GetConnectionString());
+        var testEndpoint = await new RawEndpointFactory().CreateRawEndpoint(testEndpointName.Item1, new TransportConfig()
+        {
+            AzureServiceBusTransportConfig = new AzureServiceBusTransportConfig()
+            {
+                ConnectionString = Container.GetConnectionString()
+            }
+        }, false);
 
         await testAction(testEndpoint);
         await testEndpoint.ShutDownAndCleanUp();

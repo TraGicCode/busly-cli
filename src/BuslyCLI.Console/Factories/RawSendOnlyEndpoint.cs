@@ -5,11 +5,13 @@ namespace BuslyCLI.Factories;
 public class RawSendOnlyEndpoint
 {
     protected readonly TransportInfrastructure _infrastructure;
+    public string EndpointName { get; }
 
 
-    public RawSendOnlyEndpoint(TransportInfrastructure infrastructure)
+    public RawSendOnlyEndpoint(TransportInfrastructure infrastructure, string endpointName)
     {
         _infrastructure = infrastructure;
+        EndpointName = endpointName;
     }
 
     public async Task Dispatch(TransportOperations outgoingMessages, TransportTransaction transaction,
