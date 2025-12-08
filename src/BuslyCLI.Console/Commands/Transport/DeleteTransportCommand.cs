@@ -15,12 +15,11 @@ public class DeleteTransportCommand(IAnsiConsole console, INServiceBusConfigurat
         {
             if (nsbConfiguration.CurrentTransport.ToLower() == targetTransport)
             {
-                nsbConfiguration.CurrentTransport = "";
+                await nservicebusConfiguration.UpdateCurrentTransportAsync(settings.Config.Path, "");
                 console.WriteLine("This removed your active transport, use \"nservicebus transport set\" to select a different one.");
             }
-            nsbConfiguration.Transports = nsbConfiguration.Transports.Where(x => x.Name.ToLower() != targetTransport).ToList();
+            await nservicebusConfiguration.RemoveTransportAsync(settings.Config.Path, targetTransport);
             console.WriteLine($"deleted transport named {targetTransport} from {settings.Config.Path}");
-            await nservicebusConfiguration.PersistConfiguration(settings.Config.Path, nsbConfiguration);
         }
         else
         {

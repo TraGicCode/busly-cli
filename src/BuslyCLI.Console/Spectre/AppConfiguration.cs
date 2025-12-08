@@ -5,7 +5,6 @@ using BuslyCLI.Commands.Event;
 using BuslyCLI.Commands.Transport;
 using Spectre.Console;
 using Spectre.Console.Cli;
-using YamlDotNet.Core;
 
 namespace BuslyCLI.Spectre;
 

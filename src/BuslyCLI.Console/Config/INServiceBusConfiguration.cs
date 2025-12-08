@@ -10,6 +10,8 @@ public interface INServiceBusConfiguration
     Task<NServiceBusConfig> GetUnValidatedConfigurationAsync(string path);
 
     Task PersistConfiguration(string path, NServiceBusConfig config);
+    Task UpdateCurrentTransportAsync(string path, string newTransport);
+    Task RemoveTransportAsync(string path, string transportToRemove);
 }
 
 public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerializer yamlSerializer, IValidator<NServiceBusConfig> validator) : INServiceBusConfiguration
@@ -44,5 +46,56 @@ public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerialize
     {
         var yaml = yamlSerializer.Serialize(config);
         await File.WriteAllTextAsync(path, yaml);
+    }
+
+    public async Task UpdateCurrentTransportAsync(string path, string newTransport)
+    {
+        // Load the YAML
+        var lines = await File.ReadAllLinesAsync(path);
+
+        for (int i = 0; i < lines.Length; i++)
+        {
+            var line = lines[i].TrimStart();
+
+            if (line.StartsWith("current-transport:"))
+            {
+                int indent = lines[i].Length - line.Length; // preserve original indent
+
+                lines[i] =
+                    new string(' ', indent) +
+                    "current-transport: " + newTransport;
+
+                break;
+            }
+        }
+
+        await File.WriteAllLinesAsync(path, lines);
+    }
+
+    public async Task RemoveTransportAsync(string path, string transportToRemove)
+    {
+        var lines = (await File.ReadAllLinesAsync(path)).ToList();
+
+        for (int i = 0; i < lines.Count; i++)
+        {
+            if (lines[i].TrimStart().StartsWith($"- name: {transportToRemove}"))
+            {
+                int indent = lines[i].TakeWhile(char.IsWhiteSpace).Count();
+                int j = i + 1;
+
+                // Continue deleting child lines until indentation decreases
+                while (j < lines.Count &&
+                       lines[j].TakeWhile(char.IsWhiteSpace).Count() > indent)
+                {
+                    j++;
+                }
+
+                // Remove the array item block
+                lines.RemoveRange(i, j - i);
+                break;
+            }
+        }
+
+        await File.WriteAllLinesAsync(path, lines);
     }
 }
