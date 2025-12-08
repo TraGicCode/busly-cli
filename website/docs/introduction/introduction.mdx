@@ -1,9 +1,16 @@
-<div align="center">
-<img src="website/static/img/busly-logo.png" alt="Description" width="35%" />
+---
+sidebar_position: 1
+title: Introduction
+---
 
+import DocCardList from "@theme/DocCardList";
+import BuslyLogoImageUrl from '@site/static/img/busly-logo.png';
+
+<div align="center">
+    <img src={BuslyLogoImageUrl} width="40%" />
 </div>
 
-# Overview
+# What is Busly CLI?
 
 **Busly CLI** is a lightweight, open source command-line tool that **allows developers to send messages to an NServiceBus endpoint at the power of their fingertips** — No boilerplate, no fuss, just messaging at your fingertips.
 
@@ -18,18 +25,4 @@ Built for speed and simplicity, this tool streamlines common **messaging**, **te
 - 💻 **Cross-platform support** – Works seamlessly on Windows, macOS, and Linux.
 - 📦 **Multiple installation options** – Install via **Chocolatey**, **Docker**, **.NET tool (via NuGet)**, or by **downloading the binary directly from GitHub Releases**.
 
-## Docs
-
-https://tragiccode.com/busly-cli/
-
-## Disclaimer
-
-This project is not affiliated with, endorsed by, or sponsored by Particular Software. NServiceBus is a registered trademark of Particular Software.
-
-## Contributing
-
-1. Fork it ( <https://github.com/tragiccode/busly-cli/fork> )
-1. Create your feature branch (`git checkout -b my-new-feature`)
-1. Commit your changes (`git commit -am 'Add some feature'`)
-1. Push to the branch (`git push origin my-new-feature`)
-1. Create a new Pull Request
+<DocCardList />
