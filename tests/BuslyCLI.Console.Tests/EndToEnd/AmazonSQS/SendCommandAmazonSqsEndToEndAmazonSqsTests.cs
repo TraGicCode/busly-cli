@@ -1,8 +1,9 @@
 using System.Text;
 using System.Text.Json;
-using BuslyCLI.Console.Tests.EndToEnd.Infrastructure;
+using BuslyCLI.Config;
 using BuslyCLI.Console.Tests.TestHelpers;
 using BuslyCLI.DependencyInjection;
+using BuslyCLI.Factories;
 using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Extensions.DependencyInjection;
@@ -110,9 +111,19 @@ public class SendCommandAmazonSqsEndToEndAmazonSqsTests : AmazonSqsEndToEndTestB
         });
     }
 
-    private async Task RunWithTestEndpoint(Func<TestEndpoint, Task> testAction)
+    private async Task RunWithTestEndpoint(Func<RawEndpoint, Task> testAction)
     {
-        var testEndpoint = await new TestEndpointFactory().CreateAmazonSQSTestEndpoint(Container.GetConnectionString());
+        var testEndpoint = await new RawEndpointFactory().CreateRawEndpoint(TestEndpointNameGenerator.GenerateUniqueEndpointName(), new TransportConfig()
+        {
+            AmazonsqsTransportConfig = new AmazonsqsTransportConfig()
+            {
+                ServiceUrl = Container.GetConnectionString(),
+                RegionName = "us-east-1",
+                AccessKey = "test",
+                SecretKey = "test"
+            }
+        });
+
 
         try
         {

@@ -10,10 +10,10 @@ namespace BuslyCLI.Factories;
 
 public class RawEndpointFactory : IRawEndpointFactory
 {
-    public async Task<RawEndpoint> CreateRawEndpoint(string endpointName, TransportConfig transportConfig)
+    public async Task<RawEndpoint> CreateRawEndpoint(string endpointName, TransportConfig transportConfig, bool setupInfrastructure = true)
     {
         var transport = CreateTransport(transportConfig);
-        return await InternalCreateEndpoint(endpointName, transport);
+        return await InternalCreateEndpoint(endpointName, transport, setupInfrastructure);
     }
 
     public async Task<RawSendOnlyEndpoint> CreateRawSendOnlyEndpoint(string endpointName, TransportConfig transportConfig)
@@ -148,14 +148,16 @@ public class RawEndpointFactory : IRawEndpointFactory
 
     private static async Task<RawEndpoint> InternalCreateEndpoint(
         string endpointName,
-        TransportDefinition transport)
+        TransportDefinition transport,
+        bool setupInfrastructure = true)
     {
         var infrastructure = await InternalCreateInfrastructure(
             endpointName,
             transport,
-            isReceiveEnabled: true);
+            isReceiveEnabled: true,
+            setupInfrastructure);
 
-        return new RawEndpoint(infrastructure);
+        return new RawEndpoint(infrastructure, endpointName);
     }
 
     private static async Task<RawSendOnlyEndpoint> InternalCreateSendOnlyEndpoint(
@@ -165,15 +167,17 @@ public class RawEndpointFactory : IRawEndpointFactory
         var infrastructure = await InternalCreateInfrastructure(
             endpointName,
             transport,
-            isReceiveEnabled: false);
+            isReceiveEnabled: false,
+            setupInfrastructure: false);
 
-        return new RawSendOnlyEndpoint(infrastructure);
+        return new RawSendOnlyEndpoint(infrastructure, endpointName);
     }
 
     private static async Task<TransportInfrastructure> InternalCreateInfrastructure(
         string endpointName,
         TransportDefinition transport,
-        bool isReceiveEnabled)
+        bool isReceiveEnabled,
+        bool setupInfrastructure)
     {
         var hostSettings = new HostSettings(
             endpointName,
@@ -183,7 +187,7 @@ public class RawEndpointFactory : IRawEndpointFactory
             {
                 // Console.WriteLine("Critical error: " + exception);
             },
-            isReceiveEnabled);
+            setupInfrastructure);
 
         var infrastructure = await transport.Initialize(hostSettings,
             isReceiveEnabled

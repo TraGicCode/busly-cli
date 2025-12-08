@@ -1,8 +1,9 @@
 ﻿using System.Text;
 using System.Text.Json;
-using BuslyCLI.Console.Tests.EndToEnd.Infrastructure;
+using BuslyCLI.Config;
 using BuslyCLI.Console.Tests.TestHelpers;
 using BuslyCLI.DependencyInjection;
+using BuslyCLI.Factories;
 using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Extensions.DependencyInjection;
@@ -110,9 +111,16 @@ public class SendCommandPostgreSqlEndToEndTests : PostgreSqlEndToEndTestBase
     // Test Endpoint
     // Example of how to wait for and get messages
     // https://github.com/Particular/NServiceBus.RabbitMQ/blob/dba627a5a2c50519d7a2466efe3f76c8d5c8828d/src/NServiceBus.Transport.RabbitMQ.Tests/RabbitMqContext.cs#L41
-    private async Task RunWithTestEndpoint(Func<TestEndpoint, Task> testAction)
+    private async Task RunWithTestEndpoint(Func<RawEndpoint, Task> testAction)
     {
-        var testEndpoint = await new TestEndpointFactory().CreatePostgreSqlTransport(Container.GetConnectionString());
+        var testEndpoint = await new RawEndpointFactory().CreateRawEndpoint(TestEndpointNameGenerator.GenerateUniqueEndpointName(), new TransportConfig()
+        {
+            PostgreSqlTransportConfig = new PostgreSqlTransportConfig()
+            {
+                ConnectionString = Container.GetConnectionString()
+            }
+        });
+
 
         await testAction(testEndpoint);
         await testEndpoint.ShutDownAndCleanUp();
