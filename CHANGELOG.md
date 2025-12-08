@@ -5,7 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.33.0](https://github.com/TraGicCode/busly-cli/tree/v0.33.0) - 2025-12-08
+## [v0.34.0](https://github.com/TraGicCode/busly-cli/tree/v0.34.0) - 2025-12-08
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.33.0...v0.34.0)
+
+### Added
+
+- Update integration tests to dogfood off of rawendpoint factory from busly [#148](https://github.com/TraGicCode/busly-cli/pull/148) ([TraGicCode](https://github.com/TraGicCode))
+- Add section for terminal customizations with oh-my-posh.  Also fix up introduction section [#146](https://github.com/TraGicCode/busly-cli/pull/146) ([TraGicCode](https://github.com/TraGicCode))
+- Update quick start example to better show how to utilize docker [#145](https://github.com/TraGicCode/busly-cli/pull/145) ([TraGicCode](https://github.com/TraGicCode))
+
+## [v0.33.0](https://github.com/TraGicCode/busly-cli/tree/v0.33.0) - 2025-12-07
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.32.0...v0.33.0)
 
