@@ -187,6 +187,7 @@ public class RawEndpointFactory : IRawEndpointFactory
             {
                 // Console.WriteLine("Critical error: " + exception);
             },
+            // Do not run the infrastructure provisioning and assume things are already present.
             setupInfrastructure);
 
         var infrastructure = await transport.Initialize(hostSettings,
