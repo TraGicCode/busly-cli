@@ -3,7 +3,7 @@
 public static class Constants
 {
     public const string DefaultOriginatingEndpoint = "BuslyCLI";
-    public const string DemoDefaultOriginatingEndpoint = "BuslyDemo";
+    public const string DemoDefaultOriginatingEndpoint = $"{DefaultOriginatingEndpoint}.DemoEndpoint";
     public const string DefaultConfigPath = "~/.busly-cli/config.yaml";
 
     public static class NServiceBus
