@@ -13,9 +13,8 @@ public class SetTransportCommand(IAnsiConsole console, INServiceBusConfiguration
         var targetTransport = settings.TransportName.ToLower();
         if (nsbConfiguration.Transports.Select(x => x.Name.ToLower()).Contains(targetTransport))
         {
-            nsbConfiguration.CurrentTransport = targetTransport;
+            await nservicebusConfiguration.UpdateCurrentTransportAsync(settings.Config.Path, targetTransport);
             console.WriteLine($"Switched to transport \"{targetTransport}\".");
-            await nservicebusConfiguration.PersistConfiguration(settings.Config.Path, nsbConfiguration);
         }
         else
         {
