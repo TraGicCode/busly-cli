@@ -100,7 +100,7 @@ busly demo start
 
 ## What Demo Mode Does
 
-- Creates and starts an NServiceBus endpoint named `BuslyDemo` using your transport configuration.
+- Creates and starts an NServiceBus endpoint named `BuslyCLI.DemoEndpoint` using your transport configuration.
 - Allows Busly to receive any command sent to it.
 - Automatically subscribes to a single event: `Messages.Events.OrderPlaced`
 
@@ -119,8 +119,8 @@ Demo mode is intended strictly for this quick-start guide. Using it outside of t
 ```bash
 busly command send \
   --content-type 'text/json' \
-  --enclosed-message-type "BusyCLI.GettingStarted.Endpoint.CreateOrder" \
-  --destination-endpoint BusCLI.GettingStarted.Endpoint \
+  --enclosed-message-type "Messages.Commands.CreateOrder" \
+  --destination-endpoint "BuslyCLI.DemoEndpoint" \
   --message-body '{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'
 ```
 
@@ -130,9 +130,41 @@ busly command send \
 ```bash
 busly command send `
   --content-type 'text/json' `
-  --enclosed-message-type "BusyCLI.GettingStarted.Endpoint.CreateOrder" `
-  --destination-endpoint BusCLI.GettingStarted.Endpoint `
+  --enclosed-message-type "Messages.Commands.CreateOrder" `
+  --destination-endpoint "BuslyCLI.DemoEndpoint" `
   --message-body ('{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'-replace '"', '\"')
+```
+
+</TabItem>
+<TabItem value="docker bash" label="Docker (Bash)">
+
+```bash
+docker run --rm \
+  --network host \
+  -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" \
+  tragiccode/busly-cli \
+  command send \
+    --content-type "text/json" \
+    --enclosed-message-type "Messages.Commands.CreateOrder" \
+    --destination-endpoint "BuslyCLI.DemoEndpoint" \
+    --message-body '{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}' \
+    --config ./config.yaml
+```
+
+</TabItem>
+<TabItem value="docker powershell" label="Docker (Powershell)">
+
+```bash
+docker run --rm `
+  --network host `
+  -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" `
+  tragiccode/busly-cli `
+  command send `
+    --content-type "text/json" `
+    --enclosed-message-type "Messages.Commands.CreateOrder" `
+    --destination-endpoint "BuslyCLI.DemoEndpoint" `
+    --message-body ('{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'-replace '"', '\"') `
+    --config ./config.yaml
 ```
 
 </TabItem>
@@ -144,9 +176,9 @@ busly command send `
 <TabItem value="bash" label="Bash">
 
 ```bash
-busly event publish `
-  --content-type 'text/json' `
-  --enclosed-message-type "BusyCLI.GettingStarted.Endpoint.OrderCreated" `
+busly event publish \
+  --content-type 'text/json' \
+  --enclosed-message-type "Messages.Events.OrderPlaced" \
   --message-body '{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'
 ```
 
@@ -156,8 +188,38 @@ busly event publish `
 ```bash
 busly event publish `
   --content-type 'text/json' `
-  --enclosed-message-type "BusyCLI.GettingStarted.Endpoint.OrderCreated" `
+  --enclosed-message-type "Messages.Events.OrderPlaced" `
   --message-body ('{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'-replace '"', '\"')
+```
+
+</TabItem>
+<TabItem value="docker bash" label="Docker (Bash)">
+
+```bash
+docker run --rm \
+  --network host \
+  -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" \
+  tragiccode/busly-cli \
+  event publish \
+    --content-type "text/json" \
+    --enclosed-message-type "Messages.Events.OrderPlaced" \
+    --message-body '{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}' \
+    --config ./config.yaml
+```
+
+</TabItem>
+<TabItem value="docker powershell" label="Docker (Powershell)">
+
+```bash
+docker run --rm `
+  --network host `
+  -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" `
+  tragiccode/busly-cli `
+  event publish `
+    --content-type "text/json" `
+    --enclosed-message-type "Messages.Events.OrderPlaced" `
+    --message-body ('{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'-replace '"', '\"') `
+    --config ./config.yaml
 ```
 
 </TabItem>
