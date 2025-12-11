@@ -23,7 +23,7 @@ public class SetTransportTests
     }
 
     [Test]
-    public void ShouldOutputAMessageWhenTransportDoesNotExist()
+    public async Task ShouldOutputAMessageWhenTransportDoesNotExist()
     {
         // Arrange
         var yamlFile = """
@@ -38,7 +38,7 @@ public class SetTransportTests
         var nonExistingTransport = $"{Guid.NewGuid():N}";
 
         // Act
-        var result = _sut.Run("transport", "set", nonExistingTransport, "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "set", nonExistingTransport, "--config", configFile.FilePath]);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
@@ -50,7 +50,7 @@ public class SetTransportTests
     }
 
     [Test]
-    public void ShouldOutputAMessageWhenTransportIsSet()
+    public async Task ShouldOutputAMessageWhenTransportIsSet()
     {
         // Arrange
         var yamlFile = """
@@ -67,7 +67,7 @@ public class SetTransportTests
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "set", "local-learning2", "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "set", "local-learning2", "--config", configFile.FilePath]);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
@@ -79,7 +79,7 @@ public class SetTransportTests
     }
 
     [Test]
-    public void ShouldBeIdempotentWhenSettingTransportToTheAlreadyConfiguredTransport()
+    public async Task ShouldBeIdempotentWhenSettingTransportToTheAlreadyConfiguredTransport()
     {
         // Arrange
         var yamlFile = """
@@ -93,7 +93,7 @@ public class SetTransportTests
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "set", "local-learning", "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "set", "local-learning", "--config", configFile.FilePath]);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));

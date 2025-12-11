@@ -23,7 +23,7 @@ public class DeleteTransportTests
     }
 
     [Test]
-    public void ShouldBeIdempotentWhenDeletingNonExistingTransport()
+    public async Task ShouldBeIdempotentWhenDeletingNonExistingTransport()
     {
         // Arrange
         var yamlFile = """
@@ -38,14 +38,14 @@ public class DeleteTransportTests
         var nonExistingTransport = Guid.NewGuid().ToString();
 
         // Act
-        var result = _sut.Run("transport", "delete", nonExistingTransport, "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "delete", nonExistingTransport, "--config", configFile.FilePath]);
 
         Assert.That(result.ExitCode, Is.EqualTo(0));
         Assert.That(result.Output, Is.EqualTo($"Cannot delete transport {nonExistingTransport} since it doesn't exist in the config file."));
     }
 
     [Test]
-    public void ShouldDeleteTransport()
+    public async Task ShouldDeleteTransport()
     {
         // Arrange
         var yamlFile = """
@@ -59,7 +59,7 @@ public class DeleteTransportTests
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "delete", "local-learning", "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "delete", "local-learning", "--config", configFile.FilePath]);
 
         Assert.That(result.ExitCode, Is.EqualTo(0));
         Assert.That(result.Output, Is.EqualTo(

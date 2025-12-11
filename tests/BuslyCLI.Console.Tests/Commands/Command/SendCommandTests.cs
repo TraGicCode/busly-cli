@@ -30,7 +30,7 @@
 //     [TestCase("Error: Option 'destination-endpoint' is defined but no value has been provided.", "command", "send", "--content-type", "application/json", "--enclosed-message-type", "MessageContracts.Commands.CreateOrder", "--message-body", "test", "--destination-endpoint")]
 //     public async Task ShouldValidateRequiredOptions(string expectedSubstring, params string[] args)
 //     {
-//         var result = _sut.Run(args);
+//         var result = await _sut.RunAsync([args]);
 //
 //         Assert.That(result.ExitCode, Is.Not.EqualTo(0));
 //         Assert.That(result.Output, Does.Contain(expectedSubstring), $"Expected output to contain: {expectedSubstring}");

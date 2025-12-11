@@ -23,7 +23,7 @@ public class CurrentTransportTests
     }
 
     [Test]
-    public void ShouldOutputCurrentTransport()
+    public async Task ShouldOutputCurrentTransport()
     {
         // Arrange
         var yamlFile = """
@@ -37,7 +37,7 @@ public class CurrentTransportTests
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "current", "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "current", "--config", configFile.FilePath]);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
@@ -48,7 +48,7 @@ public class CurrentTransportTests
         ));
     }
     [Test]
-    public void ShouldOutputCurrentTransportNotConfigured()
+    public async Task ShouldOutputCurrentTransportNotConfigured()
     {
         // Arrange
         var yamlFile = """
@@ -62,7 +62,7 @@ public class CurrentTransportTests
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "current", "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "current", "--config", configFile.FilePath]);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));

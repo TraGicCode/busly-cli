@@ -51,14 +51,14 @@ public class SendCommandAmazonSqsEndToEndAmazonSqsTests : AmazonSqsEndToEndTestB
             using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
             // Act
-            var result = _sut.Run(
+            var result = await _sut.RunAsync([
                 "command",
                 "send",
                 "--content-type", "application/json",
                 "--enclosed-message-type", "MessageContracts.Commands.CreateOrder",
                 "--destination-endpoint", testEndpoint.EndpointName,
                 "--message-body", json,
-                "--config", configFile.FilePath);
+                "--config", configFile.FilePath]);
 
             // Assert
             Assert.That(result.ExitCode, Is.EqualTo(0));
@@ -93,13 +93,13 @@ public class SendCommandAmazonSqsEndToEndAmazonSqsTests : AmazonSqsEndToEndTestB
             using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
             // Act
-            var result = _sut.Run(
+            var result = await _sut.RunAsync([
                 "event",
                 "publish",
                 "--content-type", "application/json",
                 "--enclosed-message-type", "MessageContracts.Events.OrderCreated",
                 "--message-body", json,
-                "--config", configFile.FilePath);
+                "--config", configFile.FilePath]);
 
             // Assert
             Assert.That(result.ExitCode, Is.EqualTo(0));

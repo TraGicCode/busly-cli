@@ -23,21 +23,21 @@ public class ListTransportTests
     }
 
     [Test]
-    public void ShouldOutputAnEmptyGridWhenConfigFileIsEmptyYaml()
+    public async Task ShouldOutputAnEmptyGridWhenConfigFileIsEmptyYaml()
     {
         // Arrange
         var yamlFile = """
                        ---
                        """;
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
-        var result = _sut.Run("transport", "list", "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "list", "--config", configFile.FilePath]);
 
         Assert.That(result.ExitCode, Is.EqualTo(0));
         Assert.That(result.Output, Is.EqualTo("CURRENT  NAME  TRANSPORT-TYPE"));
     }
 
     [Test]
-    public void ShouldOutputAnEmptyGridWhenTransportArrayIsEmpty()
+    public async Task ShouldOutputAnEmptyGridWhenTransportArrayIsEmpty()
     {
         // Arrange
         var yamlFile = """
@@ -45,13 +45,13 @@ public class ListTransportTests
                        transports:
                        """;
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
-        var result = _sut.Run("transport", "list", "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "list", "--config", configFile.FilePath]);
 
         Assert.That(result.ExitCode, Is.EqualTo(0));
         Assert.That(result.Output, Is.EqualTo("CURRENT  NAME  TRANSPORT-TYPE"));
     }
     [Test]
-    public void ShouldOutputASingleTransport()
+    public async Task ShouldOutputASingleTransport()
     {
         // Arrange
         var yamlFile = """
@@ -65,7 +65,7 @@ public class ListTransportTests
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "list", "--config", configFile.FilePath);
+        var result = await _sut.RunAsync(["transport", "list", "--config", configFile.FilePath]);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
