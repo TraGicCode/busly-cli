@@ -1,9 +1,18 @@
 <div align="center">
 <img src="website/static/img/busly-logo.png" alt="Description" width="35%" />
 
+# Busly CLI
+
+
+[![GitHub Release](https://img.shields.io/github/v/release/tragiccode/busly-cli?logo=github)](https://github.com/tragiccode/busly-cli/releases)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/dotnet-busly.svg?logo=nuget)](https://www.nuget.org/packages/dotnet-busly)
+[![Docker Downloads](https://img.shields.io/docker/pulls/tragiccode/busly-cli.svg?logo=docker)](https://hub.docker.com/r/tragiccode/busly-cli/)
+[![Chocolatey Downloads](https://img.shields.io/chocolatey/dt/busly-cli.svg?logo=chocolatey)](https://community.chocolatey.org/packages/busly-cli)
+![License](https://img.shields.io/github/license/tragiccode/busly-cli)
+
 </div>
 
-# Overview
+## Overview
 
 **Busly CLI** is a lightweight, open source command-line tool that **allows developers to send messages to an NServiceBus endpoint at the power of their fingertips** — No boilerplate, no fuss, just messaging at your fingertips.
 
