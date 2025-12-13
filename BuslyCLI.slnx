@@ -1,0 +1,4 @@
+﻿<Solution>
+  <Project Path="src/BuslyCLI.Console/BuslyCLI.Console.csproj" />
+  <Project Path="tests/BuslyCLI.Console.Tests/BuslyCLI.Console.Tests.csproj" />
+</Solution>

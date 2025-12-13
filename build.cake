@@ -6,7 +6,7 @@ var srcDirectory = "./src";
 var consoleCsproj = $"{srcDirectory}/BuslyCLI.Console/BuslyCLI.Console.csproj";
 var testsDirectory = "./tests";
 var artifactsDirectory = "./artifacts";
-var solution = $"./BuslyCLI.sln";
+var solution = $"./BuslyCLI.slnx";
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
