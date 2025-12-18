@@ -5,7 +5,7 @@ Send a one-way command to an endpoint.
 ## Usage
 
 ```
-busly send command
+busly command send
 ```
 
 ## Options

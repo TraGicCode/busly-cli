@@ -2,6 +2,7 @@ using System.Reflection;
 using BuslyCLI.Commands.Command;
 using BuslyCLI.Commands.Demo;
 using BuslyCLI.Commands.Event;
+using BuslyCLI.Commands.Timeout;
 using BuslyCLI.Commands.Transport;
 using Spectre.Console;
 using Spectre.Console.Cli;
@@ -47,6 +48,13 @@ public static class AppConfiguration
                 @event.AddCommand<PublishCommand>("publish")
                     .WithAlias("p")
                     .WithDescription("Publish an event to subscribing endpoints.");
+            });
+            config.AddBranch("timeout", timeout =>
+            {
+                timeout.SetDescription("Operations related to NServiceBus timeouts.");
+                timeout.AddCommand<SendTimeout>("send")
+                    .WithAlias("s")
+                    .WithDescription("Send a timeout message to an endpoint.");
             });
             config.AddBranch("demo", demo =>
             {

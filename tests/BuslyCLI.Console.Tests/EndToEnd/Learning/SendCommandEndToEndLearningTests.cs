@@ -69,7 +69,7 @@ public class SendCommandEndToEndLearningTests
     }
 
     [Test]
-    public async Task ShouldPublishEvent()
+    public async Task ShouldSendTimeout()
     {
         await RunWithTestEndpoint(async testEndpoint =>
         {
@@ -90,22 +90,26 @@ public class SendCommandEndToEndLearningTests
 
             // Act
             var result = _sut.Run(
-                "event",
-                "publish",
+                "timeout",
+                "send",
                 "--content-type", "application/json",
-                "--enclosed-message-type", "MessageContracts.Events.OrderCreated",
+                "--enclosed-message-type", "MessageContracts.Commands.CreateOrder",
+                "--destination-endpoint", testEndpoint.EndpointName,
                 "--message-body", json,
+                "--delay-delivery-with", "00:00:03",
                 "--config", configFile.FilePath);
 
             // Assert
             Assert.That(result.ExitCode, Is.EqualTo(0));
             var message = testEndpoint.TryReceiveMessage();
             Assert.That(message.Headers["NServiceBus.EnclosedMessageTypes"],
-                Is.EqualTo("MessageContracts.Events.OrderCreated"));
+                Is.EqualTo("MessageContracts.Commands.CreateOrder"));
             Assert.That(message.Headers["NServiceBus.ContentType"], Is.EqualTo("application/json"));
             Assert.That(Encoding.UTF8.GetString(message.Body.Span), Is.EqualTo(json));
         });
     }
+
+
 
     private async Task RunWithTestEndpoint(Func<RawEndpoint, Task> testAction)
     {

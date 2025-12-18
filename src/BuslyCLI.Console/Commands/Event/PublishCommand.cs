@@ -42,8 +42,7 @@ public class PublishCommand(IRawEndpointFactory rawEndpointFactory, INServiceBus
 
         await rawEndpoint.Dispatch(
             new TransportOperations(transportOperation),
-            new TransportTransaction()
-        );
+            new TransportTransaction(), cancellationToken);
 
         await rawEndpoint.ShutDownAndCleanUp();
 

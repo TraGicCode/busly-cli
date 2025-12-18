@@ -1,15 +1,16 @@
 ﻿using System.Text;
 using BuslyCLI.Config;
 using BuslyCLI.Factories;
+using NServiceBus.DelayedDelivery;
 using NServiceBus.Routing;
 using NServiceBus.Transport;
 using Spectre.Console.Cli;
 
-namespace BuslyCLI.Commands.Command;
+namespace BuslyCLI.Commands.Timeout;
 
-public class SendCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<SendCommandSettings>
+public class SendTimeout(IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<SendTimeoutCommandSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, SendCommandSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, SendTimeoutCommandSettings settings, CancellationToken cancellationToken)
     {
         var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
         var rawEndpoint = await rawEndpointFactory.CreateRawSendOnlyEndpoint(Constants.DefaultOriginatingEndpoint, config.CurrentTransportConfig);
@@ -30,14 +31,27 @@ public class SendCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusCon
             Encoding.ASCII.GetBytes(settings.MessageBody)
         );
 
+        var dispatchProperties = new DispatchProperties();
+
+        if (settings.DoNotDeliverBefore is not null)
+        {
+            dispatchProperties.DoNotDeliverBefore = new DoNotDeliverBefore(settings.DoNotDeliverBefore.Value);
+        }
+        else if (settings.DelayDeliveryWith is not null)
+        {
+            dispatchProperties.DelayDeliveryWith = new DelayDeliveryWith(settings.DelayDeliveryWith.Value);
+        }
+
         var transportOperation = new TransportOperation(
             message,
-            new UnicastAddressTag(settings.DestinationEndpoint)
+            new UnicastAddressTag(settings.DestinationEndpoint),
+            dispatchProperties
         );
 
         await rawEndpoint.Dispatch(
             new TransportOperations(transportOperation),
-            new TransportTransaction(), cancellationToken);
+            new TransportTransaction(),
+            cancellationToken);
 
         await rawEndpoint.ShutDownAndCleanUp();
 

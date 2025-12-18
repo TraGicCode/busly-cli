@@ -117,6 +117,52 @@ public class SendCommandAzureServiceBusEndToEndTests : AzureServiceBusEndToEndTe
         });
     }
 
+    [Test]
+    public async Task ShouldSendTimeout()
+    {
+        await RunWithTestEndpoint(async testEndpoint =>
+        {
+            // Arrange
+            await testEndpoint.StartEndpoint();
+            // This wont work.  Emulator doesn't allow subscription creation.  It's all pre-setup with emulator config
+            // await testEndpoint.Subscribe("MessageContracts.Events.OrderCreated");
+            var messageBody = new { OrderNumber = Guid.NewGuid() };
+
+            var json = JsonSerializer.Serialize(messageBody, _jsonObjectOptions);
+            var eventType = GeneratedTestEndpointNamesAndSubscribedEvent
+                .Single(x => x.Item1 == testEndpoint.EndpointName).Item2;
+
+            var yamlFile = $"""
+                            ---
+                            current-transport: local-azure-service-bus
+                            transports:
+                              - name: local-azure-service-bus
+                                azure-service-bus-transport-config:
+                                  connection-string: {Container.GetConnectionString()}
+                            """;
+            using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
+
+            // Act
+            var result = _sut.Run(
+                "timeout",
+                "send",
+                "--content-type", "application/json",
+                "--enclosed-message-type", "MessageContracts.Commands.CreateOrder",
+                "--destination-endpoint", testEndpoint.EndpointName,
+                "--message-body", json,
+                "--delay-delivery-with", "00:00:03",
+                "--config", configFile.FilePath);
+
+            // Assert
+            Assert.That(result.ExitCode, Is.EqualTo(0));
+            var message = testEndpoint.TryReceiveMessage();
+            Assert.That(message.Headers["NServiceBus.EnclosedMessageTypes"],
+                Is.EqualTo("MessageContracts.Commands.CreateOrder"));
+            Assert.That(message.Headers["NServiceBus.ContentType"], Is.EqualTo("application/json"));
+            Assert.That(Encoding.UTF8.GetString(message.Body.Span), Is.EqualTo(json));
+        });
+    }
+
     private async Task RunWithTestEndpoint(Func<RawEndpoint, Task> testAction)
     {
         var random = new Random();

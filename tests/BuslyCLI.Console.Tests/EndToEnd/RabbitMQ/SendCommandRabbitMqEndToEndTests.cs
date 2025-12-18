@@ -111,6 +111,49 @@ public class SendCommandRabbitMqEndToEndTests : RabbitMqEndToEndTestBase
         });
     }
 
+    [Test]
+    public async Task ShouldSendTimeout()
+    {
+        await RunWithTestEndpoint(async testEndpoint =>
+        {
+            // Arrange
+            await testEndpoint.StartEndpoint();
+            var messageBody = new { OrderNumber = Guid.NewGuid() };
+            var json = JsonSerializer.Serialize(messageBody, _jsonObjectOptions);
+            var yamlFile = $"""
+                            ---
+                            current-transport: local-rabbitmq
+                            transports:
+                              - name: local-rabbitmq
+                                rabbitmq-transport-config:
+                                  amqp-connection-string: {Container.GetConnectionString()}
+                                  management-api:
+                                    url: http://{Container.Hostname}:{Container.GetMappedPublicPort(15672)}
+                            """;
+            using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
+
+            // Act
+            var result = _sut.Run(
+                "timeout",
+                "send",
+                "--content-type", "application/json",
+                "--enclosed-message-type", "MessageContracts.Commands.CreateOrder",
+                "--destination-endpoint", testEndpoint.EndpointName,
+                "--message-body", json,
+                "--delay-delivery-with", "00:00:03",
+                "--config", configFile.FilePath);
+
+            // Assert
+            Assert.That(result.ExitCode, Is.EqualTo(0));
+            var message = testEndpoint.TryReceiveMessage();
+            Assert.That(message.Headers["NServiceBus.EnclosedMessageTypes"],
+                Is.EqualTo("MessageContracts.Commands.CreateOrder"));
+            Assert.That(message.Headers["NServiceBus.ContentType"], Is.EqualTo("application/json"));
+            Assert.That(Encoding.UTF8.GetString(message.Body.Span), Is.EqualTo(json));
+        });
+    }
+
+
     // Test Endpoint
     // Example of how to wait for and get messages
     // https://github.com/Particular/NServiceBus.RabbitMQ/blob/dba627a5a2c50519d7a2466efe3f76c8d5c8828d/src/NServiceBus.Transport.RabbitMQ.Tests/RabbitMqContext.cs#L41
