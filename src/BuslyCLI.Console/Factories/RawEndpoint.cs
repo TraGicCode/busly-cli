@@ -66,7 +66,7 @@ public class RawEndpoint(TransportInfrastructure infrastructure, string endpoint
     public Task OnMessage(MessageContext messageContext, CancellationToken cancellationToken)
     {
         _receivedMessages.Add(
-            new IncomingMessage(messageContext.NativeMessageId, messageContext.Headers, messageContext.Body),
+            new IncomingMessage(messageContext.NativeMessageId, messageContext.Headers, messageContext.Body.ToArray()),
             cancellationToken);
         return Task.CompletedTask;
     }

@@ -45,8 +45,7 @@ public class PublishCommand(IRawEndpointFactory rawEndpointFactory, INServiceBus
             new TransportTransaction()
         );
 
-        // TODO: Figure out why this causes connection closed errors with rabbitmq
-        // await rawEndpoint.ShutDownAndCleanUp();
+        await rawEndpoint.ShutDownAndCleanUp();
 
         return 0;
     }
