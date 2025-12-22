@@ -1,0 +1,35 @@
+﻿name: Publish WinGet Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Extract version (without v)
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            # Extract version from release tag (remove any 'v' prefix)
+            VERSION="${{ github.event.release.tag_name }}"
+            VERSION=${VERSION#v}  # Remove 'v' prefix if present
+          else
+            VERSION="${{ github.event.inputs.version }}"
+            VERSION=${VERSION#v}  # Remove 'v' prefix if present
+          fi
+
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Syncing version: $VERSION"
+
+      - name: Update Winget package
+        uses: vedantmgoyal9/winget-releaser@main
+        with:
+          identifier: TragicCode.BuslyCLI
+          installers-regex: 'busly-cli-${{ github.event.release.tag_name }}-win-(x64)\.zip$'
+          token: ${{ secrets.GH_TOKEN_FOR_WINGET_PUBLISH }}
