@@ -1,0 +1,28 @@
+﻿name: Publish Homebrew Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "The version number for the next release (e.g. 1.0.2)"
+        required: true
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - uses: mislav/bump-homebrew-formula-action@v3
+        name: Bump Homebrew formula
+        with:
+          formula-name: busly-cli
+          homebrew-tap: tragiccode/homebrew-tap-busly-cli
+          tag-name: ${{ github.event.release.tag_name }}
+          download-url: https://github.com/TraGicCode/busly-cli/releases/download/v${{ github.event.inputs.version }}/busly-cli-v${{ github.event.inputs.version }}-osx-arm64.tar.gz
+        env:
+          COMMITTER_TOKEN: ${{ secrets.GH_TOKEN_FOR_HOMEBREW_PUBLISH }}
