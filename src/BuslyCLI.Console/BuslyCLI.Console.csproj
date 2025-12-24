@@ -16,6 +16,7 @@
     <RepositoryType>git</RepositoryType>
     <InformationalVersion>0.1.0</InformationalVersion>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <AssemblyName>busly</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

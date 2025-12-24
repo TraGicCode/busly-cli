@@ -33,4 +33,4 @@ COPY --from=build /app/publish .
 RUN chown -R $APP_UID:$APP_UID /app
 USER $APP_UID
 
-ENTRYPOINT ["./BuslyCLI.Console"]
+ENTRYPOINT ["./busly"]
