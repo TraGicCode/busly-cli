@@ -27,7 +27,7 @@
     <PackageReference Include="Testcontainers.Azurite" Version="4.9.0" />
     <PackageReference Include="Testcontainers.LocalStack" Version="4.9.0" />
     <PackageReference Include="Testcontainers.MsSql" Version="4.9.0" />
-    <PackageReference Include="Testcontainers.PostgreSql" Version="4.9.0" />
+    <PackageReference Include="Testcontainers.PostgreSql" Version="4.10.0" />
     <PackageReference Include="Testcontainers.RabbitMq" Version="4.9.0" />
     <PackageReference Include="Testcontainers.ServiceBus" Version="4.9.0" />
     <PackageReference Include="YamlDotNet" Version="16.3.0" />
