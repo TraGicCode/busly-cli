@@ -39,7 +39,7 @@
     <PackageReference Include="NServiceBus.Transport.SqlServer" Version="8.1.11" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.53.1" />
     <PackageReference Include="Spectre.Console.Cli.Extensions.DependencyInjection" Version="0.21.0" />
-    <PackageReference Include="Testcontainers.Azurite" Version="4.9.0" />
+    <PackageReference Include="Testcontainers.Azurite" Version="4.10.0" />
     <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
 
