@@ -9,7 +9,7 @@ public abstract class PostgreSqlEndToEndTestBase : SingletonTestFixtureBase<Post
 
     protected override PostgreSqlContainer CreateContainer()
     {
-        return new PostgreSqlBuilder()
+        return new PostgreSqlBuilder("postgres:latest")
             .Build();
     }
 

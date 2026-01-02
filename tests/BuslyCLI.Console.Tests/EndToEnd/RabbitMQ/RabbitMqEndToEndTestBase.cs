@@ -9,8 +9,7 @@ public abstract class RabbitMqEndToEndTestBase : SingletonTestFixtureBase<Rabbit
 
     protected override RabbitMqContainer CreateContainer()
     {
-        return new RabbitMqBuilder()
-            .WithImage("rabbitmq:3-management")
+        return new RabbitMqBuilder("rabbitmq:3-management")
             .WithPortBinding(15672, true) // Bind host port 15673 to container port 15672 (Management UI)
             .Build();
     }

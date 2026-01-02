@@ -15,8 +15,7 @@ public class AzureServiceBusEndToEndTestBase : EndToEnd.SingletonTestFixtureBase
         var azureEmulatorConfigFile = CreateAzureEmulatorConfigFile();
         var emulatorConfigFilePath = Path.GetTempFileName();
         File.WriteAllText(emulatorConfigFilePath, azureEmulatorConfigFile);
-        return new ServiceBusBuilder()
-            .WithImage("mcr.microsoft.com/azure-messaging/servicebus-emulator:latest")
+        return new ServiceBusBuilder("mcr.microsoft.com/azure-messaging/servicebus-emulator:latest")
             .WithAcceptLicenseAgreement(true)
             // .WithConfig("./EndToEnd/AzureServiceBus/azure-emulator-config.json")
             .WithConfig(emulatorConfigFilePath)

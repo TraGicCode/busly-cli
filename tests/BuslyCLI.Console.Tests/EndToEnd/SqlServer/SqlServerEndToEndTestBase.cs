@@ -9,7 +9,7 @@ public abstract class SqlServerEndToEndTestBase : SingletonTestFixtureBase<MsSql
 
     protected override MsSqlContainer CreateContainer()
     {
-        return new MsSqlBuilder()
+        return new MsSqlBuilder("mcr.microsoft.com/mssql/server:2025-latest")
             .Build();
     }
 

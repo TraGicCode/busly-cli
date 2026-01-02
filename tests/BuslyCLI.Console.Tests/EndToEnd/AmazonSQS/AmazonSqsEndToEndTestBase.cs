@@ -9,8 +9,7 @@ public abstract class AmazonSqsEndToEndTestBase : SingletonTestFixtureBase<Local
 
     protected override LocalStackContainer CreateContainer()
     {
-        return new LocalStackBuilder()
-            .WithImage("localstack/localstack:4")
+        return new LocalStackBuilder("localstack/localstack:4")
             .WithEnvironment("SERVICES", "sqs,sns")
             .Build();
     }

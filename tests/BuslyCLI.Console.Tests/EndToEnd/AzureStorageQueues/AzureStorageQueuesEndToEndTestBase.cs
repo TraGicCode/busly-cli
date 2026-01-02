@@ -9,7 +9,7 @@ public abstract class AzureStorageQueuesEndToEndTestBase : SingletonTestFixtureB
 
     protected override AzuriteContainer CreateContainer()
     {
-        return new AzuriteBuilder()
+        return new AzuriteBuilder("mcr.microsoft.com/azure-storage/azurite")
             .WithCommand("--skipApiVersionCheck")
             .Build();
     }
