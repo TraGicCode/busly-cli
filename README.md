@@ -3,6 +3,7 @@
 
 # Busly CLI
 
+
 [![GitHub Release](https://img.shields.io/github/v/release/tragiccode/busly-cli?logo=github)](https://github.com/tragiccode/busly-cli/releases)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/dotnet-busly.svg?logo=nuget)](https://www.nuget.org/packages/dotnet-busly)
 [![Docker Downloads](https://img.shields.io/docker/pulls/tragiccode/busly-cli.svg?logo=docker)](https://hub.docker.com/r/tragiccode/busly-cli/)
@@ -24,7 +25,7 @@ Built for speed and simplicity, this tool streamlines common **messaging**, **te
 - 🌐 **Supported transports** – Works with **Azure Service Bus**, **RabbitMQ**, and **AWS SQS**.
 - ⚙️ **Transport configuration file** – Configure and easily switch between multiple transports. Transports can run on your **local machine** or be pointed to **development**, **staging**, or **production** environments.
 - 💻 **Cross-platform support** – Works seamlessly on Windows, macOS, and Linux.
-- 📦 **Multiple installation options** – Install via **Chocolatey**, **Docker**, **.NET tool (via NuGet)**, or by **downloading the binary directly from GitHub Releases**.
+- 📦 **Multiple installation options** – Install via **Chocolatey**, **WinGet**, **Docker**, **.NET tool (via NuGet)**, or by **downloading the binary directly from GitHub Releases**.
 
 ## Docs
 
