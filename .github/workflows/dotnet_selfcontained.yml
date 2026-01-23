@@ -15,6 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v5
+        with:
+          # Use the .NET SDK from global.json in the root of the repository.
+          global-json-file: global.json
+
       - name: Extract version (without v)
         id: version
         run: |
