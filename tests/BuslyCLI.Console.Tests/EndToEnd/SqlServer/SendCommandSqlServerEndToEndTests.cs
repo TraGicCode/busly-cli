@@ -8,6 +8,7 @@ using BuslyCLI.Spectre;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Testing;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.SqlServer;
 

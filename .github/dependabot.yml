@@ -16,10 +16,6 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-    groups:
-      nservicebus:
-        patterns:
-          - "NServiceBus*"
   - package-ecosystem: "npm"
     directory: "/website"
     schedule:
