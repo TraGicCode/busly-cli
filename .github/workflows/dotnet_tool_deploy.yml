@@ -34,7 +34,9 @@ jobs:
           echo "Syncing version: $VERSION"
 
       - name: Build and Pack as .NET tool
-        run: dotnet cake --target Pack-DotNetTool --package-version ${{ steps.version.outputs.version }}
+        run: |
+          dotnet tool restore
+          dotnet cake --target Pack-DotNetTool --package-version ${{ steps.version.outputs.version }}
 
       - name: Publish to NuGet
         run: dotnet nuget push ./artifacts/nupkgs/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
