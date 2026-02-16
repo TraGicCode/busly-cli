@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.40.0](https://github.com/TraGicCode/busly-cli/tree/v0.40.0) - 2026-02-16
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.39.0...v0.40.0)
+
+### Added
+
+- Upgrade NServiceBus [#210](https://github.com/TraGicCode/busly-cli/pull/210) ([TraGicCode](https://github.com/TraGicCode))
+
+### Other
+
+- Fix latest .net sdk version missing issue [#192](https://github.com/TraGicCode/busly-cli/pull/192) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.39.0](https://github.com/TraGicCode/busly-cli/tree/v0.39.0) - 2026-01-20
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.38.0...v0.39.0)
