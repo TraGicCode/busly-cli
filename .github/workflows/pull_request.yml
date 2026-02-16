@@ -4,17 +4,22 @@ on:
   pull_request:
   schedule:
     # Runs every night at 2 AM UTC. This is to detect flakey builds
-    - cron: '0 2 * * *'
+    - cron: "0 2 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v6
+      - name: Checkout
+        uses: actions/checkout@v6
 
-    - name: Run Build in Dev Container
-      uses: devcontainers/ci@v0.3
-      with:
-        runCmd: |
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v5
+        with:
+          # Use the .NET SDK from global.json in the root of the repository.
+          global-json-file: global.json
+
+      - name: Build
+        run: |
+          dotnet tool restore
           dotnet cake
