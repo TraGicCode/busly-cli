@@ -1,4 +1,4 @@
-﻿using BuslyCLI.Config;
+﻿using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Factories;
 

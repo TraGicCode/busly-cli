@@ -5,6 +5,7 @@ using Amazon.SimpleNotificationService;
 using Amazon.SQS;
 using BuslyCLI.Config;
 using NServiceBus.Transport;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Factories;
 
