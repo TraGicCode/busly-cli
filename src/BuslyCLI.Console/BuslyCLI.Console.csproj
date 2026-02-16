@@ -28,8 +28,8 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.3" />
     <PackageReference Include="NServiceBus" Version="9.2.8" />
     <PackageReference Include="NServiceBus.AmazonSQS" Version="8.1.0" />
     <PackageReference Include="NServiceBus.RabbitMQ" Version="10.1.7" />
@@ -38,7 +38,7 @@
     <PackageReference Include="NServiceBus.Transport.PostgreSql" Version="8.1.11" />
     <PackageReference Include="NServiceBus.Transport.SqlServer" Version="8.1.11" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.53.1" />
-    <PackageReference Include="Spectre.Console.Cli.Extensions.DependencyInjection" Version="0.22.0" />
+    <PackageReference Include="Spectre.Console.Cli.Extensions.DependencyInjection" Version="0.23.0" />
     <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
 
