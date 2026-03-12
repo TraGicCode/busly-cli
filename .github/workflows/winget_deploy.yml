@@ -28,8 +28,9 @@ jobs:
           echo "Syncing version: $VERSION"
 
       - name: Update Winget package
-        uses: vedantmgoyal9/winget-releaser@main
+        uses: michidk/winget-updater@v1
         with:
-          identifier: TragicCode.BuslyCLI
-          installers-regex: 'busly-cli-${{ github.event.release.tag_name }}-win-(x64)\.zip$'
-          token: ${{ secrets.GH_TOKEN_FOR_WINGET_PUBLISH }}
+          komac-token: ${{ secrets.GH_TOKEN_FOR_WINGET_PUBLISH }}
+          identifier: "TragicCode.BuslyCLI"
+          repo: "TraGicCode/busly-cli"
+          url: "https://github.com/TraGicCode/busly-cli/releases/download/v${{ github.event.release.tag_name }}/busly-cli-v${{ github.event.release.tag_name }}-win-x64.zip"
