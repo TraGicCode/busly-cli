@@ -29,7 +29,7 @@
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.4" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.5" />
     <PackageReference Include="NServiceBus" Version="10.1.0" />
     <PackageReference Include="NServiceBus.AmazonSQS" Version="9.0.0" />
     <PackageReference Include="NServiceBus.RabbitMQ" Version="11.0.0" />
