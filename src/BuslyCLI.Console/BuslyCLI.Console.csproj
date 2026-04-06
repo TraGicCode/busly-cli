@@ -37,7 +37,7 @@
     <PackageReference Include="NServiceBus.Transport.AzureStorageQueues" Version="14.0.0" />
     <PackageReference Include="NServiceBus.Transport.PostgreSql" Version="9.0.0" />
     <PackageReference Include="NServiceBus.Transport.SqlServer" Version="9.0.0" />
-    <PackageReference Include="Spectre.Console.Cli" Version="0.53.1" />
+    <PackageReference Include="Spectre.Console.Cli" Version="0.55.0" />
     <PackageReference Include="Spectre.Console.Cli.Extensions.DependencyInjection" Version="0.23.0" />
     <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
