@@ -10,7 +10,7 @@ namespace BuslyCLI.Commands.Demo;
 public class StartDemoCommand(IAnsiConsole console, IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration)
     : AsyncCommand<CurrentTransportSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, CurrentTransportSettings settings, CancellationToken cancellationToken)
+    protected override async Task<int> ExecuteAsync(CommandContext context, CurrentTransportSettings settings, CancellationToken cancellationToken)
     {
         console.WriteLine($"Starting demo endpoint named {Constants.DemoDefaultOriginatingEndpoint} for quick start guide...");
         var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
