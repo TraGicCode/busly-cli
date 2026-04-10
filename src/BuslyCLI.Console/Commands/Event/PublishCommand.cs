@@ -11,7 +11,7 @@ namespace BuslyCLI.Commands.Event;
 
 public class PublishCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<PublishCommandSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, PublishCommandSettings settings, CancellationToken cancellationToken)
+    protected override async Task<int> ExecuteAsync(CommandContext context, PublishCommandSettings settings, CancellationToken cancellationToken)
     {
         var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
         var rawEndpoint = await rawEndpointFactory.CreateRawSendOnlyEndpoint(Constants.DefaultOriginatingEndpoint, config.CurrentTransportConfig);

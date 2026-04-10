@@ -7,7 +7,7 @@ namespace BuslyCLI.Commands.Transport;
 public class DeleteTransportCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration)
     : AsyncCommand<DeleteTransportSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, DeleteTransportSettings settings, CancellationToken cancellationToken)
+    protected override async Task<int> ExecuteAsync(CommandContext context, DeleteTransportSettings settings, CancellationToken cancellationToken)
     {
         var nsbConfiguration = await nservicebusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
         var targetTransport = settings.TransportName.ToLower();

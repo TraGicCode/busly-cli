@@ -9,7 +9,7 @@ namespace BuslyCLI.Commands.Command;
 
 public class SendCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<SendCommandSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, SendCommandSettings settings, CancellationToken cancellationToken)
+    protected override async Task<int> ExecuteAsync(CommandContext context, SendCommandSettings settings, CancellationToken cancellationToken)
     {
         var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
         var rawEndpoint = await rawEndpointFactory.CreateRawSendOnlyEndpoint(Constants.DefaultOriginatingEndpoint, config.CurrentTransportConfig);
