@@ -7,7 +7,7 @@ tags: []
 
 Working with **NServiceBus** shouldn’t require spinning up a whole host application just to send a message. That’s why I built **Busly CLI** — a lightweight, cross-platform command-line tool that lets you **send commands and events instantly**. No boilerplate, no fuss, just messaging at your fingertips.
 
-<!-- truncate -->
+{*/ truncate */}
 
 ## Why You’ll Love Busly CLI
 
