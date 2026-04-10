@@ -69,25 +69,17 @@ public class SendCommandAzureServiceBusEndToEndTests : AzureServiceBusEndToEndTe
     }
 
     [Test]
-    // TODO: Remove endpoint.Subscribe("<<EVENT>>") calls
-    // TODO: in `HostSettings` pass `false` for the setupInfrastructure parameter
-    // TODO: [Option 1 - NOT EASY] Find a way so that i can "pre-determine" the number of test methods
-    //       to pregenerate a list of queues, subscriptions, and topics
-    // TODO: [Option 2 - precreate a list of events and random endpoint names. pull the names from the list during execution so it can't be used by another test]
-    // TODO: [Option 3 - create and destroy a container per test.  This would be slow and possibly a resource hog if done in paralle]
     public async Task ShouldPublishEvent()
     {
         await RunWithTestEndpoint(async testEndpoint =>
         {
             // Arrange
             await testEndpoint.StartEndpoint();
-            // This wont work.  Emulator doesn't allow subscription creation.  It's all pre-setup with emulator config
-            // await testEndpoint.Subscribe("MessageContracts.Events.OrderCreated");
+            var eventType = $"MessageContracts.Events.OrderCreated-{Guid.NewGuid():N}";
+            await testEndpoint.Subscribe(eventType);
             var messageBody = new { OrderNumber = Guid.NewGuid() };
 
             var json = JsonSerializer.Serialize(messageBody, _jsonObjectOptions);
-            var eventType = GeneratedTestEndpointNamesAndSubscribedEvent
-                .Single(x => x.Item1 == testEndpoint.EndpointName).Item2;
 
             var yamlFile = $"""
                             ---
@@ -120,15 +112,14 @@ public class SendCommandAzureServiceBusEndToEndTests : AzureServiceBusEndToEndTe
 
     private async Task RunWithTestEndpoint(Func<RawEndpoint, Task> testAction)
     {
-        var random = new Random();
-        var testEndpointName = GeneratedTestEndpointNamesAndSubscribedEvent[random.Next(GeneratedTestEndpointNamesAndSubscribedEvent.Count)];
-        var testEndpoint = await new RawEndpointFactory().CreateRawEndpoint(testEndpointName.Item1, new TransportConfig()
+        var testEndpointName = $"TestEndpoint-{Guid.NewGuid():N}";
+        var testEndpoint = await new RawEndpointFactory().CreateRawEndpoint(testEndpointName, new TransportConfig()
         {
             AzureServiceBusTransportConfig = new AzureServiceBusTransportConfig()
             {
-                ConnectionString = Container.GetConnectionString()
+                ConnectionString = GetNServiceBusConnectionString()
             }
-        }, false);
+        }, true);
 
         await testAction(testEndpoint);
         await testEndpoint.ShutDownAndCleanUp();
