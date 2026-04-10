@@ -20,7 +20,7 @@ namespace BuslyCLI.Commands.Transport;
 public class ListTransportsCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration)
     : AsyncCommand<ListTransportsSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, ListTransportsSettings settings, CancellationToken cancellationToken)
+    protected override async Task<int> ExecuteAsync(CommandContext context, ListTransportsSettings settings, CancellationToken cancellationToken)
     {
         var grid = new Grid();
 
