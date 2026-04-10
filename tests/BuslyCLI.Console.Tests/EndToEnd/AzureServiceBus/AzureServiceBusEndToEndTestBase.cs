@@ -2,138 +2,27 @@
 
 namespace BuslyCLI.Console.Tests.EndToEnd.AzureServiceBus;
 
-public class AzureServiceBusEndToEndTestBase : EndToEnd.SingletonTestFixtureBase<ServiceBusContainer>
+public class AzureServiceBusEndToEndTestBase : SingletonTestFixtureBase<ServiceBusContainer>
 {
     protected ServiceBusContainer ServiceBusContainer => Container;
 
-    protected IList<Tuple<string, string>> GeneratedTestEndpointNamesAndSubscribedEvent =
-        new List<Tuple<string, string>>();
-
+    // GetConnectionString() uses UriBuilder which appends a trailing slash to the endpoint
+    // (e.g. "sb://localhost:12345/"). NServiceBus's InjectEmulatorAdminPort does a string replace
+    // looking for "Endpoint=sb://localhost:12345;" (no trailing slash), so it never matches and
+    // the admin client ends up using the AMQP port instead of port 5300.
+    // This method builds the connection string without the trailing slash so port injection works correctly.
+    protected string GetNServiceBusConnectionString()
+    {
+        var amqpPort = Container.GetMappedPublicPort(ServiceBusBuilder.ServiceBusPort);
+        return $"Endpoint=sb://{Container.Hostname}:{amqpPort};SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;";
+    }
 
     protected override ServiceBusContainer CreateContainer()
     {
-        var azureEmulatorConfigFile = CreateAzureEmulatorConfigFile();
-        var emulatorConfigFilePath = Path.GetTempFileName();
-        File.WriteAllText(emulatorConfigFilePath, azureEmulatorConfigFile);
         return new ServiceBusBuilder("mcr.microsoft.com/azure-messaging/servicebus-emulator:latest")
             .WithAcceptLicenseAgreement(true)
-            // .WithConfig("./EndToEnd/AzureServiceBus/azure-emulator-config.json")
-            .WithConfig(emulatorConfigFilePath)
+            .WithPortBinding(ServiceBusBuilder.ServiceBusHttpPort, ServiceBusBuilder.ServiceBusHttpPort)
             .Build();
-    }
-
-    private string CreateAzureEmulatorConfigFile()
-    {
-        for (var i = 0; i < 20; i++)
-        {
-            GeneratedTestEndpointNamesAndSubscribedEvent.Add(new Tuple<string, string>(
-                $"TestEndpoint-{Guid.NewGuid():N}", $"MessageContracts.Events.OrderCreated-{Guid.NewGuid():N}"));
-        }
-
-        // Build queue entries as JSON strings
-        var queueEntries = GeneratedTestEndpointNamesAndSubscribedEvent.Select(endpoint => $@"{{
-                ""Name"": ""{endpoint.Item1}"",
-                ""Properties"": {{
-                    ""DeadLetteringOnMessageExpiration"": false,
-                    ""DefaultMessageTimeToLive"": ""PT1H"",
-                    ""LockDuration"": ""PT1M"",
-                    ""MaxDeliveryCount"": 10,
-                    ""RequiresDuplicateDetection"": false,
-                    ""RequiresSession"": false
-                }}
-            }}")
-            .ToList();
-
-        // Join all queue entries into the queues array
-        string queuesJson = string.Join(",\n", queueEntries);
-
-        // Create Subscriptions to the event
-        var topicEntries = GeneratedTestEndpointNamesAndSubscribedEvent.Select(endpoint => $@"{{
-                            ""Name"": ""{endpoint.Item2}"",
-                            ""Properties"": {{
-                              ""DefaultMessageTimeToLive"": ""PT1H"",
-                              ""DuplicateDetectionHistoryTimeWindow"": ""PT20S"",
-                              ""RequiresDuplicateDetection"": false
-                            }},
-                            ""Subscriptions"": [
-                                {{
-                                ""Name"": ""{endpoint.Item1}"",
-                                ""Properties"": {{
-                                  ""DeadLetteringOnMessageExpiration"": false,
-                                  ""DefaultMessageTimeToLive"": ""PT1H"",
-                                  ""LockDuration"": ""PT1M"",
-                                  ""MaxDeliveryCount"": 3,
-                                  ""ForwardDeadLetteredMessagesTo"": """",
-                                  ""ForwardTo"": ""{endpoint.Item1}"",
-                                  ""RequiresSession"": false
-                                }},
-                                ""Rules"": [
-                                  {{
-                                    ""Name"": ""$default"",
-                                    ""Properties"": {{
-                                      ""FilterType"": ""Sql"",
-                                      ""SqlFilter"": {{
-                                        ""SqlExpression"": ""1=1""
-                                      }}
-                                    }}
-                                  }}
-                                ]
-                              }}
-                            ]
-                          }}")
-            .ToList();
-
-        string topicsJson = string.Join(",\n", topicEntries);
-
-        // Final config string
-        string emulatorConfig = $@"{{
-            ""UserConfig"": {{
-                ""Namespaces"": [
-                    {{
-                        ""Name"": ""sbemulatorns"",
-                        ""Queues"": [
-                            {queuesJson}
-                        ],
-                        ""Topics"": [
-                         {topicsJson}
-                        ]
-                    }}
-                ],
-                ""Logging"": {{
-                    ""Type"": ""File""
-                }}
-            }}
-        }}";
-        // string emulatorConfig = $@"{{
-        //     ""UserConfig"": {{
-        //         ""Namespaces"": [
-        //             {{
-        //                 ""Name"": ""sbemulatorns"",
-        //                 ""Queues"": [
-        //                     {queuesJson}
-        //                 ],
-        //                 ""Topics"": [
-        //                   {{
-        //                     ""Name"": ""MessageContracts.Events.OrderCreated"",
-        //                     ""Properties"": {{
-        //                       ""DefaultMessageTimeToLive"": ""PT1H"",
-        //                       ""DuplicateDetectionHistoryTimeWindow"": ""PT20S"",
-        //                       ""RequiresDuplicateDetection"": false
-        //                     }},
-        //                     ""Subscriptions"": [
-        //                         {subscriptionsJson}
-        //                     ]
-        //                   }}
-        //                 ]
-        //             }}
-        //         ],
-        //         ""Logging"": {{
-        //             ""Type"": ""File""
-        //         }}
-        //     }}
-        // }}";
-
-        return emulatorConfig;
     }
 
     protected override async Task StartContainerAsync(ServiceBusContainer container)
