@@ -1,4 +1,4 @@
-﻿namespace BuslyCLI.Config;
+namespace BuslyCLI.Config.Transports;
 
 public class AzureStorageQueuesTransportConfig : ITransportConfig
 {

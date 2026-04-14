@@ -1,11 +1,11 @@
 ﻿using System.Text;
 using BuslyCLI.Config;
-using BuslyCLI.Factories;
+using BuslyCLI.Infrastructure.Factories;
 using NServiceBus.Routing;
 using NServiceBus.Transport;
 using Spectre.Console.Cli;
 
-namespace BuslyCLI.Commands.Command;
+namespace BuslyCLI.Commands.NsbCommand;
 
 public class SendCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<SendCommandSettings>
 {

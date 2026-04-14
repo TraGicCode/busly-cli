@@ -1,12 +1,13 @@
-﻿using BuslyCLI.Config;
+using BuslyCLI.Config;
+using BuslyCLI.Config.Transports;
 using BuslyCLI.Config.Validators;
-using BuslyCLI.Factories;
+using BuslyCLI.Infrastructure.Factories;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace BuslyCLI.DependencyInjection;
+namespace BuslyCLI.Infrastructure;
 
 public static class ServiceCollectionExtensions
 {

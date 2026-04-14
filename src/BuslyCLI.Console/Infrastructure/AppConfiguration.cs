@@ -1,12 +1,12 @@
 using System.Reflection;
-using BuslyCLI.Commands.Command;
 using BuslyCLI.Commands.Demo;
-using BuslyCLI.Commands.Event;
+using BuslyCLI.Commands.NsbCommand;
+using BuslyCLI.Commands.NsbEvent;
 using BuslyCLI.Commands.Transport;
 using Spectre.Console;
 using Spectre.Console.Cli;
 
-namespace BuslyCLI.Spectre;
+namespace BuslyCLI.Infrastructure;
 
 public static class AppConfiguration
 {

@@ -1,4 +1,5 @@
 ﻿using BuslyCLI.Config;
+using BuslyCLI.Config.Transports;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using TransportConfig = BuslyCLI.Config.TransportConfig;

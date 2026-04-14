@@ -1,6 +1,7 @@
-﻿using TransportConfig = BuslyCLI.Config.TransportConfig;
+using BuslyCLI.Infrastructure.Endpoints;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
-namespace BuslyCLI.Factories;
+namespace BuslyCLI.Infrastructure.Factories;
 
 public interface IRawEndpointFactory
 {

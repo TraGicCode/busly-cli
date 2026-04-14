@@ -1,4 +1,4 @@
-using BuslyCLI.Config;
+using BuslyCLI.Config.Transports;
 using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.Learning;
