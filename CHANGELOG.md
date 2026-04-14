@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.55.0](https://github.com/TraGicCode/busly-cli/tree/v0.55.0) - 2026-04-14
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.54.0...v0.55.0)
+
+### Added
+
+- Implement timeout cli command for transports that are supported [#301](https://github.com/TraGicCode/busly-cli/pull/301) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.54.0](https://github.com/TraGicCode/busly-cli/tree/v0.54.0) - 2026-04-14
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.53.0...v0.54.0)
