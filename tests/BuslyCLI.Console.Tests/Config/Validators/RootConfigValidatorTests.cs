@@ -16,7 +16,7 @@ public class RootConfigValidatorTests
     }
 
     [Test]
-    public void ShouldNotErrorWhenCurrentTransportIsDefined()
+    public async Task ShouldNotErrorWhenCurrentTransportIsDefined()
     {
         // Arrange
         var config = new NServiceBusConfig
@@ -25,15 +25,14 @@ public class RootConfigValidatorTests
         };
 
         // Act
-        var result = _validator.TestValidate(config);
+        var result = await _validator.TestValidateAsync(config);
 
         // Assert
         result.ShouldNotHaveValidationErrorFor(x => x.CurrentTransport);
     }
 
-
     [Test]
-    public void ShouldErrorWhenCurrentTransportIsNotDefined()
+    public async Task ShouldErrorWhenCurrentTransportIsNotDefined()
     {
         // Arrange
         var config = new NServiceBusConfig
@@ -42,7 +41,7 @@ public class RootConfigValidatorTests
         };
 
         // Act
-        var result = _validator.TestValidate(config);
+        var result = await _validator.TestValidateAsync(config);
 
         // Assert
         result.ShouldHaveValidationErrorFor(c => c.CurrentTransport)
@@ -50,7 +49,7 @@ public class RootConfigValidatorTests
     }
 
     [Test]
-    public void ShouldErrorWhenCurrentTransportDoesntMatchAnyConfiguredTransports()
+    public async Task ShouldErrorWhenCurrentTransportDoesntMatchAnyConfiguredTransports()
     {
         // Arrange
         var config = new NServiceBusConfig
@@ -64,16 +63,15 @@ public class RootConfigValidatorTests
         };
 
         // Act
-        var result = _validator.TestValidate(config);
+        var result = await _validator.TestValidateAsync(config);
 
         // Assert
         result.ShouldHaveValidationErrorFor(c => c.CurrentTransport)
             .WithErrorMessage("current-transport must match one of the defined transports.");
     }
 
-
     [Test]
-    public void ShouldErrorWhenTransportsArrayIsEmpty()
+    public async Task ShouldErrorWhenTransportsArrayIsEmpty()
     {
         // Arrange
         var config = new NServiceBusConfig
@@ -82,7 +80,7 @@ public class RootConfigValidatorTests
         };
 
         // Act
-        var result = _validator.TestValidate(config);
+        var result = await _validator.TestValidateAsync(config);
 
         // Assert
         result.ShouldHaveValidationErrorFor(c => c.Transports)

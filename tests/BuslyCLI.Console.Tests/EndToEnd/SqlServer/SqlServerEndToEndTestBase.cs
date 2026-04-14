@@ -1,11 +1,18 @@
-﻿using Testcontainers.MsSql;
+﻿using BuslyCLI.Config;
+using Testcontainers.MsSql;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.SqlServer;
 
-[TestFixture]
 public abstract class SqlServerEndToEndTestBase : SingletonTestFixtureBase<MsSqlContainer>
 {
-    protected MsSqlContainer SqlServerContainer => Container;
+    protected override TransportConfig CreateTransportConfig() => new()
+    {
+        SqlServerTransportConfig = new SqlServerTransportConfig
+        {
+            ConnectionString = Container.GetConnectionString()
+        }
+    };
 
     protected override MsSqlContainer CreateContainer()
     {

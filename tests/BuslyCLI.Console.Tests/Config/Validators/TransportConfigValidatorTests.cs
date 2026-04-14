@@ -18,6 +18,7 @@ public class TransportConfigValidatorTests
     [Test]
     public async Task ShouldNotErrorWhenCurrentNameIsDefined()
     {
+        // Arrange
         var config = new TransportConfig()
         {
             Name = "local-learning"

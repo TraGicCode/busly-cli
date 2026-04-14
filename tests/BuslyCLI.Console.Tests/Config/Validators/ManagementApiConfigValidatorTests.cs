@@ -15,22 +15,6 @@ public class ManagementApiConfigValidatorTests
         _validator = new ManagementApiConfigValidator();
     }
 
-    // [Test]
-    // public async Task ShouldErrorWhenAmqpConnectionStringIsNotPassed()
-    // {
-    //     // Arrange
-    //     var rabbitmqTransportConfig = new ManagementApi()
-    //     {
-    //         AmqpConnectionString = null
-    //     };
-    //     // Act
-    //     var result = await _validator.TestValidateAsync(rabbitmqTransportConfig);
-    //
-    //     // Assert
-    //     result.ShouldHaveValidationErrorFor(c => c.AmqpConnectionString)
-    //         .WithErrorMessage("'Amqp Connection String' must not be empty.");
-    // }
-
     [Test]
     public async Task ShouldNotErrorWhenOnlyAUrlStringIsPassed()
     {

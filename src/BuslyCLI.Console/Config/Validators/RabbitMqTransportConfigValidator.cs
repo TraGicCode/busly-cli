@@ -2,9 +2,9 @@
 
 namespace BuslyCLI.Config.Validators;
 
-public class RabbitMQTransportConfigValidator : AbstractValidator<RabbitmqTransportConfig>
+public class RabbitMqTransportConfigValidator : AbstractValidator<RabbitmqTransportConfig>
 {
-    public RabbitMQTransportConfigValidator()
+    public RabbitMqTransportConfigValidator()
     {
         RuleFor(x => x.AmqpConnectionString)
             .NotEmpty();

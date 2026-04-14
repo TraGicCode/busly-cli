@@ -1,11 +1,18 @@
-﻿using Testcontainers.PostgreSql;
+﻿using BuslyCLI.Config;
+using Testcontainers.PostgreSql;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.PostgreSql;
 
-[TestFixture]
 public abstract class PostgreSqlEndToEndTestBase : SingletonTestFixtureBase<PostgreSqlContainer>
 {
-    protected PostgreSqlContainer PostgreSqlContainer => Container;
+    protected override TransportConfig CreateTransportConfig() => new()
+    {
+        PostgreSqlTransportConfig = new PostgreSqlTransportConfig
+        {
+            ConnectionString = Container.GetConnectionString()
+        }
+    };
 
     protected override PostgreSqlContainer CreateContainer()
     {

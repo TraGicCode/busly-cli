@@ -1,11 +1,11 @@
-﻿using Testcontainers.ServiceBus;
+﻿using BuslyCLI.Config;
+using Testcontainers.ServiceBus;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.AzureServiceBus;
 
-public class AzureServiceBusEndToEndTestBase : SingletonTestFixtureBase<ServiceBusContainer>
+public abstract class AzureServiceBusEndToEndTestBase : SingletonTestFixtureBase<ServiceBusContainer>
 {
-    protected ServiceBusContainer ServiceBusContainer => Container;
-
     // GetConnectionString() uses UriBuilder which appends a trailing slash to the endpoint
     // (e.g. "sb://localhost:12345/"). NServiceBus's InjectEmulatorAdminPort does a string replace
     // looking for "Endpoint=sb://localhost:12345;" (no trailing slash), so it never matches and
@@ -16,6 +16,14 @@ public class AzureServiceBusEndToEndTestBase : SingletonTestFixtureBase<ServiceB
         var amqpPort = Container.GetMappedPublicPort(ServiceBusBuilder.ServiceBusPort);
         return $"Endpoint=sb://{Container.Hostname}:{amqpPort};SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;";
     }
+
+    protected override TransportConfig CreateTransportConfig() => new()
+    {
+        AzureServiceBusTransportConfig = new AzureServiceBusTransportConfig
+        {
+            ConnectionString = GetNServiceBusConnectionString()
+        }
+    };
 
     protected override ServiceBusContainer CreateContainer()
     {

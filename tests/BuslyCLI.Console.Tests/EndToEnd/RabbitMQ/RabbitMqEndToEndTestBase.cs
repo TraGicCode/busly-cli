@@ -1,11 +1,22 @@
-﻿using Testcontainers.RabbitMq;
+﻿using BuslyCLI.Config;
+using Testcontainers.RabbitMq;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.RabbitMQ;
 
-[TestFixture]
 public abstract class RabbitMqEndToEndTestBase : SingletonTestFixtureBase<RabbitMqContainer>
 {
-    protected RabbitMqContainer RabbitMqContainer => Container;
+    protected override TransportConfig CreateTransportConfig() => new()
+    {
+        RabbitmqTransportConfig = new RabbitmqTransportConfig
+        {
+            AmqpConnectionString = Container.GetConnectionString(),
+            ManagementApi = new ManagementApi
+            {
+                Url = $"http://{Container.Hostname}:{Container.GetMappedPublicPort(15672)}"
+            }
+        }
+    };
 
     protected override RabbitMqContainer CreateContainer()
     {

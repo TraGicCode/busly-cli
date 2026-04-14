@@ -1,11 +1,21 @@
-﻿using Testcontainers.LocalStack;
+﻿using BuslyCLI.Config;
+using Testcontainers.LocalStack;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.AmazonSQS;
 
-[TestFixture]
 public abstract class AmazonSqsEndToEndTestBase : SingletonTestFixtureBase<LocalStackContainer>
 {
-    protected LocalStackContainer LocalStackContainer => Container;
+    protected override TransportConfig CreateTransportConfig() => new()
+    {
+        AmazonsqsTransportConfig = new AmazonsqsTransportConfig
+        {
+            ServiceUrl = Container.GetConnectionString(),
+            RegionName = "us-east-1",
+            AccessKey = "test",
+            SecretKey = "test"
+        }
+    };
 
     protected override LocalStackContainer CreateContainer()
     {
