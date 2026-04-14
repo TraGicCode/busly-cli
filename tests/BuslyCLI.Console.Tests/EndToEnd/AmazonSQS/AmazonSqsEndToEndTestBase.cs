@@ -1,4 +1,4 @@
-﻿using BuslyCLI.Config;
+﻿using BuslyCLI.Config.Transports;
 using Testcontainers.LocalStack;
 using TransportConfig = BuslyCLI.Config.TransportConfig;
 

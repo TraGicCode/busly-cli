@@ -1,4 +1,4 @@
-﻿using BuslyCLI.Config;
+﻿using BuslyCLI.Config.Transports;
 using Testcontainers.Azurite;
 using TransportConfig = BuslyCLI.Config.TransportConfig;
 

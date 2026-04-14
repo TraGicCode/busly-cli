@@ -1,9 +1,8 @@
 using System.Text;
 using System.Text.Json;
-using BuslyCLI.Config;
-using BuslyCLI.DependencyInjection;
-using BuslyCLI.Factories;
-using BuslyCLI.Spectre;
+using BuslyCLI.Infrastructure;
+using BuslyCLI.Infrastructure.Endpoints;
+using BuslyCLI.Infrastructure.Factories;
 using Microsoft.Extensions.DependencyInjection;
 using NServiceBus.Transport;
 using Spectre.Console.Cli.Extensions.DependencyInjection;

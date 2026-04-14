@@ -1,4 +1,4 @@
-using BuslyCLI.Config;
+using BuslyCLI.Config.Transports;
 using BuslyCLI.Config.Validators;
 using FluentValidation.TestHelper;
 

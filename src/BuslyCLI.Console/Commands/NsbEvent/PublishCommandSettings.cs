@@ -1,4 +1,4 @@
-﻿namespace BuslyCLI.Commands.Event;
+﻿namespace BuslyCLI.Commands.NsbEvent;
 
 public class PublishCommandSettings : CommonMessageSettings
 {

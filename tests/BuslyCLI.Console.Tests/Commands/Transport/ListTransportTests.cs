@@ -1,6 +1,5 @@
 ﻿using BuslyCLI.Console.Tests.TestHelpers;
-using BuslyCLI.DependencyInjection;
-using BuslyCLI.Spectre;
+using BuslyCLI.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Extensions.DependencyInjection;
 using Spectre.Console.Cli.Testing;

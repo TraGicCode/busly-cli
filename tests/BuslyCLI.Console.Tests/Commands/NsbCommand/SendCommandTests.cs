@@ -4,7 +4,7 @@
 // using Spectre.Console.Cli.Extensions.DependencyInjection;
 // using Spectre.Console.Testing;
 //
-// namespace BuslyCLI.Console.Tests.Commands.Command;
+// namespace BuslyCLI.Console.Tests.Commands.NsbCommand;
 //
 // public class SendCommandTests
 // {

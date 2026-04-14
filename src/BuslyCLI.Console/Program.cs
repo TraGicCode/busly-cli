@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
-using BuslyCLI.DependencyInjection;
-using BuslyCLI.Spectre;
+using BuslyCLI.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli;
 using Spectre.Console.Cli.Extensions.DependencyInjection;

@@ -1,6 +1,6 @@
-﻿using NServiceBus.Transport;
+using NServiceBus.Transport;
 
-namespace BuslyCLI.Factories;
+namespace BuslyCLI.Infrastructure.Endpoints;
 
 public class RawSendOnlyEndpoint
 {

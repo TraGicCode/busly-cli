@@ -1,13 +1,14 @@
-﻿using Amazon;
+using Amazon;
 using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
-using BuslyCLI.Config;
+using BuslyCLI.Config.Transports;
+using BuslyCLI.Infrastructure.Endpoints;
 using NServiceBus.Transport;
 using TransportConfig = BuslyCLI.Config.TransportConfig;
 
-namespace BuslyCLI.Factories;
+namespace BuslyCLI.Infrastructure.Factories;
 
 public class RawEndpointFactory : IRawEndpointFactory
 {

@@ -2,12 +2,12 @@
 using System.Reflection.Emit;
 using System.Text;
 using BuslyCLI.Config;
-using BuslyCLI.Factories;
+using BuslyCLI.Infrastructure.Factories;
 using NServiceBus.Routing;
 using NServiceBus.Transport;
 using Spectre.Console.Cli;
 
-namespace BuslyCLI.Commands.Event;
+namespace BuslyCLI.Commands.NsbEvent;
 
 public class PublishCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<PublishCommandSettings>
 {

@@ -1,11 +1,11 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 using System.Reflection;
 using System.Reflection.Emit;
 using NServiceBus.Extensibility;
 using NServiceBus.Transport;
 using NServiceBus.Unicast.Messages;
 
-namespace BuslyCLI.Factories;
+namespace BuslyCLI.Infrastructure.Endpoints;
 
 public class RawEndpoint(TransportInfrastructure infrastructure, string endpointName) : RawSendOnlyEndpoint(infrastructure, endpointName)
 {

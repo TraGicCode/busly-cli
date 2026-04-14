@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using BuslyCLI.Commands.Transport;
 using BuslyCLI.Config;
-using BuslyCLI.Factories;
+using BuslyCLI.Infrastructure.Factories;
 using Spectre.Console;
 using Spectre.Console.Cli;
 

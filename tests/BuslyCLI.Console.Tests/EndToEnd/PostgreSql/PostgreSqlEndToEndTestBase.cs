@@ -1,4 +1,4 @@
-﻿using BuslyCLI.Config;
+﻿using BuslyCLI.Config.Transports;
 using Testcontainers.PostgreSql;
 using TransportConfig = BuslyCLI.Config.TransportConfig;
 
