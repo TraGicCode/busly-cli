@@ -1,11 +1,13 @@
 ﻿name: Publish WinGet Release
 
 on:
-  release:
-    types: [published]
+  workflow_run:
+    workflows: ["Build and Upload .NET binary"]
+    types: [completed]
 
 jobs:
   build-and-pack:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -18,4 +20,4 @@ jobs:
           komac-token: ${{ secrets.GH_TOKEN_FOR_WINGET_PUBLISH }}
           identifier: "TragicCode.BuslyCLI"
           repo: "TraGicCode/busly-cli"
-          url: "https://github.com/TraGicCode/busly-cli/releases/download/${{ github.event.release.tag_name }}/busly-cli-${{ github.event.release.tag_name }}-win-x64.zip"
+          url: "https://github.com/TraGicCode/busly-cli/releases/download/${{ github.event.workflow_run.head_branch }}/busly-cli-${{ github.event.workflow_run.head_branch }}-win-x64.zip"
