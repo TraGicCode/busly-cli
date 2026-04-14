@@ -16,6 +16,8 @@ jobs:
 
       - name: Sync winget-pkgs fork
         run: gh repo sync TraGicCode/winget-pkgs -b master --force
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update Winget package
         uses: michidk/winget-updater@v1
