@@ -1,25 +1,10 @@
 ﻿using BuslyCLI.Console.Tests.TestHelpers;
-using BuslyCLI.Infrastructure;
-using Microsoft.Extensions.DependencyInjection;
-using Spectre.Console.Cli.Extensions.DependencyInjection;
-using Spectre.Console.Cli.Testing;
 using Spectre.Console.Testing;
 
 namespace BuslyCLI.Console.Tests.Commands.Transport;
 
-public class SetTransportTests
+public class SetTransportTests : CommandTestBase
 {
-    private CommandAppTester _sut;
-
-    [SetUp]
-    public void Setup()
-    {
-        var registrations = new ServiceCollection();
-        registrations.AddBuslyCLIServices();
-        using var registrar = new DependencyInjectionRegistrar(registrations);
-        _sut = new CommandAppTester(registrar);
-        _sut.Configure(AppConfiguration.GetSpectreCommandConfiguration());
-    }
 
     [Test]
     public void ShouldOutputAMessageWhenTransportDoesNotExist()
@@ -37,7 +22,7 @@ public class SetTransportTests
         var nonExistingTransport = $"{Guid.NewGuid():N}";
 
         // Act
-        var result = _sut.Run("transport", "set", nonExistingTransport, "--config", configFile.FilePath);
+        var result = Sut.Run("transport", "set", nonExistingTransport, "--config", configFile.FilePath);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
@@ -66,7 +51,7 @@ public class SetTransportTests
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "set", "local-learning2", "--config", configFile.FilePath);
+        var result = Sut.Run("transport", "set", "local-learning2", "--config", configFile.FilePath);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
@@ -92,7 +77,7 @@ public class SetTransportTests
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run("transport", "set", "local-learning", "--config", configFile.FilePath);
+        var result = Sut.Run("transport", "set", "local-learning", "--config", configFile.FilePath);
 
         // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
