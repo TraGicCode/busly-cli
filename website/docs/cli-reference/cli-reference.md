@@ -8,6 +8,7 @@ This document contains information about all commands and settings available in 
 -   `busly transport set`
 -   `busly command send`
 -   `busly event publish`
+-   `busly timeout send`
 
 ## Global Options
 
