@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.54.0](https://github.com/TraGicCode/busly-cli/tree/v0.54.0) - 2026-04-14
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.53.0...v0.54.0)
+
+### Added
+
+- Still fixing winget publish [#299](https://github.com/TraGicCode/busly-cli/pull/299) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.53.0](https://github.com/TraGicCode/busly-cli/tree/v0.53.0) - 2026-04-14
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.52.1...v0.53.0)
