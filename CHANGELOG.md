@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.47.0](https://github.com/TraGicCode/busly-cli/tree/v0.47.0) - 2026-04-14
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.46.0...v0.47.0)
+
+### Added
+
+- Cleaning up integration tests [#278](https://github.com/TraGicCode/busly-cli/pull/278) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.46.0](https://github.com/TraGicCode/busly-cli/tree/v0.46.0) - 2026-04-10
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.45.0...v0.46.0)
