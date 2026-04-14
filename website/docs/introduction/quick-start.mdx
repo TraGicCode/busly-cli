@@ -222,10 +222,70 @@ docker run --rm `
   --network host `
   -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" `
   tragiccode/busly-cli `
-  event publish `
-    --content-type "text/json" `
-    --enclosed-message-type "Messages.Events.OrderPlaced" `
     --message-body ('{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'-replace '"', '\"') `
+    --config ./config.yaml
+```
+
+</TabItem>
+</Tabs>
+
+## Send a Timeout
+
+<Tabs>
+<TabItem value="bash" label="Bash">
+
+```bash
+busly timeout send \
+  --content-type 'text/json' \
+  --enclosed-message-type "Messages.Timeouts.OrderTimeout" \
+  --destination-endpoint "BuslyCLI.DemoEndpoint" \
+  --message-body '{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}' \
+  --delay-delivery-with "00:00:05"
+```
+
+</TabItem>
+<TabItem value="powershell" label="Powershell">
+
+```bash
+busly timeout send `
+  --content-type 'text/json' `
+  --enclosed-message-type "Messages.Timeouts.OrderTimeout" `
+  --destination-endpoint "BuslyCLI.DemoEndpoint" `
+  --message-body ('{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'-replace '"', '\"') `
+  --delay-delivery-with "00:00:05"
+```
+
+</TabItem>
+<TabItem value="docker bash" label="Docker (Bash)">
+
+```bash
+docker run --rm \
+  --network host \
+  -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" \
+  tragiccode/busly-cli \
+  timeout send \
+    --content-type "text/json" \
+    --enclosed-message-type "Messages.Timeouts.OrderTimeout" \
+    --destination-endpoint "BuslyCLI.DemoEndpoint" \
+    --message-body '{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}' \
+    --delay-delivery-with "00:00:05" \
+    --config ./config.yaml
+```
+
+</TabItem>
+<TabItem value="docker powershell" label="Docker (Powershell)">
+
+```bash
+docker run --rm `
+  --network host `
+  -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" `
+  tragiccode/busly-cli `
+  timeout send `
+    --content-type "text/json" `
+    --enclosed-message-type "Messages.Timeouts.OrderTimeout" `
+    --destination-endpoint "BuslyCLI.DemoEndpoint" `
+    --message-body ('{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}'-replace '"', '\"') `
+    --delay-delivery-with "00:00:05" `
     --config ./config.yaml
 ```
 

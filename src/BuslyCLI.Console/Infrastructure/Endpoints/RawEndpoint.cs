@@ -76,12 +76,6 @@ public class RawEndpoint(TransportInfrastructure infrastructure, string endpoint
         return Task.FromResult(ErrorHandleResult.Handled);
     }
 
-    public IncomingMessage TryReceiveMessageWithTimeout()
-    {
-        if (_receivedMessages.TryTake(out var incomingMessage, IncomingMessageTimeout)) return incomingMessage;
-        throw new TimeoutException($"The message did not arrive within {IncomingMessageTimeout.TotalSeconds} seconds.");
-    }
-
     public IncomingMessage TryReceiveMessage()
     {
         if (_receivedMessages.TryTake(out var incomingMessage, IncomingMessageTimeout)) return incomingMessage;
