@@ -14,6 +14,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Sync winget-pkgs fork
+        run: gh repo sync TraGicCode/winget-pkgs -b master --force
+
       - name: Update Winget package
         uses: michidk/winget-updater@v1
         with:
