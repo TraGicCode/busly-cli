@@ -48,7 +48,7 @@ public class ListTransportsCommand(IAnsiConsole console, INServiceBusConfigurati
         return 0;
     }
 
-    public string TransportConfigTypeToString(ITransportConfig transportConfig)
+    private string TransportConfigTypeToString(ITransportConfig transportConfig)
     {
         switch (transportConfig)
         {

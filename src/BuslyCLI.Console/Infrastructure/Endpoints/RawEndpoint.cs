@@ -1,6 +1,5 @@
 using System.Collections.Concurrent;
-using System.Reflection;
-using System.Reflection.Emit;
+using BuslyCLI.Infrastructure;
 using NServiceBus.Extensibility;
 using NServiceBus.Transport;
 using NServiceBus.Unicast.Messages;
@@ -36,30 +35,9 @@ public class RawEndpoint(TransportInfrastructure infrastructure, string endpoint
         await base.ShutDownAndCleanUp();
     }
 
-    private static Type CreateTypeFromString(string typeAsString)
-    {
-        var typeSignature = typeAsString;
-        var an = new AssemblyName(typeSignature);
-        var assemblyBuilder =
-            AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(Guid.NewGuid().ToString()),
-                AssemblyBuilderAccess.Run);
-        var moduleBuilder = assemblyBuilder.DefineDynamicModule("MainModule");
-
-
-        var type = moduleBuilder.DefineType(typeSignature,
-            TypeAttributes.Public |
-            TypeAttributes.Class |
-            TypeAttributes.AutoClass |
-            TypeAttributes.AnsiClass |
-            TypeAttributes.BeforeFieldInit |
-            TypeAttributes.AutoLayout,
-            null).GetTypeInfo().AsType();
-        return type;
-    }
-
     public async Task Subscribe(string eventType, CancellationToken cancellationToken = default)
     {
-        await _subscriptionManager.SubscribeAll([new MessageMetadata(CreateTypeFromString(eventType))],
+        await _subscriptionManager.SubscribeAll([new MessageMetadata(DynamicTypeFactory.CreateFromString(eventType))],
             new ContextBag(), cancellationToken);
     }
 

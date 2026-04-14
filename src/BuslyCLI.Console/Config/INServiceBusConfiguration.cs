@@ -36,11 +36,11 @@ public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerialize
         return config;
     }
 
-    public async Task<NServiceBusConfig> GetValidatedConfigurationAsync(string path)
-        => await LoadConfigurationAsync(path, validate: true);
+    public Task<NServiceBusConfig> GetValidatedConfigurationAsync(string path)
+        => LoadConfigurationAsync(path, validate: true);
 
-    public async Task<NServiceBusConfig> GetUnValidatedConfigurationAsync(string path)
-        => await LoadConfigurationAsync(path, validate: false);
+    public Task<NServiceBusConfig> GetUnValidatedConfigurationAsync(string path)
+        => LoadConfigurationAsync(path, validate: false);
 
     public async Task PersistConfiguration(string path, NServiceBusConfig config)
     {

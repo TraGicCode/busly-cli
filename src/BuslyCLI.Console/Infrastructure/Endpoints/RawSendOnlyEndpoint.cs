@@ -14,14 +14,10 @@ public class RawSendOnlyEndpoint
         EndpointName = endpointName;
     }
 
-    public async Task Dispatch(TransportOperations outgoingMessages, TransportTransaction transaction,
+    public Task Dispatch(TransportOperations outgoingMessages, TransportTransaction transaction,
         CancellationToken cancellationToken = default)
-    {
-        await _infrastructure.Dispatcher.Dispatch(outgoingMessages, transaction, cancellationToken);
-    }
+        => _infrastructure.Dispatcher.Dispatch(outgoingMessages, transaction, cancellationToken);
 
-    public virtual async Task ShutDownAndCleanUp()
-    {
-        await _infrastructure.Shutdown();
-    }
+    public virtual Task ShutDownAndCleanUp()
+        => _infrastructure.Shutdown();
 }

@@ -16,7 +16,7 @@ public class DeleteTransportCommand(IAnsiConsole console, INServiceBusConfigurat
             if (nsbConfiguration.CurrentTransport.ToLower() == targetTransport)
             {
                 await nservicebusConfiguration.UpdateCurrentTransportAsync(settings.Config.Path, "");
-                console.WriteLine("This removed your active transport, use \"nservicebus transport set\" to select a different one.");
+                console.WriteLine("This removed your active transport, use \"busly transport set\" to select a different one.");
             }
             await nservicebusConfiguration.RemoveTransportAsync(settings.Config.Path, targetTransport);
             console.WriteLine($"deleted transport named {targetTransport} from {settings.Config.Path}");

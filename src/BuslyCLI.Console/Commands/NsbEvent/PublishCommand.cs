@@ -1,7 +1,6 @@
-﻿using System.Reflection;
-using System.Reflection.Emit;
-using System.Text;
+﻿using System.Text;
 using BuslyCLI.Config;
+using BuslyCLI.Infrastructure;
 using BuslyCLI.Infrastructure.Factories;
 using NServiceBus.Routing;
 using NServiceBus.Transport;
@@ -33,7 +32,7 @@ public class PublishCommand(IRawEndpointFactory rawEndpointFactory, INServiceBus
             Encoding.ASCII.GetBytes(settings.MessageBody)
         );
 
-        var type = CreateTypeFromString(settings.EnclosedMessageType);
+        var type = DynamicTypeFactory.CreateFromString(settings.EnclosedMessageType);
 
         var transportOperation = new TransportOperation(
             message,
@@ -48,24 +47,5 @@ public class PublishCommand(IRawEndpointFactory rawEndpointFactory, INServiceBus
         await rawEndpoint.ShutDownAndCleanUp();
 
         return 0;
-    }
-
-    private static Type CreateTypeFromString(string typeAsString)
-    {
-        var typeSignature = typeAsString;
-        var assemblyBuilder =
-            AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(Guid.NewGuid().ToString()),
-                AssemblyBuilderAccess.Run);
-        var moduleBuilder = assemblyBuilder.DefineDynamicModule("MainModule");
-
-        var type = moduleBuilder.DefineType(typeSignature,
-            TypeAttributes.Public |
-            TypeAttributes.Class |
-            TypeAttributes.AutoClass |
-            TypeAttributes.AnsiClass |
-            TypeAttributes.BeforeFieldInit |
-            TypeAttributes.AutoLayout,
-            null).GetTypeInfo().AsType();
-        return type;
     }
 }
