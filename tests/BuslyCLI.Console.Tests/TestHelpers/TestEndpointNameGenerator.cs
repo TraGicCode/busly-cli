@@ -1,4 +1,4 @@
-﻿namespace BuslyCLI.Console.Tests;
+namespace BuslyCLI.Console.Tests.TestHelpers;
 
 public static class TestEndpointNameGenerator
 {

@@ -25,7 +25,7 @@ public class SendCommandRabbitMqEndToEndTests : RabbitMqEndToEndTestBase
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run(
+        var result = Sut.Run(
             "command",
             "send",
             "--content-type", "application/json",
@@ -59,7 +59,7 @@ public class SendCommandRabbitMqEndToEndTests : RabbitMqEndToEndTestBase
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
         // Act
-        var result = _sut.Run(
+        var result = Sut.Run(
             "event",
             "publish",
             "--content-type", "application/json",

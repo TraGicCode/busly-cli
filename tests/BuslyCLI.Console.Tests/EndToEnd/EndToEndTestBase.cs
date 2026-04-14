@@ -1,20 +1,16 @@
 using System.Text;
 using System.Text.Json;
-using BuslyCLI.Infrastructure;
+using BuslyCLI.Console.Tests.Commands;
+using BuslyCLI.Console.Tests.TestHelpers;
 using BuslyCLI.Infrastructure.Endpoints;
 using BuslyCLI.Infrastructure.Factories;
-using Microsoft.Extensions.DependencyInjection;
 using NServiceBus.Transport;
-using Spectre.Console.Cli.Extensions.DependencyInjection;
-using Spectre.Console.Cli.Testing;
 using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd;
 
-public abstract class EndToEndTestBase
+public abstract class EndToEndTestBase : CommandTestBase
 {
-    protected CommandAppTester _sut;
-
     protected readonly JsonSerializerOptions _jsonObjectOptions =
         new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase, WriteIndented = true };
 
@@ -23,13 +19,8 @@ public abstract class EndToEndTestBase
     protected abstract TransportConfig CreateTransportConfig();
 
     [SetUp]
-    public async Task Setup()
+    public async Task SetupEndpoint()
     {
-        var registrations = new ServiceCollection();
-        registrations.AddBuslyCLIServices();
-        using var registrar = new DependencyInjectionRegistrar(registrations);
-        _sut = new CommandAppTester(registrar);
-        _sut.Configure(AppConfiguration.GetSpectreCommandConfiguration());
         TestEndpoint = await new RawEndpointFactory()
             .CreateRawEndpoint(TestEndpointNameGenerator.GenerateUniqueEndpointName(), CreateTransportConfig());
         await TestEndpoint.StartEndpoint();
