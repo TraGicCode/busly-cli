@@ -14,7 +14,7 @@ public class TransportConfigValidator : AbstractValidator<TransportConfig>
             .SetInheritanceValidator(v =>
             {
                 v.Add(new LearningTransportConfigValidator());
-                v.Add(new RabbitMQTransportConfigValidator());
+                v.Add(new RabbitMqTransportConfigValidator());
                 v.Add(new AzureServiceBusTransportConfigValidator());
                 v.Add(new AzureStorageQueuesTransportConfigValidator());
                 v.Add(new AmazonsqsTransportConfigValidator());

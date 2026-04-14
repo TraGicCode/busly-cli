@@ -1,11 +1,18 @@
-﻿using Testcontainers.Azurite;
+﻿using BuslyCLI.Config;
+using Testcontainers.Azurite;
+using TransportConfig = BuslyCLI.Config.TransportConfig;
 
 namespace BuslyCLI.Console.Tests.EndToEnd.AzureStorageQueues;
 
-[TestFixture]
 public abstract class AzureStorageQueuesEndToEndTestBase : SingletonTestFixtureBase<AzuriteContainer>
 {
-    protected AzuriteContainer AzuriteContainer => Container;
+    protected override TransportConfig CreateTransportConfig() => new()
+    {
+        AzureStorageQueuesTransportConfig = new AzureStorageQueuesTransportConfig
+        {
+            ConnectionString = Container.GetConnectionString()
+        }
+    };
 
     protected override AzuriteContainer CreateContainer()
     {

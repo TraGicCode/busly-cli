@@ -5,7 +5,7 @@
 ///     Provides thread-safe singleton pattern with proper cleanup.
 /// </summary>
 /// <typeparam name="TContainer">The type of container to manage</typeparam>
-public abstract class SingletonTestFixtureBase<TContainer> : IDisposable where TContainer : class, IAsyncDisposable
+public abstract class SingletonTestFixtureBase<TContainer> : EndToEndTestBase where TContainer : class, IAsyncDisposable
 {
     private static readonly object _lock = new();
     private static TContainer _container;
@@ -87,11 +87,7 @@ public abstract class SingletonTestFixtureBase<TContainer> : IDisposable where T
     ///     Starts the container asynchronously. Can be overridden by derived classes if needed.
     /// </summary>
     /// <param name="container">The container to start</param>
-    protected virtual async Task StartContainerAsync(TContainer container)
-    {
-        // Default implementation - derived classes can override if needed
-        await Task.CompletedTask;
-    }
+    protected virtual Task StartContainerAsync(TContainer container) => Task.CompletedTask;
 
     public async ValueTask DisposeAsync()
     {

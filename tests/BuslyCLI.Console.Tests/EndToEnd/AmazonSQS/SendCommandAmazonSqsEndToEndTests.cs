@@ -1,26 +1,26 @@
 using System.Text.Json;
 using BuslyCLI.Console.Tests.TestHelpers;
 
-namespace BuslyCLI.Console.Tests.EndToEnd.RabbitMQ;
+namespace BuslyCLI.Console.Tests.EndToEnd.AmazonSQS;
 
 [TestFixture]
-public class SendCommandRabbitMqEndToEndTests : RabbitMqEndToEndTestBase
+public class SendCommandAmazonSqsEndToEndTests : AmazonSqsEndToEndTestBase
 {
     [Test]
     public async Task ShouldSendCommand()
     {
         // Arrange
         var messageBody = new { OrderNumber = Guid.NewGuid() };
+
         var json = JsonSerializer.Serialize(messageBody, _jsonObjectOptions);
         var yamlFile = $"""
                         ---
-                        current-transport: local-rabbitmq
+                        current-transport: local-amazonsqs
                         transports:
-                          - name: local-rabbitmq
-                            rabbitmq-transport-config:
-                              amqp-connection-string: {Container.GetConnectionString()}
-                              management-api:
-                                url: http://{Container.Hostname}:{Container.GetMappedPublicPort(15672)}
+                          - name: local-amazonsqs
+                            amazonsqs-transport-config:
+                              service-url: {Container.GetConnectionString()}
+                              region-name: us-east-1
                         """;
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 
@@ -45,16 +45,16 @@ public class SendCommandRabbitMqEndToEndTests : RabbitMqEndToEndTestBase
         // Arrange
         await TestEndpoint.Subscribe("MessageContracts.Events.OrderCreated");
         var messageBody = new { OrderNumber = Guid.NewGuid() };
+
         var json = JsonSerializer.Serialize(messageBody, _jsonObjectOptions);
         var yamlFile = $"""
                         ---
-                        current-transport: local-rabbitmq
+                        current-transport: local-amazonsqs
                         transports:
-                          - name: local-rabbitmq
-                            rabbitmq-transport-config:
-                              amqp-connection-string: {Container.GetConnectionString()}
-                              management-api:
-                                url: http://{Container.Hostname}:{Container.GetMappedPublicPort(15672)}
+                          - name: local-amazonsqs
+                            amazonsqs-transport-config:
+                              service-url: {Container.GetConnectionString()}
+                              region-name: us-east-1
                         """;
         using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
 

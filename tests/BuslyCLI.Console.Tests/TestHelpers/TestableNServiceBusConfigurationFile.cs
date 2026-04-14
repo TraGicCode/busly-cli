@@ -10,7 +10,6 @@ public class TestableNServiceBusConfigurationFile : IDisposable
     public TestableNServiceBusConfigurationFile(string fileContent)
     {
         FilePath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName() + ".yaml");
-        using (File.Create(FilePath)) { } // Create the file
         File.WriteAllText(FilePath, fileContent);
     }
 

@@ -36,7 +36,7 @@ public class PostgreSqlTransportConfigValidatorTests
         // Arrange
         var postgreSqlTransportConfig = new PostgreSqlTransportConfig
         {
-            ConnectionString = "Data Source=(local);Initial Catalog=Ordering;Integrated Security=SSPI;Application Name=Busly-CLI;TrustServerCertificate=true"
+            ConnectionString = "Host=localhost;Database=ordering;Username=postgres;Password=password"
         };
         // Act
         var result = await _validator.TestValidateAsync(postgreSqlTransportConfig);

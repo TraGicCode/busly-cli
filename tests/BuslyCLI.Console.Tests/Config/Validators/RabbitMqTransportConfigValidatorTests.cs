@@ -5,13 +5,13 @@ using FluentValidation.TestHelper;
 namespace BuslyCLI.Console.Tests.Config.Validators;
 
 [TestFixture]
-public class RabbitMQTransportConfigValidatorTests
+public class RabbitMqTransportConfigValidatorTests
 {
-    private readonly RabbitMQTransportConfigValidator _validator;
+    private readonly RabbitMqTransportConfigValidator _validator;
 
-    public RabbitMQTransportConfigValidatorTests()
+    public RabbitMqTransportConfigValidatorTests()
     {
-        _validator = new RabbitMQTransportConfigValidator();
+        _validator = new RabbitMqTransportConfigValidator();
     }
 
     [Test]
