@@ -42,3 +42,4 @@ This project is not affiliated with, endorsed by, or sponsored by Particular Sof
 1. Commit your changes (`git commit -am 'Add some feature'`)
 1. Push to the branch (`git push origin my-new-feature`)
 1. Create a new Pull Request
+
