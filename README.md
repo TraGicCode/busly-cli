@@ -8,6 +8,7 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/dotnet-busly.svg?logo=nuget)](https://www.nuget.org/packages/dotnet-busly)
 [![Docker Downloads](https://img.shields.io/docker/pulls/tragiccode/busly-cli.svg?logo=docker)](https://hub.docker.com/r/tragiccode/busly-cli/)
 [![Chocolatey Downloads](https://img.shields.io/chocolatey/dt/busly-cli.svg?logo=chocolatey)](https://community.chocolatey.org/packages/busly-cli)
+[![Winget Version](https://img.shields.io/winget/v/TragicCode.BuslyCLI?logo=windowsterminal)](https://winstall.app/apps/TragicCode.BuslyCLI)
 ![License](https://img.shields.io/github/license/tragiccode/busly-cli)
 
 </div>
@@ -16,11 +17,11 @@
 
 **Busly CLI** is a lightweight, open source command-line tool that **allows developers to send messages to an NServiceBus endpoint at the power of their fingertips** — No boilerplate, no fuss, just messaging at your fingertips.
 
-Built for speed and simplicity, this tool streamlines common **messaging**, **testing**, and **debugging** scenarios when working with **NServiceBus** and **message-driven architectures**. **Busly CLI** is fully **cross-platform**, running on Windows, macOS, and Linux, and offers **multiple installation options** to suit your workflow. Whether you’re validating endpoints, simulating events, or quickly **implementing a proof of concept (POC)** for a new messaging solution, this CLI lets you publish or send messages instantly, giving you full control of your distributed system from the command line.
+Built for speed and simplicity, this tool streamlines common **messaging**, **testing**, and **debugging** scenarios when working with **NServiceBus** and **message-driven architectures**. **Busly CLI** is fully **cross-platform**, running on Windows, macOS, and Linux, and offers **multiple installation options** to suit your workflow. Whether you’re validating endpoints, simulating events, triggering timeouts, or quickly **implementing a proof of concept (POC)** for a new messaging solution, this CLI lets you publish or send messages instantly, giving you full control of your distributed system from the command line.
 
 ## Key Features
 
-- 🚀 **Send messages via CLI** – Quickly send commands or publish events to NServiceBus endpoints.
+- 🚀 **Send messages via CLI** – Quickly send commands, publish events, or trigger timeouts to NServiceBus endpoints.
 - 🧩 **Supports custom message types** – Define and send serialized payloads that match your message contracts.
 - 🌐 **Supported transports** – Works with **Azure Service Bus**, **RabbitMQ**, and **AWS SQS**.
 - ⚙️ **Transport configuration file** – Configure and easily switch between multiple transports. Transports can run on your **local machine** or be pointed to **development**, **staging**, or **production** environments.
