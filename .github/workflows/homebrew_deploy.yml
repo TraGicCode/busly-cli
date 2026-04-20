@@ -19,7 +19,7 @@ jobs:
         name: Bump Homebrew formula
         with:
           formula-name: busly-cli
-          homebrew-tap: tragiccode/homebrew-tap-busly-cli
+          homebrew-tap: tragiccode/homebrew-busly-cli
           tag-name: ${{ github.event.workflow_run.head_branch }}
           download-url: https://github.com/TraGicCode/busly-cli/releases/download/${{ github.event.workflow_run.head_branch }}/busly-cli-${{ github.event.workflow_run.head_branch }}-osx-arm64.tar.gz
         env:
