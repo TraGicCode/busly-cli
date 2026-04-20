@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.56.0](https://github.com/TraGicCode/busly-cli/tree/v0.56.0) - 2026-04-20
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.55.0...v0.56.0)
+
+### Added
+
+- Fixing homebrew publish github workflow [#311](https://github.com/TraGicCode/busly-cli/pull/311) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.55.0](https://github.com/TraGicCode/busly-cli/tree/v0.55.0) - 2026-04-14
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.54.0...v0.55.0)
