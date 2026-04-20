@@ -9,6 +9,7 @@ on:
 jobs:
   build-and-pack:
     runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
 
     steps:
       - name: Checkout
@@ -19,7 +20,7 @@ jobs:
         with:
           formula-name: busly-cli
           homebrew-tap: tragiccode/homebrew-tap-busly-cli
-          tag-name: ${{ github.event.release.tag_name }}
-          download-url: https://github.com/TraGicCode/busly-cli/releases/download/${{ github.event.release.tag_name }}/busly-cli-${{ github.event.release.tag_name }}-osx-arm64.tar.gz
+          tag-name: ${{ github.event.workflow_run.head_branch }}
+          download-url: https://github.com/TraGicCode/busly-cli/releases/download/${{ github.event.workflow_run.head_branch }}/busly-cli-${{ github.event.workflow_run.head_branch }}-osx-arm64.tar.gz
         env:
           COMMITTER_TOKEN: ${{ secrets.GH_TOKEN_FOR_HOMEBREW_PUBLISH }}
