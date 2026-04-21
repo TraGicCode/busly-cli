@@ -35,6 +35,32 @@ Not all transports support sending timeouts. Transports that delegate delayed de
 
 ## Examples
 
+```bash
+# Send a timeout with a delay
+busly timeout send \
+  --content-type "text/json" \
+  --enclosed-message-type "Messages.Timeouts.OrderTimeout" \
+  --destination-endpoint "Ordering" \
+  --message-body '{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}' \
+  --delay-delivery-with "00:00:30"
 ```
 
+```bash
+# Send a timeout that doesn't deliver before a specific date/time
+busly timeout send \
+  --content-type "text/json" \
+  --enclosed-message-type "Messages.Timeouts.OrderTimeout" \
+  --destination-endpoint "Ordering" \
+  --message-body '{"OrderNumber":"3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"}' \
+  --do-not-deliver-before "2026-12-01T09:00:00Z"
+```
+
+```bash
+# Send a timeout using a JSON file
+busly timeout send \
+  --content-type "text/json" \
+  --enclosed-message-type "Messages.Timeouts.OrderTimeout" \
+  --destination-endpoint "Ordering" \
+  --message-body @payload.json \
+  --delay-delivery-with "00:00:30"
 ```
