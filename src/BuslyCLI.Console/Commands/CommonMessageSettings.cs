@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using BuslyCLI.TypeConverters;
 using Spectre.Console;
 using Spectre.Console.Cli;
 
@@ -25,15 +26,24 @@ public abstract class CommonMessageSettings : GlobalCommandSettings
     public required string EnclosedMessageType { get; set; }
 
     [CommandOption("-m|--message-body <message-body>")]
-    [Description("The content of the message body")]
-    public required string MessageBody { get; set; }
+    [Description("The content of the message body. Accepts a raw JSON string or a path to a file using curl-style @file syntax (e.g. @payload.json).")]
+    public required MessageBodyValue MessageBody { get; set; }
 
     public override ValidationResult Validate()
     {
         if (string.IsNullOrWhiteSpace(ContentType)) return ValidationResult.Error("must specify a 'content-type'.");
         if (string.IsNullOrWhiteSpace(EnclosedMessageType))
             return ValidationResult.Error("must specify an 'enclosed-message-type'.");
-        if (string.IsNullOrWhiteSpace(MessageBody)) return ValidationResult.Error("must specify a 'message-body'.");
+
+        if (MessageBody is null) return ValidationResult.Error("must specify a 'message-body'.");
+        if (Path.IsPathFullyQualified(MessageBody.Value))
+        {
+            if (!File.Exists(MessageBody.Value))
+                return ValidationResult.Error($"File not found: {MessageBody.Value}");
+
+            MessageBody.Value = File.ReadAllText(MessageBody.Value);
+        }
+
         return base.Validate();
     }
 

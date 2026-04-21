@@ -1,4 +1,5 @@
 using BuslyCLI.Commands.NsbCommand;
+using BuslyCLI.TypeConverters;
 
 namespace BuslyCLI.Console.Tests.Commands;
 
@@ -12,7 +13,7 @@ public class CommonCommandSettingsTests
         {
             ContentType = "application/json",
             EnclosedMessageType = "MessageContracts.Commands.CreateOrder",
-            MessageBody = "{}",
+            MessageBody = new MessageBodyValue("{}"),
             DestinationEndpoint = null!
         };
 

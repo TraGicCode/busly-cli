@@ -1,4 +1,5 @@
 using BuslyCLI.Commands.NsbEvent;
+using BuslyCLI.TypeConverters;
 
 namespace BuslyCLI.Console.Tests.Commands;
 
@@ -12,7 +13,7 @@ public class CommonMessageSettingsTests
         {
             ContentType = null!,
             EnclosedMessageType = "MessageContracts.Commands.CreateOrder",
-            MessageBody = "{}"
+            MessageBody = new MessageBodyValue("{}")
         };
 
         var result = settings.Validate();
@@ -28,7 +29,7 @@ public class CommonMessageSettingsTests
         {
             ContentType = "application/json",
             EnclosedMessageType = null!,
-            MessageBody = "{}"
+            MessageBody = new MessageBodyValue("{}")
         };
 
         var result = settings.Validate();
@@ -51,5 +52,22 @@ public class CommonMessageSettingsTests
 
         Assert.That(result.Successful, Is.False);
         Assert.That(result.Message, Does.Contain("must specify a 'message-body'."));
+    }
+
+    [Test]
+    public void ShouldFailWhenMessageBodyFileDoesNotExist()
+    {
+        var nonExistentFilePath = Path.GetFullPath("non-existent-payload.json");
+        var settings = new PublishCommandSettings
+        {
+            ContentType = "application/json",
+            EnclosedMessageType = "MessageContracts.Commands.CreateOrder",
+            MessageBody = new MessageBodyValue(nonExistentFilePath)
+        };
+
+        var result = settings.Validate();
+
+        Assert.That(result.Successful, Is.False);
+        Assert.That(result.Message, Does.Contain($"File not found: {nonExistentFilePath}"));
     }
 }
