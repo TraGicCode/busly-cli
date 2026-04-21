@@ -323,11 +323,7 @@ busly command send `
   --content-type 'text/json' `
   --enclosed-message-type "Messages.Commands.CreateOrder" `
   --destination-endpoint "BuslyCLI.DemoEndpoint" `
-  --message-body @payload.json
-```
-
-</TabItem>
-<TabItem value="docker bash" label="Docker (Bash)">
+  --message-body "@payload.json"
 
 When running via Docker, mount the payload file into the container using `-v` and reference its container path with `@`:
 
@@ -360,7 +356,7 @@ docker run --rm `
     --content-type "text/json" `
     --enclosed-message-type "Messages.Commands.CreateOrder" `
     --destination-endpoint "BuslyCLI.DemoEndpoint" `
-    --message-body @/app/payload.json `
+    --message-body "@/app/payload.json" `
     --config ./config.yaml
 ```
 
