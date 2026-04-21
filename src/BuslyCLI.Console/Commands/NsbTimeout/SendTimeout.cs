@@ -46,7 +46,7 @@ public class SendTimeout(IAnsiConsole console, IRawEndpointFactory rawEndpointFa
         var message = new OutgoingMessage(
             Guid.NewGuid().ToString(),
             headers,
-            Encoding.ASCII.GetBytes(settings.MessageBody)
+            Encoding.ASCII.GetBytes(settings.MessageBody.Value)
         );
 
         var dispatchProperties = new DispatchProperties();

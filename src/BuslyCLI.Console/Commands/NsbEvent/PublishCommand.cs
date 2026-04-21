@@ -30,7 +30,7 @@ public class PublishCommand(IRawEndpointFactory rawEndpointFactory, INServiceBus
         var message = new OutgoingMessage(
             Guid.NewGuid().ToString(),
             headers,
-            Encoding.ASCII.GetBytes(settings.MessageBody)
+            Encoding.ASCII.GetBytes(settings.MessageBody.Value)
         );
 
         var type = CreateTypeFromString(settings.EnclosedMessageType);

@@ -291,3 +291,80 @@ docker run --rm `
 
 </TabItem>
 </Tabs>
+
+## Passing Message Body from a File
+
+As you can see in the commands above, inlining JSON directly in the terminal can get complicated fast — especially in PowerShell, where double quotes require manual escaping. For anything beyond the simplest payloads, this becomes error-prone and hard to read.
+
+Busly supports a curl-style `@filename` syntax for `--message-body`, letting you store your JSON in a file and reference it directly. Where `payload.json` contains:
+
+```json
+{
+  "OrderNumber": "3f2d6c8a-b7a2-4c3f-9c3e-12ab45ef6789"
+}
+```
+
+<Tabs>
+<TabItem value="bash" label="Bash">
+
+```bash
+busly command send \
+  --content-type 'text/json' \
+  --enclosed-message-type "Messages.Commands.CreateOrder" \
+  --destination-endpoint "BuslyCLI.DemoEndpoint" \
+  --message-body @payload.json
+```
+
+</TabItem>
+<TabItem value="powershell" label="PowerShell">
+
+```bash
+busly command send `
+  --content-type 'text/json' `
+  --enclosed-message-type "Messages.Commands.CreateOrder" `
+  --destination-endpoint "BuslyCLI.DemoEndpoint" `
+  --message-body @payload.json
+```
+
+</TabItem>
+<TabItem value="docker bash" label="Docker (Bash)">
+
+When running via Docker, mount the payload file into the container using `-v` and reference its container path with `@`:
+
+```bash
+docker run --rm \
+  --network host \
+  -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" \
+  -v "$(pwd)/payload.json:/app/payload.json" \
+  tragiccode/busly-cli \
+  command send \
+    --content-type "text/json" \
+    --enclosed-message-type "Messages.Commands.CreateOrder" \
+    --destination-endpoint "BuslyCLI.DemoEndpoint" \
+    --message-body @/app/payload.json \
+    --config ./config.yaml
+```
+
+</TabItem>
+<TabItem value="docker powershell" label="Docker (PowerShell)">
+
+When running via Docker, mount the payload file into the container using `-v` and reference its container path with `@`:
+
+```bash
+docker run --rm `
+  --network host `
+  -v "$HOME/.busly-cli/config.yaml:/app/config.yaml" `
+  -v "${PWD}/payload.json:/app/payload.json" `
+  tragiccode/busly-cli `
+  command send `
+    --content-type "text/json" `
+    --enclosed-message-type "Messages.Commands.CreateOrder" `
+    --destination-endpoint "BuslyCLI.DemoEndpoint" `
+    --message-body @/app/payload.json `
+    --config ./config.yaml
+```
+
+</TabItem>
+</Tabs>
+
+No escaping required on any platform. Relative paths are resolved from your current working directory, and `~` is expanded to your home directory.
