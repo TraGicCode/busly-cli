@@ -12,6 +12,6 @@ busly demo start
 
 ## Examples
 
-```
-
+```bash
+busly demo start
 ```
