@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.61.0](https://github.com/TraGicCode/busly-cli/tree/v0.61.0) - 2026-05-05
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.60.0...v0.61.0)
+
+### Added
+
+- Update Dependencies [#342](https://github.com/TraGicCode/busly-cli/pull/342) ([TraGicCode](https://github.com/TraGicCode))
+
+### Other
+
+- Bump NServiceBus.Transport.SqlServer from 9.0.0 to 9.0.1 [#338](https://github.com/TraGicCode/busly-cli/pull/338) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.RabbitMQ from 11.2.0 to 11.2.1 [#337](https://github.com/TraGicCode/busly-cli/pull/337) ([dependabot](https://github.com/dependabot))
+
 ## [v0.60.0](https://github.com/TraGicCode/busly-cli/tree/v0.60.0) - 2026-04-21
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.59.0...v0.60.0)
