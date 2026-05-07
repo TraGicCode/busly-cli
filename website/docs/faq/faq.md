@@ -5,9 +5,9 @@ title: FAQ
 
 # Frequently Asked Questions
 
-## Why are my progress indicators and success messages not showing when I send a message?
+## Why are my progress indicators and success check marks not showing when I send a message?
 
-If you run a `send`, `publish`, or `timeout send` command and the spinner, `✔ Connected to transport`, or the final success line never appear, your terminal is likely not configured to output **UTF-8**.
+If you run a `send`, `publish`, or `timeout send` command and the spinner or ✔ checkmark never appear, your terminal is likely not configured to output **UTF-8**.
 
 Busly CLI uses [Spectre.Console](https://spectreconsole.net) to render rich terminal output. Spectre.Console requires the console to be set to UTF-8 encoding in order to render Unicode characters (spinners, checkmarks, etc.) correctly. Without it, the output may be silently dropped or garbled.
 
@@ -43,6 +43,3 @@ Even with UTF-8 correctly configured, the appearance of indicators like `✔` ma
 - **Console Support** — Some consoles may display emoji as monochrome symbols instead of color icons.
 - **Cross-Platform** — Emoji support varies across different operating systems and terminal applications. Linux and macOS terminals generally have better out-of-the-box support than Windows Console Host.
 
-### Additional Resources
-
-- [Spectre.Console Best Practices](https://spectreconsole.net/best-practices) — covers console encoding and other common setup tips.
