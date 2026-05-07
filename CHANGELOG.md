@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.61.0](https://github.com/TraGicCode/busly-cli/tree/v0.61.0) - 2026-05-05
+## [v0.62.0](https://github.com/TraGicCode/busly-cli/tree/v0.62.0) - 2026-05-07
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.61.0...v0.62.0)
+
+### Added
+
+- Add spinners when sending messages [#347](https://github.com/TraGicCode/busly-cli/pull/347) ([TraGicCode](https://github.com/TraGicCode))
+
+## [v0.61.0](https://github.com/TraGicCode/busly-cli/tree/v0.61.0) - 2026-05-04
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.60.0...v0.61.0)
 
