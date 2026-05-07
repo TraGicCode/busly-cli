@@ -1,18 +1,20 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using BuslyCLI.Config;
 using BuslyCLI.Infrastructure.Factories;
 using NServiceBus.Routing;
 using NServiceBus.Transport;
+using Spectre.Console;
 using Spectre.Console.Cli;
 
 namespace BuslyCLI.Commands.NsbCommand;
 
-public class SendCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<SendCommandSettings>
+public class SendCommand(IAnsiConsole console, IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<SendCommandSettings>
 {
     protected override async Task<int> ExecuteAsync(CommandContext context, SendCommandSettings settings, CancellationToken cancellationToken)
     {
         var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
-        var rawEndpoint = await rawEndpointFactory.CreateRawSendOnlyEndpoint(Constants.DefaultOriginatingEndpoint, config.CurrentTransportConfig);
+
         // TODO: Validate body is valid json/xml
         var headers = new Dictionary<string, string>
         {
@@ -35,12 +37,28 @@ public class SendCommand(IRawEndpointFactory rawEndpointFactory, INServiceBusCon
             new UnicastAddressTag(settings.DestinationEndpoint)
         );
 
-        await rawEndpoint.Dispatch(
-            new TransportOperations(transportOperation),
-            new TransportTransaction()
-        );
+        var sw = Stopwatch.StartNew();
 
-        await rawEndpoint.ShutDownAndCleanUp();
+        await console.Status()
+            .Spinner(Spinner.Known.Dots)
+            .SpinnerStyle(Style.Parse("green"))
+            .StartAsync("Connecting to transport...", async ctx =>
+            {
+                var rawEndpoint = await rawEndpointFactory.CreateRawSendOnlyEndpoint(Constants.DefaultOriginatingEndpoint, config.CurrentTransportConfig);
+                console.MarkupLine($"[green]:check_mark: Connected to transport[/] ([dim]{config.CurrentTransportConfig.Name}[/])");
+
+                ctx.Status("Sending message...");
+                await rawEndpoint.Dispatch(
+                    new TransportOperations(transportOperation),
+                    new TransportTransaction()
+                );
+
+                await rawEndpoint.ShutDownAndCleanUp();
+            });
+
+        sw.Stop();
+
+        console.MarkupLine($"[green]:check_mark: Message sent [/]in [yellow]{sw.ElapsedMilliseconds}ms[/]");
 
         return 0;
     }

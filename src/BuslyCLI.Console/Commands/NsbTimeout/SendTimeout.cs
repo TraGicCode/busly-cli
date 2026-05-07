@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using BuslyCLI.Config;
 using BuslyCLI.Config.Transports;
 using BuslyCLI.Infrastructure.Factories;
@@ -31,7 +32,6 @@ public class SendTimeout(IAnsiConsole console, IRawEndpointFactory rawEndpointFa
             return 1;
         }
 
-        var rawEndpoint = await rawEndpointFactory.CreateRawSendOnlyEndpoint(Constants.DefaultOriginatingEndpoint, config.CurrentTransportConfig);
         // TODO: Validate body is valid json/xml
         var headers = new Dictionary<string, string>
         {
@@ -66,12 +66,28 @@ public class SendTimeout(IAnsiConsole console, IRawEndpointFactory rawEndpointFa
             dispatchProperties
         );
 
-        await rawEndpoint.Dispatch(
-            new TransportOperations(transportOperation),
-            new TransportTransaction(),
-            cancellationToken);
+        var sw = Stopwatch.StartNew();
 
-        await rawEndpoint.ShutDownAndCleanUp();
+        await console.Status()
+            .Spinner(Spinner.Known.Dots)
+            .SpinnerStyle(Style.Parse("green"))
+            .StartAsync("Connecting to transport...", async ctx =>
+            {
+                var rawEndpoint = await rawEndpointFactory.CreateRawSendOnlyEndpoint(Constants.DefaultOriginatingEndpoint, config.CurrentTransportConfig);
+                console.MarkupLine($"[green]:check_mark: Connected to transport[/] ([dim]{config.CurrentTransportConfig.Name}[/])");
+
+                ctx.Status("Sending timeout...");
+                await rawEndpoint.Dispatch(
+                    new TransportOperations(transportOperation),
+                    new TransportTransaction(),
+                    cancellationToken);
+
+                await rawEndpoint.ShutDownAndCleanUp();
+            });
+
+        sw.Stop();
+
+        console.MarkupLine($"[green]:check_mark: Timeout sent [/]in [yellow]{sw.ElapsedMilliseconds}ms[/]");
 
         return 0;
     }
