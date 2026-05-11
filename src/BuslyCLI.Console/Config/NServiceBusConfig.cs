@@ -9,4 +9,11 @@ public class NServiceBusConfig
 
     [YamlIgnore]
     public TransportConfig CurrentTransportConfig => Transports.FirstOrDefault(x => x.Name == CurrentTransport);
+
+    public string CurrentServiceControlInstance { get; set; }
+    public ICollection<ServiceControlInstanceConfig> ServiceControlInstances { get; set; }
+
+    [YamlIgnore]
+    public ServiceControlInstanceConfig CurrentServiceControlInstanceConfig =>
+        ServiceControlInstances?.FirstOrDefault(x => x.Name == CurrentServiceControlInstance);
 }

@@ -2,6 +2,7 @@ using BuslyCLI.Config;
 using BuslyCLI.Config.Transports;
 using BuslyCLI.Config.Validators;
 using BuslyCLI.Infrastructure.Factories;
+using BuslyCLI.Infrastructure.ServiceControl;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using YamlDotNet.Serialization;
@@ -15,7 +16,10 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped<IRawEndpointFactory, RawEndpointFactory>();
         services.AddSingleton<INServiceBusConfiguration, NServiceBusConfiguration>();
-        services.AddValidatorsFromAssemblyContaining<RootConfigValidator>();
+        services.AddValidatorsFromAssemblyContaining<TransportOnlyConfigValidator>(
+            filter: result => result.ValidatorType != typeof(TransportOnlyConfigValidator) &&
+                              result.ValidatorType != typeof(ServiceControlOnlyConfigValidator));
+        services.AddHttpClient<ServiceControlClient>();
         services.AddYamlDeserializer();
         services.AddYamlSerializer();
 

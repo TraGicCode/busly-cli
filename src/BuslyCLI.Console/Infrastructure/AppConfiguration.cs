@@ -3,6 +3,10 @@ using BuslyCLI.Commands.Demo;
 using BuslyCLI.Commands.NsbCommand;
 using BuslyCLI.Commands.NsbEvent;
 using BuslyCLI.Commands.NsbTimeout;
+using BuslyCLI.Commands.ServiceControl.Endpoint;
+using BuslyCLI.Commands.ServiceControl.Event;
+using BuslyCLI.Commands.ServiceControl.Instance;
+using BuslyCLI.Commands.ServiceControl.Message;
 using BuslyCLI.Commands.Transport;
 using Spectre.Console;
 using Spectre.Console.Cli;
@@ -61,6 +65,57 @@ public static class AppConfiguration
                 demo.SetDescription("Demo mode for the busly quick start guide.");
                 demo.AddCommand<StartDemoCommand>("start")
                     .WithDescription("Start a demo endpoint that can receive any command and a single 'Messages.Events.OrderPlaced' event.");
+            });
+            config.AddBranch("servicecontrol", servicecontrol =>
+            {
+                servicecontrol.SetDescription("Interact with Service Control Instances.");
+                servicecontrol.AddBranch("instance", instance =>
+                {
+                    instance.SetDescription("Manage ServiceControl instance configurations.");
+                    instance.AddCommand<ListServiceControlInstancesCommand>("list")
+                        .WithAlias("ls")
+                        .WithDescription("List all configured ServiceControl instances.");
+                    instance.AddCommand<CurrentServiceControlInstanceCommand>("current")
+                        .WithAlias("c")
+                        .WithDescription("Display the current ServiceControl instance.");
+                    instance.AddCommand<SetServiceControlInstanceCommand>("set")
+                        .WithAlias("s")
+                        .WithDescription("Set the current ServiceControl instance.");
+                    instance.AddCommand<DeleteServiceControlInstanceCommand>("delete")
+                        .WithAlias("d")
+                        .WithDescription("Delete a configured ServiceControl instance.");
+                });
+                servicecontrol.AddBranch("endpoint", endpoints =>
+                {
+                    endpoints.SetDescription("Manage ServiceControl endpoints.");
+                    endpoints.AddCommand<ListEndpointsCommand>("list")
+                        .WithAlias("ls")
+                        .WithDescription("List all endpoints for the current ServiceControl instance.");
+                    endpoints.AddCommand<DeleteEndpointCommand>("delete")
+                        .WithAlias("d")
+                        .WithDescription("Delete/Decommission an endpoint from the current ServiceControl instance.");
+                });
+                servicecontrol.AddBranch("message", message =>
+                {
+                    message.SetDescription("Search for messages sent by endpoints.");
+                    message.AddCommand<SearchMessagesCommand>("search")
+                        .WithAlias("s")
+                        .WithDescription("Search for successful messages.");
+                });
+                servicecontrol.AddBranch("license", message =>
+                {
+                    message.SetDescription("Show license information for the current ServiceControl instance.");
+                    message.AddCommand<ShowLicenseCommand>("show")
+                        .WithAlias("s")
+                        .WithDescription("Show license information for the current ServiceControl instance.");
+                });
+                servicecontrol.AddBranch("event", @event =>
+                {
+                    @event.SetDescription("Show events for the current ServiceControl instance.");
+                    @event.AddCommand<ListEventsCommand>("list")
+                        .WithAlias("ls")
+                        .WithDescription("Show events for the current ServiceControl instance.");
+                });
             });
 
             config.SetExceptionHandler((ex, _) =>

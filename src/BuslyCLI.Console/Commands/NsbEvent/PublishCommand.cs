@@ -15,7 +15,7 @@ public class PublishCommand(IAnsiConsole console, IRawEndpointFactory rawEndpoin
 {
     protected override async Task<int> ExecuteAsync(CommandContext context, PublishCommandSettings settings, CancellationToken cancellationToken)
     {
-        var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
+        var config = await nServiceBusConfiguration.GetTransportValidatedConfigurationAsync(settings.Config.Path);
 
         // TODO: Validate body is valid json/xml
         var headers = new Dictionary<string, string>

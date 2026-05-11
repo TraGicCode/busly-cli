@@ -10,6 +10,17 @@ This document contains information about all commands and settings available in 
 -   `busly event publish`
 -   `busly timeout send`
 
+## ServiceControl Commands
+
+-   `busly servicecontrol instance list`
+-   `busly servicecontrol instance current`
+-   `busly servicecontrol instance set`
+-   `busly servicecontrol instance delete`
+-   `busly servicecontrol endpoint list`
+-   `busly servicecontrol endpoint delete`
+-   `busly servicecontrol message search`
+-   `busly servicecontrol license show`
+
 ## Global Options
 
 The following global flags can be used with any command:

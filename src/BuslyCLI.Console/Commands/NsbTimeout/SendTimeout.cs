@@ -22,7 +22,7 @@ public class SendTimeout(IAnsiConsole console, IRawEndpointFactory rawEndpointFa
 
     protected override async Task<int> ExecuteAsync(CommandContext context, SendTimeoutCommandSettings settings, CancellationToken cancellationToken)
     {
-        var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
+        var config = await nServiceBusConfiguration.GetTransportValidatedConfigurationAsync(settings.Config.Path);
 
         if (UnsupportedTransportTypes.Contains(config.CurrentTransportConfig.Config.GetType()))
         {

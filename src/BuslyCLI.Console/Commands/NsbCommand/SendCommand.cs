@@ -13,7 +13,7 @@ public class SendCommand(IAnsiConsole console, IRawEndpointFactory rawEndpointFa
 {
     protected override async Task<int> ExecuteAsync(CommandContext context, SendCommandSettings settings, CancellationToken cancellationToken)
     {
-        var config = await nServiceBusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
+        var config = await nServiceBusConfiguration.GetTransportValidatedConfigurationAsync(settings.Config.Path);
 
         // TODO: Validate body is valid json/xml
         var headers = new Dictionary<string, string>

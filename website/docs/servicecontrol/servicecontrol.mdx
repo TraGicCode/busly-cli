@@ -1,0 +1,76 @@
+import DocCardList from "@theme/DocCardList";
+
+# ServiceControl
+
+[Particular ServiceControl](https://docs.particular.net/servicecontrol/) is a background service that collects data on message flows from your NServiceBus endpoints, storing it in a dedicated database. Busly integrates with ServiceControl to give you visibility into your system directly from the terminal.
+
+## Configuration
+
+To connect Busly to a ServiceControl instance, define one or more instances under `service-control-instances` in your `config.yaml` and set `current-service-control-instance` to the name of the instance you want to use.
+
+### Example
+
+```yaml
+current-service-control-instance: local-sc
+
+service-control-instances:
+  - name: local-sc
+    url: http://localhost:33334/api
+```
+
+---
+
+## `service-control-instances` Fields
+
+| Field  | Required | Type   | Default | Description                                                      |
+| ------ | -------- | ------ | ------- | ---------------------------------------------------------------- |
+| `name` | **Yes**  | string | —       | A unique name to identify this ServiceControl instance.          |
+| `url`  | **Yes**  | string | —       | The fully-qualified base URL of the ServiceControl API endpoint. |
+
+---
+
+## Field Details
+
+### `name` (required)
+
+A unique identifier for this ServiceControl instance. Used to reference it as `current-service-control-instance`.
+
+```yaml
+name: local-sc
+```
+
+---
+
+### `url` (required)
+
+The base URL of the ServiceControl REST API. This must be an absolute URL.
+
+```yaml
+url: http://localhost:33334/api
+```
+
+```yaml
+url: https://servicecontrol.example.com/api
+```
+
+---
+
+## Managing Multiple Instances
+
+You can define multiple ServiceControl instances and switch between them using `busly servicecontrol instance set`.
+
+```yaml
+current-service-control-instance: production-sc
+
+service-control-instances:
+  - name: local-sc
+    url: http://localhost:33334/api
+  - name: production-sc
+    url: https://servicecontrol.example.com/api
+```
+
+Switch between instances:
+
+```bash
+busly servicecontrol instance set local-sc
+```

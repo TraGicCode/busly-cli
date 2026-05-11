@@ -24,6 +24,7 @@ public class DeleteTransportTests : CommandTestBase
         // Act
         var result = Sut.Run("transport", "delete", nonExistingTransport, "--config", configFile.FilePath);
 
+        // Assert
         Assert.That(result.ExitCode, Is.EqualTo(0));
         Assert.That(result.Output, Is.EqualTo($"Cannot delete transport {nonExistingTransport} since it doesn't exist in the config file."));
     }
@@ -49,8 +50,34 @@ public class DeleteTransportTests : CommandTestBase
         Assert.That(result.Output, Is.EqualTo(
             $"""
                 This removed your active transport, use "nservicebus transport set" to select a different one.
-                deleted transport named local-learning from {configFile.FilePath}
+                Deleted transport named local-learning from {configFile.FilePath}
                 """.NormalizeLineEndings()
         ));
+    }
+
+    [Test]
+    public void ShouldDeleteNonCurrentTransport()
+    {
+        // Arrange
+        var yamlFile = """
+                       ---
+                       current-transport: local-learning
+                       transports:
+                         - name: local-learning
+                           learning-transport-config:
+                             storage-directory: .learningtransport
+                         - name: local-learning-other
+                           learning-transport-config:
+                             storage-directory: .learningtransport
+                       """;
+        using var configFile = new TestableNServiceBusConfigurationFile(yamlFile);
+
+        // Act
+        var result = Sut.Run("transport", "delete", "local-learning-other", "--config", configFile.FilePath);
+
+        Assert.That(result.ExitCode, Is.EqualTo(0));
+        Assert.That(result.Output, Is.EqualTo(
+                $"Deleted transport named local-learning-other from {configFile.FilePath}"
+            ));
     }
 }

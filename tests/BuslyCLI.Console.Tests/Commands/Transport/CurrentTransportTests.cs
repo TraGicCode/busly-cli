@@ -32,7 +32,7 @@ public class CurrentTransportTests : CommandTestBase
         ));
     }
     [Test]
-    public void ShouldOutputCurrentTransportNotConfigured()
+    public void ShouldOutputNotSetWhenCurrentTransportIsNotConfigured()
     {
         // Arrange
         var yamlFile = """

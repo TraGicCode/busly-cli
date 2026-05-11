@@ -1,4 +1,4 @@
-﻿using BuslyCLI.Config;
+using BuslyCLI.Config;
 using BuslyCLI.Config.Validators;
 using FluentValidation.TestHelper;
 using TransportConfig = BuslyCLI.Config.TransportConfig;
@@ -6,13 +6,13 @@ using TransportConfig = BuslyCLI.Config.TransportConfig;
 namespace BuslyCLI.Console.Tests.Config.Validators;
 
 [TestFixture]
-public class RootConfigValidatorTests
+public class TransportOnlyConfigValidatorTests
 {
-    private readonly RootConfigValidator _validator;
+    private readonly TransportOnlyConfigValidator _validator;
 
-    public RootConfigValidatorTests()
+    public TransportOnlyConfigValidatorTests()
     {
-        _validator = new RootConfigValidator();
+        _validator = new TransportOnlyConfigValidator();
     }
 
     [Test]
@@ -86,5 +86,4 @@ public class RootConfigValidatorTests
         result.ShouldHaveValidationErrorFor(c => c.Transports)
             .WithErrorMessage("'Transports' must not be empty.");
     }
-
 }
