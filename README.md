@@ -25,6 +25,7 @@ Built for speed and simplicity, this tool streamlines common **messaging**, **te
 - 🧩 **Supports custom message types** – Define and send serialized payloads that match your message contracts.
 - 🌐 **Supported transports** – Works with **Azure Service Bus**, **RabbitMQ**, and **AWS SQS**.
 - ⚙️ **Transport configuration file** – Configure and easily switch between multiple transports. Transports can run on your **local machine** or be pointed to **development**, **staging**, or **production** environments.
+- 🔍 **ServiceControl integration** – Interact with [Particular ServiceControl](https://docs.particular.net/servicecontrol/) instances to search for messages, view license status, and delete/decommission endpoints — all from the terminal.
 - 💻 **Cross-platform support** – Works seamlessly on Windows, macOS, and Linux.
 - 📦 **Multiple installation options** – Install via **Chocolatey**, **WinGet**, **Docker**, **.NET tool (via NuGet)**, or by **downloading the binary directly from GitHub Releases**.
 

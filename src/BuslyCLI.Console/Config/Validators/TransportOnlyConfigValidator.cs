@@ -1,12 +1,13 @@
-﻿using FluentValidation;
+using FluentValidation;
 
 namespace BuslyCLI.Config.Validators;
 
-public class RootConfigValidator : AbstractValidator<NServiceBusConfig>
+public class TransportOnlyConfigValidator : AbstractValidator<NServiceBusConfig>
 {
-    public RootConfigValidator()
+    public TransportOnlyConfigValidator()
     {
-        RuleFor(x => x.CurrentTransport).NotEmpty();
+        RuleFor(x => x.CurrentTransport)
+            .NotEmpty();
 
         RuleFor(x => x.Transports)
             .NotEmpty()
@@ -17,6 +18,5 @@ public class RootConfigValidator : AbstractValidator<NServiceBusConfig>
                 model.Transports.Any(t => t.Name == currentTransport))
             .WithMessage("current-transport must match one of the defined transports.")
             .When(x => x.Transports != null);
-
     }
 }

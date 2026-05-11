@@ -9,7 +9,7 @@ public class DeleteTransportCommand(IAnsiConsole console, INServiceBusConfigurat
 {
     protected override async Task<int> ExecuteAsync(CommandContext context, DeleteTransportSettings settings, CancellationToken cancellationToken)
     {
-        var nsbConfiguration = await nservicebusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
+        var nsbConfiguration = await nservicebusConfiguration.GetTransportValidatedConfigurationAsync(settings.Config.Path);
         var targetTransport = settings.TransportName.ToLower();
         if (nsbConfiguration.Transports.Select(x => x.Name.ToLower()).Contains(targetTransport))
         {
@@ -19,7 +19,7 @@ public class DeleteTransportCommand(IAnsiConsole console, INServiceBusConfigurat
                 console.WriteLine("This removed your active transport, use \"nservicebus transport set\" to select a different one.");
             }
             await nservicebusConfiguration.RemoveTransportAsync(settings.Config.Path, targetTransport);
-            console.WriteLine($"deleted transport named {targetTransport} from {settings.Config.Path}");
+            console.WriteLine($"Deleted transport named {targetTransport} from {settings.Config.Path}");
         }
         else
         {

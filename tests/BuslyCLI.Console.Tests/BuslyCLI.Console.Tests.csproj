@@ -19,6 +19,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.5.1" />
     <PackageReference Include="Moq" Version="4.20.72" />
     <PackageReference Include="NServiceBus.AmazonSQS" Version="9.0.1" />
+    <PackageReference Include="NServiceBus.Heartbeat" Version="6.0.1" />
     <PackageReference Include="NServiceBus.RabbitMQ" Version="11.2.1" />
     <PackageReference Include="NServiceBus.Transport.AzureServiceBus" Version="6.3.0" />
     <PackageReference Include="NServiceBus.Transport.AzureStorageQueues" Version="14.0.1" />
@@ -50,6 +51,11 @@
 
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\ServiceControl\Endpoint\" />
+    <Folder Include="Commands\ServiceControl\License\" />
   </ItemGroup>
 
 </Project>

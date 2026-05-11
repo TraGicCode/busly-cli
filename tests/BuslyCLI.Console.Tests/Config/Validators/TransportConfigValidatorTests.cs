@@ -15,7 +15,7 @@ public class TransportConfigValidatorTests
     }
 
     [Test]
-    public async Task ShouldNotErrorWhenCurrentNameIsDefined()
+    public async Task ShouldNotErrorWhenNameIsDefined()
     {
         // Arrange
         var config = new TransportConfig()
@@ -31,7 +31,7 @@ public class TransportConfigValidatorTests
     }
 
     [Test]
-    public async Task ShouldErrorWhenCurrentTransportIsNotDefined()
+    public async Task ShouldErrorWhenNameIsNotDefined()
     {
         // Arrange
         var config = new TransportConfig()

@@ -1,26 +1,33 @@
-﻿using FluentValidation;
+﻿using BuslyCLI.Config.Validators;
+using FluentValidation;
 using YamlDotNet.Serialization;
 
 namespace BuslyCLI.Config;
 
 public interface INServiceBusConfiguration
 {
-    Task<NServiceBusConfig> GetValidatedConfigurationAsync(string path);
+    Task<NServiceBusConfig> GetTransportValidatedConfigurationAsync(string path);
+
+    Task<NServiceBusConfig> GetServiceControlValidatedConfigurationAsync(string path);
 
     Task<NServiceBusConfig> GetUnValidatedConfigurationAsync(string path);
 
     Task PersistConfiguration(string path, NServiceBusConfig config);
     Task UpdateCurrentTransportAsync(string path, string newTransport);
     Task RemoveTransportAsync(string path, string transportToRemove);
+    Task UpdateCurrentServiceControlInstanceAsync(string path, string newInstance);
+    Task RemoveServiceControlInstanceAsync(string path, string instanceToRemove);
 }
 
-public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerializer yamlSerializer, IValidator<NServiceBusConfig> validator) : INServiceBusConfiguration
+public class NServiceBusConfiguration(
+    IDeserializer yamlDeserializer,
+    ISerializer yamlSerializer) : INServiceBusConfiguration
 {
-
 
     private async Task<NServiceBusConfig> LoadConfigurationAsync(
         string path,
-        bool validate)
+        bool validate,
+        IValidator<NServiceBusConfig> overrideValidator = null)
     {
         if (!File.Exists(path)) return null;
 
@@ -30,14 +37,17 @@ public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerialize
         // config is null if yaml file is empty
         if (config is null) return null;
 
-        if (validate)
-            await validator.ValidateAsync(config, opts => opts.ThrowOnFailures());
+        if (validate && overrideValidator is not null)
+            await overrideValidator.ValidateAsync(config, opts => opts.ThrowOnFailures());
 
         return config;
     }
 
-    public async Task<NServiceBusConfig> GetValidatedConfigurationAsync(string path)
-        => await LoadConfigurationAsync(path, validate: true);
+    public async Task<NServiceBusConfig> GetTransportValidatedConfigurationAsync(string path)
+        => await LoadConfigurationAsync(path, validate: true, overrideValidator: new TransportOnlyConfigValidator());
+
+    public async Task<NServiceBusConfig> GetServiceControlValidatedConfigurationAsync(string path)
+        => await LoadConfigurationAsync(path, validate: true, overrideValidator: new ServiceControlOnlyConfigValidator());
 
     public async Task<NServiceBusConfig> GetUnValidatedConfigurationAsync(string path)
         => await LoadConfigurationAsync(path, validate: false);
@@ -91,6 +101,50 @@ public class NServiceBusConfiguration(IDeserializer yamlDeserializer, ISerialize
                 }
 
                 // Remove the array item block
+                lines.RemoveRange(i, j - i);
+                break;
+            }
+        }
+
+        await File.WriteAllLinesAsync(path, lines);
+    }
+
+    public async Task UpdateCurrentServiceControlInstanceAsync(string path, string newInstance)
+    {
+        var lines = await File.ReadAllLinesAsync(path);
+
+        for (int i = 0; i < lines.Length; i++)
+        {
+            var line = lines[i].TrimStart();
+
+            if (line.StartsWith("current-service-control-instance:"))
+            {
+                int indent = lines[i].Length - line.Length;
+                lines[i] = new string(' ', indent) + "current-service-control-instance: " + newInstance;
+                break;
+            }
+        }
+
+        await File.WriteAllLinesAsync(path, lines);
+    }
+
+    public async Task RemoveServiceControlInstanceAsync(string path, string instanceToRemove)
+    {
+        var lines = (await File.ReadAllLinesAsync(path)).ToList();
+
+        for (int i = 0; i < lines.Count; i++)
+        {
+            if (lines[i].TrimStart().StartsWith($"- name: {instanceToRemove}"))
+            {
+                int indent = lines[i].TakeWhile(char.IsWhiteSpace).Count();
+                int j = i + 1;
+
+                while (j < lines.Count &&
+                       lines[j].TakeWhile(char.IsWhiteSpace).Count() > indent)
+                {
+                    j++;
+                }
+
                 lines.RemoveRange(i, j - i);
                 break;
             }

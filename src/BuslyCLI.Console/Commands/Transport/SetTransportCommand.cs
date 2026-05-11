@@ -9,7 +9,7 @@ public class SetTransportCommand(IAnsiConsole console, INServiceBusConfiguration
 {
     protected override async Task<int> ExecuteAsync(CommandContext context, SetTransportSettings settings, CancellationToken cancellationToken)
     {
-        var nsbConfiguration = await nservicebusConfiguration.GetValidatedConfigurationAsync(settings.Config.Path);
+        var nsbConfiguration = await nservicebusConfiguration.GetTransportValidatedConfigurationAsync(settings.Config.Path);
         var targetTransport = settings.TransportName.ToLower();
         if (nsbConfiguration.Transports.Select(x => x.Name.ToLower()).Contains(targetTransport))
         {
