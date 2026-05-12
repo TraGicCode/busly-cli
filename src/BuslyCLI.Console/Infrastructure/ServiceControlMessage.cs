@@ -14,7 +14,7 @@ public class ServiceControlMessage
     public string ProcessingTime { get; set; }
     public bool IsSystemMessage { get; set; }
     public string ConversationId { get; set; }
-    public string Status { get; set; }
+    public MessageStatus Status { get; set; }
     public string MessageIntent { get; set; }
     public string BodyUrl { get; set; }
     public int BodySize { get; set; }
@@ -22,7 +22,18 @@ public class ServiceControlMessage
     public IReadOnlyList<ServiceControlMessageHeader> Headers { get; set; } = [];
 }
 
+public enum MessageStatus
+{
+    Failed = 1,
+    RepeatedFailure = 2,
+    Successful = 3,
+    ResolvedSuccessfully = 4,
+    ArchivedFailure = 5,
+    RetryIssued = 6
+}
+
 public class ServiceControlMessageEndpoint
+
 {
     public string Name { get; set; }
     public string Host { get; set; }

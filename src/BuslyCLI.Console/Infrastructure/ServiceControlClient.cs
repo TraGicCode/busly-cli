@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using BuslyCLI.Infrastructure.ServiceControl;
 
 namespace BuslyCLI.Infrastructure;
@@ -10,6 +11,7 @@ public class ServiceControlClient(HttpClient httpClient)
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
         PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+        Converters = { new JsonStringEnumConverter(JsonNamingPolicy.SnakeCaseLower) },
     };
 
     public async Task<IReadOnlyList<ServiceControlEndpoint>> GetEndpointsAsync(string baseUrl, CancellationToken cancellationToken = default)
@@ -62,7 +64,7 @@ public class ServiceControlClient(HttpClient httpClient)
         string endpointName = null,
         DateTimeOffset? from = null,
         DateTimeOffset? to = null,
-        uint pageSize = 50,
+        int pageSize = 50,
         string sort = "time_sent",
         string direction = "desc",
         CancellationToken cancellationToken = default)
