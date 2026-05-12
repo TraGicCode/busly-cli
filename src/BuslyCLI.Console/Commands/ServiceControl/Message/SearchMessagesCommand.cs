@@ -27,6 +27,7 @@ public class SearchMessagesCommand(IAnsiConsole console, INServiceBusConfigurati
         var table = new Table();
         table.AddColumn("Id");
         table.AddColumn("Message Type");
+        table.AddColumn("Status");
         table.AddColumn("Processing Time");
         table.AddColumn("Critical Time");
         table.AddColumn("Delivery Time");
@@ -37,10 +38,11 @@ public class SearchMessagesCommand(IAnsiConsole console, INServiceBusConfigurati
             table.AddRow(
                 message.Id,
                 message.MessageType,
+                message.Status.ToString(),
                 message.ProcessingTime,
                 message.CriticalTime.StartsWith("-") ? "00:00:00" : message.ProcessingTime,
                 message.DeliveryTime.StartsWith("-") ? message.DeliveryTime.Substring(1) : message.DeliveryTime,
-                message.TimeSent.Value.ToString("u"));
+                message.TimeSent?.ToString("u") ?? "");
         }
 
         console.Write(table);

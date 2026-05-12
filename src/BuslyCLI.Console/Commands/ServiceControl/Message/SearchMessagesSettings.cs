@@ -16,7 +16,7 @@ public class SearchMessagesSettings : GlobalCommandSettings
     [CommandOption("--page-size <page-size>")]
     [DefaultValue(50)]
     [Description("The page size to use when searching messages")]
-    public uint PageSize { get; set; }
+    public int PageSize { get; set; }
 
     [CommandOption("--from <from>")]
     [Description("The start date to search messages from, using ISO-8601 format (YYYY-MM-DDTHH:mm:ssZ)")]
