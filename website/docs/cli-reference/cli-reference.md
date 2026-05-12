@@ -20,6 +20,7 @@ This document contains information about all commands and settings available in 
 -   `busly servicecontrol endpoint delete`
 -   `busly servicecontrol message search`
 -   `busly servicecontrol license show`
+-   `busly servicecontrol custom-check list`
 
 ## Global Options
 

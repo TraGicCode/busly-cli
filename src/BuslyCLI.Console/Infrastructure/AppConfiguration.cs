@@ -3,6 +3,7 @@ using BuslyCLI.Commands.Demo;
 using BuslyCLI.Commands.NsbCommand;
 using BuslyCLI.Commands.NsbEvent;
 using BuslyCLI.Commands.NsbTimeout;
+using BuslyCLI.Commands.ServiceControl.CustomCheck;
 using BuslyCLI.Commands.ServiceControl.Endpoint;
 using BuslyCLI.Commands.ServiceControl.Event;
 using BuslyCLI.Commands.ServiceControl.Instance;
@@ -90,7 +91,7 @@ public static class AppConfiguration
                     endpoints.SetDescription("Manage ServiceControl endpoints.");
                     endpoints.AddCommand<ListEndpointsCommand>("list")
                         .WithAlias("ls")
-                        .WithDescription("List all endpoints for the current ServiceControl instance.");
+                        .WithDescription("List all NServiceBus endpoints ServiceControl knows about.");
                     endpoints.AddCommand<DeleteEndpointCommand>("delete")
                         .WithAlias("d")
                         .WithDescription("Delete/Decommission an endpoint from the current ServiceControl instance.");
@@ -115,6 +116,13 @@ public static class AppConfiguration
                     @event.AddCommand<ListEventsCommand>("list")
                         .WithAlias("ls")
                         .WithDescription("Show events for the current ServiceControl instance.");
+                });
+                servicecontrol.AddBranch("custom-check", customChecks =>
+                {
+                    customChecks.SetDescription("Manage custom checks for the current ServiceControl instance.");
+                    customChecks.AddCommand<ListCustomChecksCommand>("list")
+                        .WithAlias("ls")
+                        .WithDescription("Show custom-checks for the current ServiceControl instance.");
                 });
             });
 
