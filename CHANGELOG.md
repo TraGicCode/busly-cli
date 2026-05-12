@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.63.0](https://github.com/TraGicCode/busly-cli/tree/v0.63.0) - 2026-05-12
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.62.0...v0.63.0)
+
+### Added
+
+- Implement ability to interact with service control instances ( just like transports) [#352](https://github.com/TraGicCode/busly-cli/pull/352) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.62.0](https://github.com/TraGicCode/busly-cli/tree/v0.62.0) - 2026-05-07
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.61.0...v0.62.0)
