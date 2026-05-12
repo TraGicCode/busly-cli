@@ -10,7 +10,7 @@ public class SearchMessagesSettings : GlobalCommandSettings
     public string Keyword { get; set; } = "";
 
     [CommandOption("--endpoint <endpoint>")]
-    [Description("The endpoint to search messages for")]
+    [Description("Filter to one endpoint")]
     public string Endpoint { get; set; }
 
     [CommandOption("--page-size <page-size>")]

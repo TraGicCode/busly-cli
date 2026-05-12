@@ -45,6 +45,17 @@ public class ServiceControlClient(HttpClient httpClient)
         return await httpClient.GetFromJsonAsync<ServiceControlLicense>(url, JsonOptions, cancellationToken);
     }
 
+    public async Task<IReadOnlyList<ServiceControlCustomCheck>> GetCustomChecksAsync(string baseUrl, string status = null, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        var queryParams = new List<string> { $"page={page}", $"pageSize={pageSize}" };
+
+        if (!string.IsNullOrEmpty(status))
+            queryParams.Add($"status={Uri.EscapeDataString(status)}");
+
+        var url = $"{baseUrl.TrimEnd('/')}/customchecks?{string.Join("&", queryParams)}";
+        return await httpClient.GetFromJsonAsync<List<ServiceControlCustomCheck>>(url, JsonOptions, cancellationToken) ?? [];
+    }
+
     public async Task<IReadOnlyList<ServiceControlMessage>> SearchMessagesAsync(
         string baseUrl,
         string q = null,
