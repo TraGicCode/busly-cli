@@ -1,0 +1,19 @@
+---
+file_name: CHANGELOG.md
+excluded_labels:
+- maintenance
+sections:
+  added:
+  - feature
+  - enhancement
+  changed:
+  - backwards-incompatible
+  fixed:
+  - bug
+  - bugfix
+  - documentation
+  - dependencies
+skip_entries_without_label: false
+show_unreleased: true
+check_for_updates: true
+logger: spinner
