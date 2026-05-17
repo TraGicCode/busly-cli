@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.2](https://github.com/TraGicCode/busly-cli/tree/v0.64.2) - 2026-05-17
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.1...v0.64.2)
+
+### Fixed
+
+- Bump Microsoft.Extensions.Http from 10.0.7 to 10.0.8 [#363](https://github.com/TraGicCode/busly-cli/pull/363) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#357](https://github.com/TraGicCode/busly-cli/pull/357) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.203 to 10.0.300 [#356](https://github.com/TraGicCode/busly-cli/pull/356) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.1](https://github.com/TraGicCode/busly-cli/tree/v0.64.1) - 2026-05-12
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.0...v0.64.1)
@@ -29,6 +39,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Implement ability to interact with service control instances ( just like transports) [#352](https://github.com/TraGicCode/busly-cli/pull/352) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump fast-uri from 3.1.0 to 3.1.2 in /website [#350](https://github.com/TraGicCode/busly-cli/pull/350) ([dependabot](https://github.com/dependabot))
+- Bump the react-dependencies group in /website with 2 updates [#349](https://github.com/TraGicCode/busly-cli/pull/349) ([dependabot](https://github.com/dependabot))
+- Bump NUnit from 4.4.0 to 4.6.0 [#344](https://github.com/TraGicCode/busly-cli/pull/344) ([dependabot](https://github.com/dependabot))
+
 ## [v0.62.0](https://github.com/TraGicCode/busly-cli/tree/v0.62.0) - 2026-05-07
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.61.0...v0.62.0)
@@ -37,6 +53,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Add spinners when sending messages [#347](https://github.com/TraGicCode/busly-cli/pull/347) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump NServiceBus.Transport.AzureStorageQueues from 14.0.0 to 14.0.1 [#346](https://github.com/TraGicCode/busly-cli/pull/346) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.AmazonSQS from 9.0.0 to 9.0.1 [#345](https://github.com/TraGicCode/busly-cli/pull/345) ([dependabot](https://github.com/dependabot))
+
 ## [v0.61.0](https://github.com/TraGicCode/busly-cli/tree/v0.61.0) - 2026-05-04
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.60.0...v0.61.0)
@@ -44,6 +65,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 
 - Update Dependencies [#342](https://github.com/TraGicCode/busly-cli/pull/342) ([TraGicCode](https://github.com/TraGicCode))
+
+### Fixed
+
+- Bump NUnit.Analyzers from 4.12.0 to 4.13.0 [#340](https://github.com/TraGicCode/busly-cli/pull/340) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus from 10.1.3 to 10.1.4 [#335](https://github.com/TraGicCode/busly-cli/pull/335) ([dependabot](https://github.com/dependabot))
+- Bump @docusaurus/module-type-aliases from 3.10.0 to 3.10.1 in /website [#334](https://github.com/TraGicCode/busly-cli/pull/334) ([dependabot](https://github.com/dependabot))
+- Bump @docusaurus/preset-classic from 3.10.0 to 3.10.1 in /website [#333](https://github.com/TraGicCode/busly-cli/pull/333) ([dependabot](https://github.com/dependabot))
+- Bump @docusaurus/faster from 3.10.0 to 3.10.1 in /website [#332](https://github.com/TraGicCode/busly-cli/pull/332) ([dependabot](https://github.com/dependabot))
+- Bump postcss from 8.5.6 to 8.5.12 in /website [#330](https://github.com/TraGicCode/busly-cli/pull/330) ([dependabot](https://github.com/dependabot))
+- Bump YamlDotNet from 17.0.1 to 17.1.0 [#329](https://github.com/TraGicCode/busly-cli/pull/329) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.5.0 to 18.5.1 [#328](https://github.com/TraGicCode/busly-cli/pull/328) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#327](https://github.com/TraGicCode/busly-cli/pull/327) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.4.0 to 18.5.0 [#326](https://github.com/TraGicCode/busly-cli/pull/326) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#324](https://github.com/TraGicCode/busly-cli/pull/324) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.202 to 10.0.203 [#323](https://github.com/TraGicCode/busly-cli/pull/323) ([dependabot](https://github.com/dependabot))
 
 ### Other
 
@@ -74,6 +110,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - --message-body now can be passed a @filename to pull json from [#316](https://github.com/TraGicCode/busly-cli/pull/316) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump coverlet.collector from 8.0.1 to 10.0.0 [#315](https://github.com/TraGicCode/busly-cli/pull/315) ([dependabot](https://github.com/dependabot))
+
 ## [v0.57.0](https://github.com/TraGicCode/busly-cli/tree/v0.57.0) - 2026-04-20
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.56.0...v0.57.0)
@@ -89,6 +129,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 
 - Fixing homebrew publish github workflow [#311](https://github.com/TraGicCode/busly-cli/pull/311) ([TraGicCode](https://github.com/TraGicCode))
+
+### Fixed
+
+- Bump NServiceBus.Transport.AzureServiceBus from 6.2.1 to 6.2.2 [#309](https://github.com/TraGicCode/busly-cli/pull/309) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus from 10.1.1 to 10.1.3 [#306](https://github.com/TraGicCode/busly-cli/pull/306) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection.Abstractions from 10.0.5 to 10.0.6 [#305](https://github.com/TraGicCode/busly-cli/pull/305) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#304](https://github.com/TraGicCode/busly-cli/pull/304) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.201 to 10.0.202 [#303](https://github.com/TraGicCode/busly-cli/pull/303) ([dependabot](https://github.com/dependabot))
 
 ## [v0.55.0](https://github.com/TraGicCode/busly-cli/tree/v0.55.0) - 2026-04-14
 
@@ -162,6 +210,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - More structure changes to the console app [#281](https://github.com/TraGicCode/busly-cli/pull/281) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump follow-redirects from 1.15.11 to 1.16.0 in /website [#280](https://github.com/TraGicCode/busly-cli/pull/280) ([dependabot](https://github.com/dependabot))
+
 ## [v0.47.0](https://github.com/TraGicCode/busly-cli/tree/v0.47.0) - 2026-04-13
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.46.0...v0.47.0)
@@ -169,6 +221,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 
 - Cleaning up integration tests [#278](https://github.com/TraGicCode/busly-cli/pull/278) ([TraGicCode](https://github.com/TraGicCode))
+
+### Fixed
+
+- Bump YamlDotNet from 16.3.0 to 17.0.1 [#277](https://github.com/TraGicCode/busly-cli/pull/277) ([dependabot](https://github.com/dependabot))
+- Bump softprops/action-gh-release from 2 to 3 [#276](https://github.com/TraGicCode/busly-cli/pull/276) ([dependabot](https://github.com/dependabot))
+- Bump minimatch and serve-handler in /website [#273](https://github.com/TraGicCode/busly-cli/pull/273) ([dependabot](https://github.com/dependabot))
+- Bump the react-dependencies group in /website with 2 updates [#270](https://github.com/TraGicCode/busly-cli/pull/270) ([dependabot](https://github.com/dependabot))
 
 ## [v0.46.0](https://github.com/TraGicCode/busly-cli/tree/v0.46.0) - 2026-04-10
 
@@ -178,9 +237,38 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Upgraded some dependencies [#272](https://github.com/TraGicCode/busly-cli/pull/272) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump lodash from 4.17.23 to 4.18.1 in /website [#271](https://github.com/TraGicCode/busly-cli/pull/271) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.RabbitMQ from 11.1.0 to 11.2.0 [#268](https://github.com/TraGicCode/busly-cli/pull/268) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus from 10.1.0 to 10.1.1 [#267](https://github.com/TraGicCode/busly-cli/pull/267) ([dependabot](https://github.com/dependabot))
+- Bump @docusaurus/types from 3.9.2 to 3.10.0 in /website [#263](https://github.com/TraGicCode/busly-cli/pull/263) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.3.0 to 18.4.0 [#262](https://github.com/TraGicCode/busly-cli/pull/262) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Testing from 1.0.0-alpha.0.14 to 1.0.0-alpha.0.16 [#261](https://github.com/TraGicCode/busly-cli/pull/261) ([dependabot](https://github.com/dependabot))
+
 ## [v0.45.0](https://github.com/TraGicCode/busly-cli/tree/v0.45.0) - 2026-03-31
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.44.0...v0.45.0)
+
+### Fixed
+
+- Update azure service bus transport [#258](https://github.com/TraGicCode/busly-cli/pull/258) ([TraGicCode](https://github.com/TraGicCode))
+- Bump picomatch from 2.3.1 to 2.3.2 in /website [#257](https://github.com/TraGicCode/busly-cli/pull/257) ([dependabot](https://github.com/dependabot))
+- Bump brace-expansion from 1.1.12 to 1.1.13 in /website [#256](https://github.com/TraGicCode/busly-cli/pull/256) ([dependabot](https://github.com/dependabot))
+- Bump path-to-regexp from 0.1.12 to 0.1.13 in /website [#255](https://github.com/TraGicCode/busly-cli/pull/255) ([dependabot](https://github.com/dependabot))
+- Bump node-forge from 1.3.2 to 1.4.0 in /website [#254](https://github.com/TraGicCode/busly-cli/pull/254) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.MsSql and Testcontainers.ServiceBus [#253](https://github.com/TraGicCode/busly-cli/pull/253) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.RabbitMq from 4.10.0 to 4.11.0 [#252](https://github.com/TraGicCode/busly-cli/pull/252) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.LocalStack from 4.10.0 to 4.11.0 [#249](https://github.com/TraGicCode/busly-cli/pull/249) ([dependabot](https://github.com/dependabot))
+- Bump NUnit3TestAdapter from 6.0.0 to 6.2.0 [#248](https://github.com/TraGicCode/busly-cli/pull/248) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.RabbitMQ from 11.0.0 to 11.1.0 [#245](https://github.com/TraGicCode/busly-cli/pull/245) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection from 10.0.4 to 10.0.5 [#244](https://github.com/TraGicCode/busly-cli/pull/244) ([dependabot](https://github.com/dependabot))
+- Bump coverlet.collector from 8.0.0 to 8.0.1 [#243](https://github.com/TraGicCode/busly-cli/pull/243) ([dependabot](https://github.com/dependabot))
+- Bump mislav/bump-homebrew-formula-action from 3 to 4 [#242](https://github.com/TraGicCode/busly-cli/pull/242) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.Azurite from 4.10.0 to 4.11.0 [#241](https://github.com/TraGicCode/busly-cli/pull/241) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Extensions.DependencyInjection from 0.22.0 to 0.23.0 [#240](https://github.com/TraGicCode/busly-cli/pull/240) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection.Abstractions from 10.0.4 to 10.0.5 [#239](https://github.com/TraGicCode/busly-cli/pull/239) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.200 to 10.0.201 [#237](https://github.com/TraGicCode/busly-cli/pull/237) ([dependabot](https://github.com/dependabot))
 
 ## [v0.44.0](https://github.com/TraGicCode/busly-cli/tree/v0.44.0) - 2026-03-12
 
@@ -202,6 +290,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.41.0...v0.42.0)
 
+### Fixed
+
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#229](https://github.com/TraGicCode/busly-cli/pull/229) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.103 to 10.0.200 [#228](https://github.com/TraGicCode/busly-cli/pull/228) ([dependabot](https://github.com/dependabot))
+- Bump NUnit.Analyzers from 4.11.2 to 4.12.0 [#227](https://github.com/TraGicCode/busly-cli/pull/227) ([dependabot](https://github.com/dependabot))
+- Bump docker/build-push-action from 6 to 7 [#225](https://github.com/TraGicCode/busly-cli/pull/225) ([dependabot](https://github.com/dependabot))
+- Bump docker/metadata-action from 5 to 6 [#224](https://github.com/TraGicCode/busly-cli/pull/224) ([dependabot](https://github.com/dependabot))
+- Bump docker/setup-buildx-action from 3 to 4 [#223](https://github.com/TraGicCode/busly-cli/pull/223) ([dependabot](https://github.com/dependabot))
+- Bump svgo from 3.3.2 to 3.3.3 in /website [#222](https://github.com/TraGicCode/busly-cli/pull/222) ([dependabot](https://github.com/dependabot))
+- Bump docker/login-action from 3 to 4 [#221](https://github.com/TraGicCode/busly-cli/pull/221) ([dependabot](https://github.com/dependabot))
+- Bump cake.tool from 6.0.0 to 6.1.0 [#219](https://github.com/TraGicCode/busly-cli/pull/219) ([dependabot](https://github.com/dependabot))
+- Bump actions/attest-build-provenance from 3 to 4 [#218](https://github.com/TraGicCode/busly-cli/pull/218) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.0.1 to 18.3.0 [#217](https://github.com/TraGicCode/busly-cli/pull/217) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Testing from 1.0.0-alpha.0.12 to 1.0.0-alpha.0.14 [#216](https://github.com/TraGicCode/busly-cli/pull/216) ([dependabot](https://github.com/dependabot))
+- Bump ajv in /website [#215](https://github.com/TraGicCode/busly-cli/pull/215) ([dependabot](https://github.com/dependabot))
+
 ## [v0.41.0](https://github.com/TraGicCode/busly-cli/tree/v0.41.0) - 2026-02-16
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.40.0...v0.41.0)
@@ -218,6 +322,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Upgrade NServiceBus [#210](https://github.com/TraGicCode/busly-cli/pull/210) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump coverlet.collector from 6.0.4 to 8.0.0 [#206](https://github.com/TraGicCode/busly-cli/pull/206) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.102 to 10.0.103 [#202](https://github.com/TraGicCode/busly-cli/pull/202) ([dependabot](https://github.com/dependabot))
+- Bump webpack from 5.102.1 to 5.105.0 in /website [#201](https://github.com/TraGicCode/busly-cli/pull/201) ([dependabot](https://github.com/dependabot))
+- Bump the react-dependencies group in /website with 2 updates [#194](https://github.com/TraGicCode/busly-cli/pull/194) ([dependabot](https://github.com/dependabot))
+- Bump lodash from 4.17.21 to 4.17.23 in /website [#193](https://github.com/TraGicCode/busly-cli/pull/193) ([dependabot](https://github.com/dependabot))
+
 ### Other
 
 - Fix latest .net sdk version missing issue [#192](https://github.com/TraGicCode/busly-cli/pull/192) ([TraGicCode](https://github.com/TraGicCode))
@@ -230,6 +342,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Revert "Remove winget install method until package gets approved" [#175](https://github.com/TraGicCode/busly-cli/pull/175) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump NServiceBus.AmazonSQS from 8.0.0 to 8.1.0 [#190](https://github.com/TraGicCode/busly-cli/pull/190) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and 2 others [#189](https://github.com/TraGicCode/busly-cli/pull/189) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.101 to 10.0.102 [#186](https://github.com/TraGicCode/busly-cli/pull/186) ([dependabot](https://github.com/dependabot))
+- Bump peter-evans/create-pull-request from 7 to 8 [#184](https://github.com/TraGicCode/busly-cli/pull/184) ([dependabot](https://github.com/dependabot))
+- Bump actions/checkout from 5 to 6 [#183](https://github.com/TraGicCode/busly-cli/pull/183) ([dependabot](https://github.com/dependabot))
+- Bump qs and express in /website [#174](https://github.com/TraGicCode/busly-cli/pull/174) ([dependabot](https://github.com/dependabot))
+
 ## [v0.38.0](https://github.com/TraGicCode/busly-cli/tree/v0.38.0) - 2025-12-24
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.37.0...v0.38.0)
@@ -237,6 +358,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 
 - Change assembly name so winget shimming wont be a problem... [#170](https://github.com/TraGicCode/busly-cli/pull/170) ([TraGicCode](https://github.com/TraGicCode))
+
+### Fixed
+
+- Bump NUnit3TestAdapter from 6.0.0 to 6.0.1 [#165](https://github.com/TraGicCode/busly-cli/pull/165) ([dependabot](https://github.com/dependabot))
 
 ## [v0.37.0](https://github.com/TraGicCode/busly-cli/tree/v0.37.0) - 2025-12-22
 
@@ -254,6 +379,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Add winget installation option and automated release process [#164](https://github.com/TraGicCode/busly-cli/pull/164) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump NServiceBus.RabbitMQ from 10.1.6 to 10.1.7 [#163](https://github.com/TraGicCode/busly-cli/pull/163) ([dependabot](https://github.com/dependabot))
+
 ## [v0.35.0](https://github.com/TraGicCode/busly-cli/tree/v0.35.0) - 2025-12-18
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.34.0...v0.35.0)
@@ -265,6 +394,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 
 - Fix issue on graceful shutdown with rabbitmq due to not copying memory for the message body [#161](https://github.com/TraGicCode/busly-cli/pull/161) ([TraGicCode](https://github.com/TraGicCode))
+- Bump Spectre.Console.Cli.Extensions.DependencyInjection from 0.20.0 to 0.21.0 [#160](https://github.com/TraGicCode/busly-cli/pull/160) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.SqlServer from 8.1.10 to 8.1.11 [#159](https://github.com/TraGicCode/busly-cli/pull/159) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.PostgreSql from 8.1.10 to 8.1.11 [#158](https://github.com/TraGicCode/busly-cli/pull/158) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Testing from 1.0.0-alpha.0.11 to 1.0.0-alpha.0.12 [#157](https://github.com/TraGicCode/busly-cli/pull/157) ([dependabot](https://github.com/dependabot))
+- Bump the react-dependencies group in /website with 2 updates [#155](https://github.com/TraGicCode/busly-cli/pull/155) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection.Abstractions from 10.0.0 to 10.0.1 [#153](https://github.com/TraGicCode/busly-cli/pull/153) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#152](https://github.com/TraGicCode/busly-cli/pull/152) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.100 to 10.0.101 [#151](https://github.com/TraGicCode/busly-cli/pull/151) ([dependabot](https://github.com/dependabot))
+- Bump NUnit3TestAdapter from 5.2.0 to 6.0.0 [#150](https://github.com/TraGicCode/busly-cli/pull/150) ([dependabot](https://github.com/dependabot))
 
 ## [v0.34.0](https://github.com/TraGicCode/busly-cli/tree/v0.34.0) - 2025-12-07
 
@@ -333,6 +471,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Add S3 Bucket support for amazon sqs transport config [#130](https://github.com/TraGicCode/busly-cli/pull/130) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump NServiceBus.RabbitMQ from 10.1.5 to 10.1.6 [#129](https://github.com/TraGicCode/busly-cli/pull/129) ([dependabot](https://github.com/dependabot))
+
 ## [v0.27.0](https://github.com/TraGicCode/busly-cli/tree/v0.27.0) - 2025-12-04
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.26.0...v0.27.0)
@@ -341,6 +483,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Update docs for amazon-sqs transport along with config validation [#127](https://github.com/TraGicCode/busly-cli/pull/127) ([TraGicCode](https://github.com/TraGicCode))
 - Update docs for azure-service-bus transport along with config validation [#126](https://github.com/TraGicCode/busly-cli/pull/126) ([TraGicCode](https://github.com/TraGicCode))
+
+### Fixed
+
+- Bump the react-dependencies group in /website with 2 updates [#125](https://github.com/TraGicCode/busly-cli/pull/125) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.RabbitMQ from 10.1.4 to 10.1.5 [#122](https://github.com/TraGicCode/busly-cli/pull/122) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus from 9.2.7 to 9.2.8 [#119](https://github.com/TraGicCode/busly-cli/pull/119) ([dependabot](https://github.com/dependabot))
 
 ### Other
 
@@ -361,6 +509,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 
 - Add fluentvalidation to be able to handle issues in busly config file [#115](https://github.com/TraGicCode/busly-cli/pull/115) ([TraGicCode](https://github.com/TraGicCode))
+
+### Fixed
+
+- Bump mdast-util-to-hast from 13.2.0 to 13.2.1 in /website [#112](https://github.com/TraGicCode/busly-cli/pull/112) ([dependabot](https://github.com/dependabot))
 
 ## [v0.24.2](https://github.com/TraGicCode/busly-cli/tree/v0.24.2) - 2025-11-30
 
@@ -434,6 +586,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Add documentation for configuring the learning transport within busly [#90](https://github.com/TraGicCode/busly-cli/pull/90) ([TraGicCode](https://github.com/TraGicCode))
 
+### Fixed
+
+- Bump Spectre.Console.Cli.Extensions.DependencyInjection from 0.18.0 to 0.20.0 [#89](https://github.com/TraGicCode/busly-cli/pull/89) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli from 0.53.0 to 0.53.1 [#88](https://github.com/TraGicCode/busly-cli/pull/88) ([dependabot](https://github.com/dependabot))
+- Bump node-forge from 1.3.1 to 1.3.2 in /website [#87](https://github.com/TraGicCode/busly-cli/pull/87) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Testing from 1.0.0-alpha.0.7 to 1.0.0-alpha.0.11 [#86](https://github.com/TraGicCode/busly-cli/pull/86) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.ServiceBus from 4.8.1 to 4.9.0 [#83](https://github.com/TraGicCode/busly-cli/pull/83) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.RabbitMq from 4.8.1 to 4.9.0 [#82](https://github.com/TraGicCode/busly-cli/pull/82) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.LocalStack from 4.8.1 to 4.9.0 [#81](https://github.com/TraGicCode/busly-cli/pull/81) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Extensions.DependencyInjection from 0.17.0 to 0.18.0 [#80](https://github.com/TraGicCode/busly-cli/pull/80) ([dependabot](https://github.com/dependabot))
+
 ## [v0.17.1](https://github.com/TraGicCode/busly-cli/tree/v0.17.1) - 2025-11-23
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.17.0...v0.17.1)
@@ -441,6 +604,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 
 - (GH-71) Fix error exit code [#72](https://github.com/TraGicCode/busly-cli/pull/72) ([TraGicCode](https://github.com/TraGicCode))
+- Bump actions/checkout from 5 to 6 [#70](https://github.com/TraGicCode/busly-cli/pull/70) ([dependabot](https://github.com/dependabot))
 
 ## [v0.17.0](https://github.com/TraGicCode/busly-cli/tree/v0.17.0) - 2025-11-18
 
@@ -449,6 +613,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 
 - Refactor automated release process fix round 10 [#67](https://github.com/TraGicCode/busly-cli/pull/67) ([TraGicCode](https://github.com/TraGicCode))
+
+### Fixed
+
+- Bump actions/checkout from 4 to 5 [#66](https://github.com/TraGicCode/busly-cli/pull/66) ([dependabot](https://github.com/dependabot))
+- Bump actions/upload-pages-artifact from 3 to 4 [#65](https://github.com/TraGicCode/busly-cli/pull/65) ([dependabot](https://github.com/dependabot))
+- Bump actions/setup-node from 4 to 6 [#64](https://github.com/TraGicCode/busly-cli/pull/64) ([dependabot](https://github.com/dependabot))
+- Bump actions/configure-pages from 4 to 5 [#63](https://github.com/TraGicCode/busly-cli/pull/63) ([dependabot](https://github.com/dependabot))
 
 ## [v0.16.0](https://github.com/TraGicCode/busly-cli/tree/v0.16.0) - 2025-11-18
 
@@ -510,6 +681,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 
 - (GH-38) Fix --version/-v to contain actual cli version [#39](https://github.com/TraGicCode/busly-cli/pull/39) ([TraGicCode](https://github.com/TraGicCode))
+- Bump js-yaml from 3.14.1 to 3.14.2 in /website [#30](https://github.com/TraGicCode/busly-cli/pull/30) ([dependabot](https://github.com/dependabot))
 
 ## [v0.6.0](https://github.com/TraGicCode/busly-cli/tree/v0.6.0) - 2025-11-17
 
