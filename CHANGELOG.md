@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.3](https://github.com/TraGicCode/busly-cli/tree/v0.64.3) - 2026-05-19
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.2...v0.64.3)
+
+### Fixed
+
+- Bump Spectre.Console.Cli.Extensions.DependencyInjection from 0.24.0 to 0.25.0 [#368](https://github.com/TraGicCode/busly-cli/pull/368) ([dependabot](https://github.com/dependabot))
+- Bump coverlet.collector from 10.0.0 to 10.0.1 [#367](https://github.com/TraGicCode/busly-cli/pull/367) ([dependabot](https://github.com/dependabot))
+- Bump ghcr.io/devcontainers/features/docker-in-docker from 2.17.0 to 3.0.0 [#366](https://github.com/TraGicCode/busly-cli/pull/366) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.2](https://github.com/TraGicCode/busly-cli/tree/v0.64.2) - 2026-05-17
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.1...v0.64.2)
