@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.64.3](https://github.com/TraGicCode/busly-cli/tree/v0.64.3) - 2026-05-19
+## [v0.64.4](https://github.com/TraGicCode/busly-cli/tree/v0.64.4) - 2026-05-23
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.3...v0.64.4)
+
+### Fixed
+
+- Bump qs and express in /website [#377](https://github.com/TraGicCode/busly-cli/pull/377) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.MsSql and Testcontainers.ServiceBus [#376](https://github.com/TraGicCode/busly-cli/pull/376) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.LocalStack from 4.11.0 to 4.12.0 [#374](https://github.com/TraGicCode/busly-cli/pull/374) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.Azurite from 4.11.0 to 4.12.0 [#373](https://github.com/TraGicCode/busly-cli/pull/373) ([dependabot](https://github.com/dependabot))
+- Bump NUnit from 4.6.0 to 4.6.1 [#372](https://github.com/TraGicCode/busly-cli/pull/372) ([dependabot](https://github.com/dependabot))
+- Bump webpack-dev-server from 5.2.2 to 5.2.4 in /website [#369](https://github.com/TraGicCode/busly-cli/pull/369) ([dependabot](https://github.com/dependabot))
+
+## [v0.64.3](https://github.com/TraGicCode/busly-cli/tree/v0.64.3) - 2026-05-18
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.2...v0.64.3)
 
