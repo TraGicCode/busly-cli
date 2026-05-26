@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.5](https://github.com/TraGicCode/busly-cli/tree/v0.64.5) - 2026-05-26
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.4...v0.64.5)
+
+### Fixed
+
+- Bump YamlDotNet from 17.1.0 to 18.0.0 [#382](https://github.com/TraGicCode/busly-cli/pull/382) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.RabbitMq from 4.11.0 to 4.12.0 [#381](https://github.com/TraGicCode/busly-cli/pull/381) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.PostgreSql from 4.11.0 to 4.12.0 [#380](https://github.com/TraGicCode/busly-cli/pull/380) ([dependabot](https://github.com/dependabot))
+- Bump cake.tool from 6.1.0 to 6.2.0 [#379](https://github.com/TraGicCode/busly-cli/pull/379) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.4](https://github.com/TraGicCode/busly-cli/tree/v0.64.4) - 2026-05-23
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.3...v0.64.4)
