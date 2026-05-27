@@ -5,7 +5,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.64.5](https://github.com/TraGicCode/busly-cli/tree/v0.64.5) - 2026-05-26
+## [v0.64.6](https://github.com/TraGicCode/busly-cli/tree/v0.64.6) - 2026-05-27
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.5...v0.64.6)
+
+### Fixed
+
+- Fix deprecation notice [#385](https://github.com/TraGicCode/busly-cli/pull/385) ([TraGicCode](https://github.com/TraGicCode))
+- Bump Microsoft.NET.Test.Sdk from 18.5.1 to 18.6.0 [#384](https://github.com/TraGicCode/busly-cli/pull/384) ([dependabot](https://github.com/dependabot))
+
+## [v0.64.5](https://github.com/TraGicCode/busly-cli/tree/v0.64.5) - 2026-05-25
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.4...v0.64.5)
 
