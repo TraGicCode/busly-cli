@@ -4,6 +4,7 @@ using BuslyCLI.Console.Tests.Commands;
 using BuslyCLI.Console.Tests.TestHelpers;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
+using Microsoft.Extensions.Hosting;
 using Spectre.Console.Testing;
 using Testcontainers.RabbitMq;
 
@@ -23,6 +24,7 @@ public class IceBreakerTest : CommandTestBase
     protected IContainer servicePulse;
     protected IContainer serviceControlDb;
     protected RabbitMqContainer rabbitMq;
+    private IHost _endpoint;
 
     [OneTimeSetUp]
     public virtual async Task OneTimeSetUp()
@@ -185,19 +187,23 @@ public class IceBreakerTest : CommandTestBase
         endpointConfiguration.SendFailedMessagesTo("error");
         endpointConfiguration.AuditProcessedMessagesTo("audit");
         endpointConfiguration.SendHeartbeatTo("Particular.ServiceControl", TimeSpan.FromSeconds(1));
-        var endpointInstance = await Endpoint.Start(endpointConfiguration);
+        var builder = Host.CreateApplicationBuilder();
+        builder.Services.AddNServiceBusEndpoint(endpointConfiguration);
+        _endpoint = builder.Build();
+        await _endpoint.StartAsync().WaitAsync(new TimeSpan(0, 0, 20));
     }
 
     [OneTimeTearDown]
     public virtual async Task OneTimeTearDown()
     {
+        await _endpoint.StopAsync().WaitAsync(new TimeSpan(0, 0, 20));
+        _endpoint.Dispose();
         await servicePulse.DisposeAsync();
         await serviceControlMonitoring.DisposeAsync();
         await serviceControl.DisposeAsync();
         await serviceControlAudit.DisposeAsync();
         await rabbitMq.DisposeAsync();
         await serviceControlDb.DisposeAsync();
-
     }
 
     [Test]
@@ -218,7 +224,7 @@ public class IceBreakerTest : CommandTestBase
 
         // Act
         var result = Sut.Run(
-            "sc",
+            "servicecontrol",
             "license",
             "show",
             "--config", configFile.FilePath);
@@ -230,7 +236,7 @@ public class IceBreakerTest : CommandTestBase
                 ┌────────┬───────────────┬──────────┬─────────┬──────────────────────┐
                 │ Status │ Registered To │ Is Trial │ Edition │ Expiration Date      │
                 ├────────┼───────────────┼──────────┼─────────┼──────────────────────┤
-                │ Valid  │ Blinds.com    │ No       │ Premium │ 2026-05-23 00:00:00Z │
+                │ Valid  │               │ YES      │ Premium │ 2026-06-23 00:00:00Z │
                 └────────┴───────────────┴──────────┴─────────┴──────────────────────┘
                 """.NormalizeLineEndings()));
     }
@@ -253,8 +259,8 @@ public class IceBreakerTest : CommandTestBase
 
         // Act
         var result = Sut.Run(
-            "sc",
-            "endpoints",
+            "servicecontrol",
+            "endpoint",
             "list",
             "--config", configFile.FilePath);
 
