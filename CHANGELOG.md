@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.9](https://github.com/TraGicCode/busly-cli/tree/v0.64.9) - 2026-06-03
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.8...v0.64.9)
+
+### Fixed
+
+- Bump NUnit.Analyzers from 4.13.0 to 4.14.0 [#393](https://github.com/TraGicCode/busly-cli/pull/393) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus from 10.2.3 to 10.2.4 [#392](https://github.com/TraGicCode/busly-cli/pull/392) ([dependabot](https://github.com/dependabot))
+- Bump the react-dependencies group in /website with 2 updates [#391](https://github.com/TraGicCode/busly-cli/pull/391) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.8](https://github.com/TraGicCode/busly-cli/tree/v0.64.8) - 2026-05-29
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.7...v0.64.8)
