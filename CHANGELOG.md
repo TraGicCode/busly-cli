@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.10](https://github.com/TraGicCode/busly-cli/tree/v0.64.10) - 2026-06-09
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.9...v0.64.10)
+
+### Fixed
+
+- Bump NServiceBus from 10.2.4 to 10.2.5 [#395](https://github.com/TraGicCode/busly-cli/pull/395) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.9](https://github.com/TraGicCode/busly-cli/tree/v0.64.9) - 2026-06-03
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.8...v0.64.9)
