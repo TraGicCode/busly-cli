@@ -25,7 +25,7 @@
     <PackageReference Include="NServiceBus.Transport.AzureServiceBus" Version="6.3.0" />
     <PackageReference Include="NServiceBus.Transport.AzureStorageQueues" Version="14.0.1" />
     <PackageReference Include="NServiceBus.Transport.PostgreSql" Version="9.0.1" />
-    <PackageReference Include="NServiceBus.Transport.SqlServer" Version="9.0.1" />
+    <PackageReference Include="NServiceBus.Transport.SqlServer" Version="9.0.2" />
     <PackageReference Include="NUnit" Version="4.6.1" />
     <PackageReference Include="NUnit.Analyzers" Version="4.14.0">
       <PrivateAssets>all</PrivateAssets>
