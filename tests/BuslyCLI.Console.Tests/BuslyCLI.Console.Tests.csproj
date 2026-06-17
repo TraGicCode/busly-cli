@@ -23,7 +23,7 @@
     <PackageReference Include="NServiceBus.Heartbeat" Version="6.0.1" />
     <PackageReference Include="NServiceBus.RabbitMQ" Version="11.2.1" />
     <PackageReference Include="NServiceBus.Transport.AzureServiceBus" Version="6.3.0" />
-    <PackageReference Include="NServiceBus.Transport.AzureStorageQueues" Version="14.0.1" />
+    <PackageReference Include="NServiceBus.Transport.AzureStorageQueues" Version="14.1.0" />
     <PackageReference Include="NServiceBus.Transport.PostgreSql" Version="9.0.1" />
     <PackageReference Include="NServiceBus.Transport.SqlServer" Version="9.0.2" />
     <PackageReference Include="NUnit" Version="4.6.1" />
