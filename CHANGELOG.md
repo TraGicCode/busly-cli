@@ -5,7 +5,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.64.10](https://github.com/TraGicCode/busly-cli/tree/v0.64.10) - 2026-06-09
+## [v0.64.11](https://github.com/TraGicCode/busly-cli/tree/v0.64.11) - 2026-06-17
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.10...v0.64.11)
+
+### Fixed
+
+- Bump launch-editor from 2.11.1 to 2.14.1 in /website [#406](https://github.com/TraGicCode/busly-cli/pull/406) ([dependabot](https://github.com/dependabot))
+- Bump ws in /website [#405](https://github.com/TraGicCode/busly-cli/pull/405) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.SqlServer from 9.0.1 to 9.0.2 [#404](https://github.com/TraGicCode/busly-cli/pull/404) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.300 to 10.0.301 [#398](https://github.com/TraGicCode/busly-cli/pull/398) ([dependabot](https://github.com/dependabot))
+- Bump shell-quote from 1.8.3 to 1.8.4 in /website [#397](https://github.com/TraGicCode/busly-cli/pull/397) ([dependabot](https://github.com/dependabot))
+
+## [v0.64.10](https://github.com/TraGicCode/busly-cli/tree/v0.64.10) - 2026-06-10
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.9...v0.64.10)
 
