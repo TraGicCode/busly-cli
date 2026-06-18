@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.12](https://github.com/TraGicCode/busly-cli/tree/v0.64.12) - 2026-06-18
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.11...v0.64.12)
+
+### Fixed
+
+- Bump NServiceBus.Transport.SqlServer from 9.0.2 to 9.1.0 [#413](https://github.com/TraGicCode/busly-cli/pull/413) ([dependabot](https://github.com/dependabot))
+- Bump webpack-dev-server from 5.2.4 to 5.2.5 in /website [#410](https://github.com/TraGicCode/busly-cli/pull/410) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.AzureStorageQueues from 14.0.1 to 14.1.0 [#409](https://github.com/TraGicCode/busly-cli/pull/409) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.AmazonSQS from 9.0.1 to 9.1.1 [#408](https://github.com/TraGicCode/busly-cli/pull/408) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.11](https://github.com/TraGicCode/busly-cli/tree/v0.64.11) - 2026-06-17
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.10...v0.64.11)
