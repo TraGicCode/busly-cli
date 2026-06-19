@@ -1,4 +1,4 @@
-﻿name: Publish WinGet Release
+name: Publish WinGet Release
 
 on:
   workflow_run:
@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Sync winget-pkgs fork
         run: gh repo sync TraGicCode/winget-pkgs -b master --force
