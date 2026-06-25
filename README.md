@@ -39,10 +39,9 @@ This project is not affiliated with, endorsed by, or sponsored by Particular Sof
 
 ## Contributors
 
-<a href="https://github.com/TraGicCode/tragiccode-azure_key_vault/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=TraGicCode/tragiccode-azure_key_vault" />
+<a href="https://github.com/TraGicCode/busly-cli/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=TraGicCode/busly-cli" />
 </a>
-<br/><br/>
 
 ## Contributing
 
