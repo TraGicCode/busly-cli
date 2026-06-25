@@ -2,7 +2,7 @@
   "name": "NServiceBus CLI Dev Container",
   "image": "mcr.microsoft.com/dotnet/sdk:10.0.301",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:3": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:4": {}
   },
   "customizations": {
     "vscode": {
