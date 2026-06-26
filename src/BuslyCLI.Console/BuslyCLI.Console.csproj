@@ -26,21 +26,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="12.1.1" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.8" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.8" />
-    <PackageReference Include="NServiceBus" Version="10.2.5" />
-    <PackageReference Include="NServiceBus.AmazonSQS" Version="9.1.1" />
-    <PackageReference Include="NServiceBus.RabbitMQ" Version="11.2.1" />
-    <PackageReference Include="NServiceBus.Transport.AzureServiceBus" Version="6.3.0" />
-    <PackageReference Include="NServiceBus.Transport.AzureStorageQueues" Version="14.1.0" />
-    <PackageReference Include="NServiceBus.Transport.PostgreSql" Version="9.0.1" />
-    <PackageReference Include="NServiceBus.Transport.SqlServer" Version="9.1.0" />
-    <PackageReference Include="Spectre.Console.Cli" Version="0.55.0" />
-    <PackageReference Include="Spectre.Console.Cli.Extensions.DependencyInjection" Version="0.25.0" />
-    <PackageReference Include="YamlDotNet" Version="18.0.0" />
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Http" />
+    <PackageReference Include="NServiceBus" />
+    <PackageReference Include="NServiceBus.AmazonSQS" />
+    <PackageReference Include="NServiceBus.RabbitMQ" />
+    <PackageReference Include="NServiceBus.Transport.AzureServiceBus" />
+    <PackageReference Include="NServiceBus.Transport.AzureStorageQueues" />
+    <PackageReference Include="NServiceBus.Transport.PostgreSql" />
+    <PackageReference Include="NServiceBus.Transport.SqlServer" />
+    <PackageReference Include="Spectre.Console.Cli" />
+    <PackageReference Include="Spectre.Console.Cli.Extensions.DependencyInjection" />
+    <PackageReference Include="YamlDotNet" />
   </ItemGroup>
 
 </Project>
