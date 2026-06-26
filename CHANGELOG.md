@@ -5,7 +5,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.64.12](https://github.com/TraGicCode/busly-cli/tree/v0.64.12) - 2026-06-18
+## [v0.64.13](https://github.com/TraGicCode/busly-cli/tree/v0.64.13) - 2026-06-26
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.12...v0.64.13)
+
+### Fixed
+
+- Bump ghcr.io/devcontainers/features/docker-in-docker from 3.1.0 to 4.0.0 [#418](https://github.com/TraGicCode/busly-cli/pull/418) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.6.0 to 18.7.0 [#417](https://github.com/TraGicCode/busly-cli/pull/417) ([dependabot](https://github.com/dependabot))
+- Bump actions/checkout from 6 to 7 [#415](https://github.com/TraGicCode/busly-cli/pull/415) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.PostgreSql from 9.0.1 to 9.1.0 [#411](https://github.com/TraGicCode/busly-cli/pull/411) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and 2 others [#402](https://github.com/TraGicCode/busly-cli/pull/402) ([dependabot](https://github.com/dependabot))
+
+## [v0.64.12](https://github.com/TraGicCode/busly-cli/tree/v0.64.12) - 2026-06-19
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.11...v0.64.12)
 
