@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.16](https://github.com/TraGicCode/busly-cli/tree/v0.64.16) - 2026-07-04
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.15...v0.64.16)
+
+### Fixed
+
+- Bump Testcontainers.MsSql and Testcontainers.ServiceBus [#432](https://github.com/TraGicCode/busly-cli/pull/432) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.RabbitMq from 4.12.0 to 4.13.0 [#431](https://github.com/TraGicCode/busly-cli/pull/431) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.PostgreSql from 4.12.0 to 4.13.0 [#430](https://github.com/TraGicCode/busly-cli/pull/430) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.LocalStack from 4.12.0 to 4.13.0 [#428](https://github.com/TraGicCode/busly-cli/pull/428) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.Azurite from 4.12.0 to 4.13.0 [#427](https://github.com/TraGicCode/busly-cli/pull/427) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.AzureServiceBus from 6.3.0 to 6.4.1 [#426](https://github.com/TraGicCode/busly-cli/pull/426) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.15](https://github.com/TraGicCode/busly-cli/tree/v0.64.15) - 2026-06-29
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.13...v0.64.15)
