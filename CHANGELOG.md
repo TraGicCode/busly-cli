@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.17](https://github.com/TraGicCode/busly-cli/tree/v0.64.17) - 2026-07-06
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.16...v0.64.17)
+
+### Fixed
+
+- Fix issue on endpoint list when no heartbeat info is available [#434](https://github.com/TraGicCode/busly-cli/pull/434) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.64.16](https://github.com/TraGicCode/busly-cli/tree/v0.64.16) - 2026-07-04
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.15...v0.64.16)
