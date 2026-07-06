@@ -5,14 +5,20 @@ using Spectre.Console.Cli;
 
 namespace BuslyCLI.Commands.ServiceControl.Endpoint;
 
-public class ListEndpointsCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration, ServiceControlClient serviceControlClient)
+public class ListEndpointsCommand(
+    IAnsiConsole console,
+    INServiceBusConfiguration nservicebusConfiguration,
+    ServiceControlClient serviceControlClient)
     : AsyncCommand<ListEndpointsSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, ListEndpointsSettings settings, CancellationToken cancellationToken)
+    protected override async Task<int> ExecuteAsync(CommandContext context, ListEndpointsSettings settings,
+        CancellationToken cancellationToken)
     {
         var config = await nservicebusConfiguration.GetServiceControlValidatedConfigurationAsync(settings.Config.Path);
 
-        var endpoints = await serviceControlClient.GetEndpointsAsync(config.CurrentServiceControlInstanceConfig.Url, cancellationToken);
+        var endpoints =
+            await serviceControlClient.GetEndpointsAsync(config.CurrentServiceControlInstanceConfig.Url,
+                cancellationToken);
 
         var table = new Table();
         table.AddColumn("Id");
@@ -29,8 +35,13 @@ public class ListEndpointsCommand(IAnsiConsole console, INServiceBusConfiguratio
                 endpoint.Name,
                 endpoint.HostDisplayName,
                 endpoint.IsSendingHeartbeats ? "Yes" : "No",
-                endpoint.HeartbeatInformation.ReportedStatus == "dead" ? "[red]Dead[/]" : "[green]Alive[/]",
-                endpoint.HeartbeatInformation.LastReportAt.ToString("u"));
+                endpoint.HeartbeatInformation switch
+                {
+                    null => "No data available",
+                    { ReportedStatus: "dead" } => "[red]Dead[/]",
+                    _ => "[green]Alive[/]"
+                },
+                endpoint.HeartbeatInformation?.LastReportAt.ToString("u") ?? "-");
         }
 
         console.Write(table);
