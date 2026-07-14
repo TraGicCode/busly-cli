@@ -9,7 +9,7 @@ on:
 
 jobs:
   docker:
-    uses: ./.github/workflows/docker-build-or-deploy.yml
+    uses: ./.github/workflows/docker_build_or-deploy.yml
     with:
       push: false
       version: 1.0.0-pr.${{ github.event.number }}.${{ github.sha }}
