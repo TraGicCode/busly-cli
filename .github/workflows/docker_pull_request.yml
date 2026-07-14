@@ -1,4 +1,4 @@
-name: PR Docker Build Check
+name: Pull Request Docker Build
 
 on:
   pull_request:
