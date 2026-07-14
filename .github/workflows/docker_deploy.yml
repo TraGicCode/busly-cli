@@ -18,7 +18,7 @@ jobs:
 
   docker:
     needs: version
-    uses: ./.github/workflows/docker-build-or-deploy.yml
+    uses: ./.github/workflows/docker_build_or_deploy.yml
     #    permissions:
     #      contents: read
     #      id-token: write
