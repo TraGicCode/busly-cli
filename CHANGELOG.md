@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.19](https://github.com/TraGicCode/busly-cli/tree/v0.64.19) - 2026-07-14
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.18...v0.64.19)
+
+### Fixed
+
+- Bug/fix docker build not getting directory packages props [#446](https://github.com/TraGicCode/busly-cli/pull/446) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.64.18](https://github.com/TraGicCode/busly-cli/tree/v0.64.18) - 2026-07-14
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.17...v0.64.18)
