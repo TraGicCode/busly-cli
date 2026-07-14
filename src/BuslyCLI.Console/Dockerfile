@@ -5,6 +5,7 @@ ARG APP_VERSION=0.1.0
 WORKDIR /src
 
 COPY Directory.Build.props ./
+COPY Directory.Packages.props ./
 
 # Copy project file and restore dependencies (better layer caching)
 COPY src/BuslyCLI.Console/BuslyCLI.Console.csproj ./BuslyCLI.Console/
