@@ -1,0 +1,15 @@
+name: Pull Request Docker Build
+
+on:
+  pull_request:
+# Can't do this because i don't have a pr number...
+#  schedule:
+#    # Runs every night at 2 AM UTC. This is to detect flakey builds
+#    - cron: "0 2 * * *"
+
+jobs:
+  docker:
+    uses: ./.github/workflows/docker_build_or_deploy.yml
+    with:
+      push: false
+      version: 1.0.0-pr.${{ github.event.number }}.${{ github.sha }}
