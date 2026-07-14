@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.18](https://github.com/TraGicCode/busly-cli/tree/v0.64.18) - 2026-07-14
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.17...v0.64.18)
+
+### Fixed
+
+- Bump js-yaml from 3.14.2 to 3.15.0 in /website [#443](https://github.com/TraGicCode/busly-cli/pull/443) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.AzureServiceBus from 6.4.1 to 6.4.2 [#442](https://github.com/TraGicCode/busly-cli/pull/442) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.7.0 to 18.8.0 [#441](https://github.com/TraGicCode/busly-cli/pull/441) ([dependabot](https://github.com/dependabot))
+- Bump actions/setup-node from 6 to 7 [#440](https://github.com/TraGicCode/busly-cli/pull/440) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.17](https://github.com/TraGicCode/busly-cli/tree/v0.64.17) - 2026-07-06
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.16...v0.64.17)
