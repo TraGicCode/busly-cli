@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.20](https://github.com/TraGicCode/busly-cli/tree/v0.64.20) - 2026-08-03
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.19...v0.64.20)
+
+### Fixed
+
+- Bump docker/login-action from 4.5.2 to 4.6.0 [#468](https://github.com/TraGicCode/busly-cli/pull/468) ([dependabot](https://github.com/dependabot))
+- Bump docker/login-action from 4 to 4.5.2 [#467](https://github.com/TraGicCode/busly-cli/pull/467) ([dependabot](https://github.com/dependabot))
+- Bump shell-quote from 1.8.4 to 1.10.0 in /website [#466](https://github.com/TraGicCode/busly-cli/pull/466) ([dependabot](https://github.com/dependabot))
+- Bump webpack-dev-server from 5.2.5 to 5.2.6 in /website [#465](https://github.com/TraGicCode/busly-cli/pull/465) ([dependabot](https://github.com/dependabot))
+- Bump fast-uri from 3.1.2 to 3.1.4 in /website [#464](https://github.com/TraGicCode/busly-cli/pull/464) ([dependabot](https://github.com/dependabot))
+- Bump body-parser from 1.20.5 to 1.20.6 in /website [#463](https://github.com/TraGicCode/busly-cli/pull/463) ([dependabot](https://github.com/dependabot))
+- Bump the react-dependencies group in /website with 2 updates [#462](https://github.com/TraGicCode/busly-cli/pull/462) ([dependabot](https://github.com/dependabot))
+- Bump websocket-driver from 0.7.4 to 0.7.5 in /website [#461](https://github.com/TraGicCode/busly-cli/pull/461) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.Http from 10.0.9 to 10.0.10 [#460](https://github.com/TraGicCode/busly-cli/pull/460) ([dependabot](https://github.com/dependabot))
+- Bump actions/setup-dotnet from 5 to 6 [#459](https://github.com/TraGicCode/busly-cli/pull/459) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and 2 others [#458](https://github.com/TraGicCode/busly-cli/pull/458) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.8.0 to 18.8.1 [#457](https://github.com/TraGicCode/busly-cli/pull/457) ([dependabot](https://github.com/dependabot))
+- Bump @docusaurus/types from 3.10.0 to 3.10.2 in /website [#453](https://github.com/TraGicCode/busly-cli/pull/453) ([dependabot](https://github.com/dependabot))
+- Bump @docusaurus/preset-classic from 3.10.1 to 3.10.2 in /website [#452](https://github.com/TraGicCode/busly-cli/pull/452) ([dependabot](https://github.com/dependabot))
+- Bump @docusaurus/module-type-aliases from 3.10.1 to 3.10.2 in /website [#451](https://github.com/TraGicCode/busly-cli/pull/451) ([dependabot](https://github.com/dependabot))
+- Bump @docusaurus/faster from 3.10.1 to 3.10.2 in /website [#450](https://github.com/TraGicCode/busly-cli/pull/450) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.301 to 10.0.302 [#448](https://github.com/TraGicCode/busly-cli/pull/448) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.19](https://github.com/TraGicCode/busly-cli/tree/v0.64.19) - 2026-07-14
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.18...v0.64.19)
