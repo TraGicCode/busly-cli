@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.21](https://github.com/TraGicCode/busly-cli/tree/v0.64.21) - 2026-08-07
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.20...v0.64.21)
+
+### Fixed
+
+- Bump NServiceBus.Transport.AzureServiceBus from 6.4.2 to 6.5.0 [#474](https://github.com/TraGicCode/busly-cli/pull/474) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus from 10.2.7 to 10.2.8 [#473](https://github.com/TraGicCode/busly-cli/pull/473) ([dependabot](https://github.com/dependabot))
+- Bump brace-expansion from 1.1.13 to 1.1.18 in /website [#472](https://github.com/TraGicCode/busly-cli/pull/472) ([dependabot](https://github.com/dependabot))
+- Bump postcss from 8.5.19 to 8.5.25 in /website [#471](https://github.com/TraGicCode/busly-cli/pull/471) ([dependabot](https://github.com/dependabot))
+- Bump fast-uri from 3.1.4 to 3.1.5 in /website [#470](https://github.com/TraGicCode/busly-cli/pull/470) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.20](https://github.com/TraGicCode/busly-cli/tree/v0.64.20) - 2026-08-03
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.19...v0.64.20)
