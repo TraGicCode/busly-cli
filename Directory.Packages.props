@@ -18,7 +18,7 @@
     <PackageVersion Include="NServiceBus.Extensions.Hosting" Version="4.1.0" />
     <PackageVersion Include="NServiceBus.Heartbeat" Version="6.0.1" />
     <PackageVersion Include="NServiceBus.RabbitMQ" Version="11.2.1" />
-    <PackageVersion Include="NServiceBus.Transport.AzureServiceBus" Version="6.4.2" />
+    <PackageVersion Include="NServiceBus.Transport.AzureServiceBus" Version="6.5.0" />
     <PackageVersion Include="NServiceBus.Transport.AzureStorageQueues" Version="14.1.0" />
     <PackageVersion Include="NServiceBus.Transport.PostgreSql" Version="9.1.0" />
     <PackageVersion Include="NServiceBus.Transport.SqlServer" Version="9.1.0" />
