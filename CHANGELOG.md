@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.22](https://github.com/TraGicCode/busly-cli/tree/v0.64.22) - 2026-08-12
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.21...v0.64.22)
+
+### Fixed
+
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#477](https://github.com/TraGicCode/busly-cli/pull/477) ([dependabot](https://github.com/dependabot))
+- Bump js-yaml from 4.3.0 to 4.3.1 in /website [#476](https://github.com/TraGicCode/busly-cli/pull/476) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.21](https://github.com/TraGicCode/busly-cli/tree/v0.64.21) - 2026-08-07
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.20...v0.64.21)
