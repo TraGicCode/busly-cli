@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.23](https://github.com/TraGicCode/busly-cli/tree/v0.64.23) - 2026-08-25
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.22...v0.64.23)
+
+### Fixed
+
+- Bump NUnit3TestAdapter from 6.2.0 to 6.3.0 [#491](https://github.com/TraGicCode/busly-cli/pull/491) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.MsSql and Testcontainers.ServiceBus [#490](https://github.com/TraGicCode/busly-cli/pull/490) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.RabbitMq from 4.13.0 to 4.14.0 [#489](https://github.com/TraGicCode/busly-cli/pull/489) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.PostgreSql from 4.13.0 to 4.14.0 [#488](https://github.com/TraGicCode/busly-cli/pull/488) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.LocalStack from 4.13.0 to 4.14.0 [#486](https://github.com/TraGicCode/busly-cli/pull/486) ([dependabot](https://github.com/dependabot))
+- Bump Testcontainers.Azurite from 4.13.0 to 4.14.0 [#485](https://github.com/TraGicCode/busly-cli/pull/485) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.8.1 to 18.9.0 [#484](https://github.com/TraGicCode/busly-cli/pull/484) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.302 to 10.0.400 [#483](https://github.com/TraGicCode/busly-cli/pull/483) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Extensions.DependencyInjection from 0.27.0 to 0.28.0 [#482](https://github.com/TraGicCode/busly-cli/pull/482) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.Http from 10.0.10 to 10.0.11 [#481](https://github.com/TraGicCode/busly-cli/pull/481) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.22](https://github.com/TraGicCode/busly-cli/tree/v0.64.22) - 2026-08-12
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.21...v0.64.22)
