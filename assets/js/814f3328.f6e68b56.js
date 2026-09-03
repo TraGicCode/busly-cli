@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([["1833"],{5513(s){s.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Introducing Busly CLI","permalink":"/busly-cli/blog/introducing-busly-cli","unlisted":false,"date":"2025-12-04T00:00:00.000Z"}]}')}}]);
