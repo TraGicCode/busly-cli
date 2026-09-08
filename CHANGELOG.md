@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.24](https://github.com/TraGicCode/busly-cli/tree/v0.64.24) - 2026-09-08
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.23...v0.64.24)
+
+### Fixed
+
+- Bump the testcontainers group with 6 updates [#503](https://github.com/TraGicCode/busly-cli/pull/503) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus from 10.2.8 to 10.2.9 [#495](https://github.com/TraGicCode/busly-cli/pull/495) ([dependabot](https://github.com/dependabot))
+- Bump browserslist from 4.28.6 to 4.28.8 in /website [#494](https://github.com/TraGicCode/busly-cli/pull/494) ([dependabot](https://github.com/dependabot))
+- Bump fast-uri from 3.1.5 to 3.1.7 in /website [#493](https://github.com/TraGicCode/busly-cli/pull/493) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.23](https://github.com/TraGicCode/busly-cli/tree/v0.64.23) - 2026-08-25
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.22...v0.64.23)
