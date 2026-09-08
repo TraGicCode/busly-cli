@@ -16,6 +16,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    groups:
+      testcontainers:
+        patterns:
+          - "Testcontainers.*"
   - package-ecosystem: "npm"
     directory: "/website"
     schedule:
