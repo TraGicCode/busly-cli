@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([["3220"],{1912(s){s.exports=JSON.parse('{"blogBasePath":"/busly-cli/blog","blogTitle":"Blog","authorsListPath":"/busly-cli/blog/authors"}')}}]);
