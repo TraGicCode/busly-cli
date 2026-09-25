@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.25](https://github.com/TraGicCode/busly-cli/tree/v0.64.25) - 2026-09-25
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.24...v0.64.25)
+
+### Fixed
+
+- Bump nanoid from 3.3.16 to 3.3.19 in /website [#523](https://github.com/TraGicCode/busly-cli/pull/523) ([dependabot](https://github.com/dependabot))
+- Bump image-size from 2.0.2 to 2.0.4 in /website [#522](https://github.com/TraGicCode/busly-cli/pull/522) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.10.0 to 18.10.1 [#521](https://github.com/TraGicCode/busly-cli/pull/521) ([dependabot](https://github.com/dependabot))
+- Bump cake.tool from 6.2.0 to 6.3.0 [#520](https://github.com/TraGicCode/busly-cli/pull/520) ([dependabot](https://github.com/dependabot))
+- Bump NUnit.Analyzers from 4.14.0 to 4.15.0 [#519](https://github.com/TraGicCode/busly-cli/pull/519) ([dependabot](https://github.com/dependabot))
+- Bump the react-dependencies group in /website with 2 updates [#518](https://github.com/TraGicCode/busly-cli/pull/518) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.400 to 10.0.401 [#517](https://github.com/TraGicCode/busly-cli/pull/517) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.Http from 10.0.11 to 10.0.12 [#516](https://github.com/TraGicCode/busly-cli/pull/516) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and 2 others [#515](https://github.com/TraGicCode/busly-cli/pull/515) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.9.0 to 18.10.0 [#514](https://github.com/TraGicCode/busly-cli/pull/514) ([dependabot](https://github.com/dependabot))
+- Bump js-yaml from 4.3.1 to 4.3.2 in /website [#510](https://github.com/TraGicCode/busly-cli/pull/510) ([dependabot](https://github.com/dependabot))
+- Bump colord from 2.9.3 to 2.10.0 in /website [#509](https://github.com/TraGicCode/busly-cli/pull/509) ([dependabot](https://github.com/dependabot))
+- Bump svgo from 3.3.4 to 3.3.5 in /website [#508](https://github.com/TraGicCode/busly-cli/pull/508) ([dependabot](https://github.com/dependabot))
+- Bump joi from 17.13.3 to 17.13.7 in /website [#507](https://github.com/TraGicCode/busly-cli/pull/507) ([dependabot](https://github.com/dependabot))
+- Bump http-proxy-middleware from 2.0.9 to 2.0.10 in /website [#506](https://github.com/TraGicCode/busly-cli/pull/506) ([dependabot](https://github.com/dependabot))
+- Bump @swc/html from 1.15.43 to 1.16.2 in /website [#505](https://github.com/TraGicCode/busly-cli/pull/505) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.24](https://github.com/TraGicCode/busly-cli/tree/v0.64.24) - 2026-09-08
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.23...v0.64.24)
