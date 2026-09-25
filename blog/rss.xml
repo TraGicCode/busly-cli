@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Busly CLI for NServiceBus Blog</title>
+        <link>https://tragiccode.com/busly-cli/blog</link>
+        <description>Busly CLI for NServiceBus Blog</description>
+        <lastBuildDate>Thu, 04 Dec 2025 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Introducing Busly CLI]]></title>
+            <link>https://tragiccode.com/busly-cli/blog/introducing-busly-cli</link>
+            <guid>https://tragiccode.com/busly-cli/blog/introducing-busly-cli</guid>
+            <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Working with NServiceBus shouldn’t require spinning up a whole host application just to send a message. That’s why I built Busly CLI — a lightweight, cross-platform command-line tool that lets you send commands and events instantly. No boilerplate, no fuss, just messaging at your fingertips.]]></description>
+            <content:encoded><![CDATA[<p>Working with <strong>NServiceBus</strong> shouldn’t require spinning up a whole host application just to send a message. That’s why I built <strong>Busly CLI</strong> — a lightweight, cross-platform command-line tool that lets you <strong>send commands and events instantly</strong>. No boilerplate, no fuss, just messaging at your fingertips.</p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-youll-love-busly-cli">Why You’ll Love Busly CLI<a href="https://tragiccode.com/busly-cli/blog/introducing-busly-cli#why-youll-love-busly-cli" class="hash-link" aria-label="Direct link to Why You’ll Love Busly CLI" title="Direct link to Why You’ll Love Busly CLI" translate="no">​</a></h2>
+<ul>
+<li class="">🚀 <strong>Send messages straight from your terminal</strong></li>
+<li class="">🧩 <strong>Use custom message types</strong> that match your contracts</li>
+<li class="">🌐 <strong>Works with Azure Service Bus, RabbitMQ, and AWS SQS</strong></li>
+<li class="">⚙️ <strong>Easily switch transports</strong> between local, dev, staging, or production</li>
+<li class="">💻 <strong>Runs on Windows, macOS, and Linux</strong></li>
+<li class="">📦 <strong>Install your way</strong>: Chocolatey, Docker, .NET tool, or GitHub binary</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="help-us-reach-100">Help Us Reach 1.0.0<a href="https://tragiccode.com/busly-cli/blog/introducing-busly-cli#help-us-reach-100" class="hash-link" aria-label="Direct link to Help Us Reach 1.0.0" title="Direct link to Help Us Reach 1.0.0" translate="no">​</a></h2>
+<p>Busly CLI is shaping up fast, but I need your help to make <strong>version 1.0.0 rock-solid</strong>:</p>
+<ul>
+<li class=""><strong>Try it out</strong> and let us know what works (or doesn’t).</li>
+<li class=""><strong>Report bugs</strong> on GitHub — every issue helps!</li>
+<li class=""><strong>Contribute</strong> code, docs, or ideas — every contribution counts.</li>
+</ul>
+<p>Together, we can make <strong>Busly CLI</strong> the go-to tool for messaging in NServiceBus. Jump in, experiment, and help us get to that <strong>stable 1.0.0 release</strong>!</p>
+<p>Check it out on <a href="https://github.com/tragiccode/busly-cli" target="_blank" rel="noopener noreferrer" class="">GitHub</a> and start sending messages in seconds.</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
