@@ -7,7 +7,7 @@ namespace BuslyCLI.Commands.ServiceControl.Instance;
 public class DeleteServiceControlInstanceCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration)
     : AsyncCommand<DeleteServiceControlInstanceSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, DeleteServiceControlInstanceSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, DeleteServiceControlInstanceSettings settings, CancellationToken cancellationToken)
     {
         var config = await nservicebusConfiguration.GetUnValidatedConfigurationAsync(settings.Config.Path);
         var targetInstance = settings.InstanceName.ToLower();

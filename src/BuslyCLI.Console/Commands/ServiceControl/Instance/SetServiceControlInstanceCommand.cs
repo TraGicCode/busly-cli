@@ -7,7 +7,7 @@ namespace BuslyCLI.Commands.ServiceControl.Instance;
 public class SetServiceControlInstanceCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration)
     : AsyncCommand<SetServiceControlInstanceSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, SetServiceControlInstanceSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, SetServiceControlInstanceSettings settings, CancellationToken cancellationToken)
     {
         var config = await nservicebusConfiguration.GetUnValidatedConfigurationAsync(settings.Config.Path);
         var targetInstance = settings.InstanceName.ToLower();

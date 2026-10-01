@@ -13,7 +13,7 @@ namespace BuslyCLI.Commands.NsbEvent;
 
 public class PublishCommand(IAnsiConsole console, IRawEndpointFactory rawEndpointFactory, INServiceBusConfiguration nServiceBusConfiguration) : AsyncCommand<PublishCommandSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, PublishCommandSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, PublishCommandSettings settings, CancellationToken cancellationToken)
     {
         var config = await nServiceBusConfiguration.GetTransportValidatedConfigurationAsync(settings.Config.Path);
 

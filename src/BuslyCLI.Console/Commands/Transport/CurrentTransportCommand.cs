@@ -7,7 +7,7 @@ namespace BuslyCLI.Commands.Transport;
 public class CurrentTransportCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration)
     : AsyncCommand<CurrentTransportSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, CurrentTransportSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, CurrentTransportSettings settings, CancellationToken cancellationToken)
     {
         var nsbConfiguration = await nservicebusConfiguration.GetUnValidatedConfigurationAsync(settings.Config.Path);
 

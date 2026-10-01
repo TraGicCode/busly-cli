@@ -10,7 +10,7 @@ public class ShowLicenseCommand(
     ServiceControlClient serviceControlClient)
     : AsyncCommand<ListEndpointsSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, ListEndpointsSettings settings,
+    public override async Task<int> ExecuteAsync(CommandContext context, ListEndpointsSettings settings,
         CancellationToken cancellationToken)
     {
         var config = await nservicebusConfiguration.GetServiceControlValidatedConfigurationAsync(settings.Config.Path);

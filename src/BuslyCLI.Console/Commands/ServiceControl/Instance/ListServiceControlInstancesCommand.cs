@@ -7,7 +7,7 @@ namespace BuslyCLI.Commands.ServiceControl.Instance;
 public class ListServiceControlInstancesCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration)
     : AsyncCommand<ListServiceControlInstancesSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, ListServiceControlInstancesSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, ListServiceControlInstancesSettings settings, CancellationToken cancellationToken)
     {
         var grid = new Grid();
         // Add columns

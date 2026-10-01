@@ -20,7 +20,7 @@ public class SendTimeout(IAnsiConsole console, IRawEndpointFactory rawEndpointFa
         typeof(AzureStorageQueuesTransportConfig)
     ];
 
-    protected override async Task<int> ExecuteAsync(CommandContext context, SendTimeoutCommandSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, SendTimeoutCommandSettings settings, CancellationToken cancellationToken)
     {
         var config = await nServiceBusConfiguration.GetTransportValidatedConfigurationAsync(settings.Config.Path);
 

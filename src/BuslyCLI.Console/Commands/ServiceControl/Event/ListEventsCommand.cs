@@ -8,7 +8,7 @@ namespace BuslyCLI.Commands.ServiceControl.Event;
 public class ListEventsCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration, ServiceControlClient serviceControlClient)
     : AsyncCommand<ListEventsSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, ListEventsSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, ListEventsSettings settings, CancellationToken cancellationToken)
     {
         var config = await nservicebusConfiguration.GetServiceControlValidatedConfigurationAsync(settings.Config.Path);
 

@@ -8,7 +8,7 @@ namespace BuslyCLI.Commands.ServiceControl.CustomCheck;
 public class ListCustomChecksCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration, ServiceControlClient serviceControlClient)
     : AsyncCommand<ListCustomChecksSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, ListCustomChecksSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, ListCustomChecksSettings settings, CancellationToken cancellationToken)
     {
         var config = await nservicebusConfiguration.GetServiceControlValidatedConfigurationAsync(settings.Config.Path);
 
