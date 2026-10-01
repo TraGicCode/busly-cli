@@ -5,7 +5,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.64.25](https://github.com/TraGicCode/busly-cli/tree/v0.64.25) - 2026-09-25
+## [v0.64.26](https://github.com/TraGicCode/busly-cli/tree/v0.64.26) - 2026-10-01
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.25...v0.64.26)
+
+### Fixed
+
+- Update Spectre nuget package to handle breaking change [#531](https://github.com/TraGicCode/busly-cli/pull/531) ([TraGicCode](https://github.com/TraGicCode))
+- Bump Spectre.Console.Cli from 0.55.0 to 0.56.1 [#528](https://github.com/TraGicCode/busly-cli/pull/528) ([dependabot](https://github.com/dependabot))
+- Bump NUnit from 4.6.1 to 5.0.0 [#527](https://github.com/TraGicCode/busly-cli/pull/527) ([dependabot](https://github.com/dependabot))
+- Bump coverlet.collector from 10.0.1 to 10.1.0 [#526](https://github.com/TraGicCode/busly-cli/pull/526) ([dependabot](https://github.com/dependabot))
+- Bump Moq from 4.20.72 to 4.21.0 [#525](https://github.com/TraGicCode/busly-cli/pull/525) ([dependabot](https://github.com/dependabot))
+
+## [v0.64.25](https://github.com/TraGicCode/busly-cli/tree/v0.64.25) - 2026-09-24
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.24...v0.64.25)
 
