@@ -9,7 +9,7 @@ namespace BuslyCLI.Commands.ServiceControl.Message;
 public class SearchMessagesCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration, ServiceControlClient serviceControlClient)
     : AsyncCommand<SearchMessagesSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, SearchMessagesSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, SearchMessagesSettings settings, CancellationToken cancellationToken)
     {
         var config = await nservicebusConfiguration.GetServiceControlValidatedConfigurationAsync(settings.Config.Path);
 

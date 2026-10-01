@@ -8,7 +8,7 @@ namespace BuslyCLI.Commands.ServiceControl.Endpoint;
 public class DeleteEndpointCommand(IAnsiConsole console, INServiceBusConfiguration nservicebusConfiguration, ServiceControlClient serviceControlClient)
     : AsyncCommand<DeleteEndpointSettings>
 {
-    protected override async Task<int> ExecuteAsync(CommandContext context, DeleteEndpointSettings settings, CancellationToken cancellationToken)
+    public override async Task<int> ExecuteAsync(CommandContext context, DeleteEndpointSettings settings, CancellationToken cancellationToken)
     {
         var config = await nservicebusConfiguration.GetServiceControlValidatedConfigurationAsync(settings.Config.Path);
 
