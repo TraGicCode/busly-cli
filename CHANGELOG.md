@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.27](https://github.com/TraGicCode/busly-cli/tree/v0.64.27) - 2026-10-17
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.26...v0.64.27)
+
+### Fixed
+
+- Update packages and fix vulnerability [#550](https://github.com/TraGicCode/busly-cli/pull/550) ([TraGicCode](https://github.com/TraGicCode))
+- Bump dotnet-sdk from 10.0.401 to 10.0.402 [#547](https://github.com/TraGicCode/busly-cli/pull/547) ([dependabot](https://github.com/dependabot))
+- Bump source-map-js from 1.2.1 to 1.2.2 in /website [#546](https://github.com/TraGicCode/busly-cli/pull/546) ([dependabot](https://github.com/dependabot))
+- Bump compression from 1.8.1 to 1.8.2 in /website [#545](https://github.com/TraGicCode/busly-cli/pull/545) ([dependabot](https://github.com/dependabot))
+- Bump brace-expansion from 1.1.18 to 1.1.21 in /website [#544](https://github.com/TraGicCode/busly-cli/pull/544) ([dependabot](https://github.com/dependabot))
+- Bump proxy-addr from 2.0.7 to 2.0.8 in /website [#543](https://github.com/TraGicCode/busly-cli/pull/543) ([dependabot](https://github.com/dependabot))
+- Bump fast-uri from 3.1.7 to 3.1.8 in /website [#542](https://github.com/TraGicCode/busly-cli/pull/542) ([dependabot](https://github.com/dependabot))
+- Bump joi from 17.13.7 to 17.13.8 in /website [#538](https://github.com/TraGicCode/busly-cli/pull/538) ([dependabot](https://github.com/dependabot))
+- Bump shell-quote from 1.10.0 to 1.12.0 in /website [#537](https://github.com/TraGicCode/busly-cli/pull/537) ([dependabot](https://github.com/dependabot))
+- Bump NUnit3TestAdapter from 6.3.0 to 6.3.1 [#536](https://github.com/TraGicCode/busly-cli/pull/536) ([dependabot](https://github.com/dependabot))
+- Bump FluentValidation and FluentValidation.DependencyInjectionExtensions [#535](https://github.com/TraGicCode/busly-cli/pull/535) ([dependabot](https://github.com/dependabot))
+- Bump the testcontainers group with 6 updates [#533](https://github.com/TraGicCode/busly-cli/pull/533) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.26](https://github.com/TraGicCode/busly-cli/tree/v0.64.26) - 2026-10-01
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.25...v0.64.26)
