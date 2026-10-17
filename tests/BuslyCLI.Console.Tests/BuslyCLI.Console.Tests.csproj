@@ -33,6 +33,7 @@
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter" />
     <PackageReference Include="Spectre.Console.Cli.Testing" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" />
     <PackageReference Include="Testcontainers.Azurite" />
     <PackageReference Include="Testcontainers.LocalStack" />
     <PackageReference Include="Testcontainers.MsSql" />
