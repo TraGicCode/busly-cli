@@ -20,7 +20,7 @@
     <PackageVersion Include="NServiceBus.Transport.AzureServiceBus" Version="6.5.0" />
     <PackageVersion Include="NServiceBus.Transport.AzureStorageQueues" Version="14.1.0" />
     <PackageVersion Include="NServiceBus.Transport.PostgreSql" Version="9.1.0" />
-    <PackageVersion Include="NServiceBus.Transport.SqlServer" Version="9.1.0" />
+    <PackageVersion Include="NServiceBus.Transport.SqlServer" Version="9.1.1" />
     <PackageVersion Include="NUnit" Version="5.0.0" />
     <PackageVersion Include="NUnit.Analyzers" Version="4.15.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="6.3.1" />
