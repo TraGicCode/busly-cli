@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.28](https://github.com/TraGicCode/busly-cli/tree/v0.64.28) - 2026-10-28
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.27...v0.64.28)
+
+### Fixed
+
+- Bump NServiceBus.Transport.SqlServer from 9.1.0 to 9.1.1 [#567](https://github.com/TraGicCode/busly-cli/pull/567) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.PostgreSql from 9.1.0 to 9.1.1 [#566](https://github.com/TraGicCode/busly-cli/pull/566) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.402 to 10.0.403 [#565](https://github.com/TraGicCode/busly-cli/pull/565) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Extensions.DependencyInjection from 0.31.0 to 0.32.0 [#564](https://github.com/TraGicCode/busly-cli/pull/564) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.Http from 10.0.13 to 10.0.14 [#563](https://github.com/TraGicCode/busly-cli/pull/563) ([dependabot](https://github.com/dependabot))
+- Bump postcss-selector-parser in /website [#562](https://github.com/TraGicCode/busly-cli/pull/562) ([dependabot](https://github.com/dependabot))
+- Bump fast-uri from 3.1.8 to 3.1.9 in /website [#561](https://github.com/TraGicCode/busly-cli/pull/561) ([dependabot](https://github.com/dependabot))
+- Bump body-parser from 1.20.6 to 1.20.9 in /website [#560](https://github.com/TraGicCode/busly-cli/pull/560) ([dependabot](https://github.com/dependabot))
+- Bump System.Security.Cryptography.Pkcs from 10.0.13 to 10.0.14 [#559](https://github.com/TraGicCode/busly-cli/pull/559) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#556](https://github.com/TraGicCode/busly-cli/pull/556) ([dependabot](https://github.com/dependabot))
+- Bump docker/login-action from 4.6.0 to 4.7.0 [#555](https://github.com/TraGicCode/busly-cli/pull/555) ([dependabot](https://github.com/dependabot))
+- Bump follow-redirects from 1.16.0 to 1.16.1 in /website [#554](https://github.com/TraGicCode/busly-cli/pull/554) ([dependabot](https://github.com/dependabot))
+- Bump launch-editor from 2.14.1 to 2.14.2 in /website [#553](https://github.com/TraGicCode/busly-cli/pull/553) ([dependabot](https://github.com/dependabot))
+- Bump the react-dependencies group in /website with 2 updates [#552](https://github.com/TraGicCode/busly-cli/pull/552) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.27](https://github.com/TraGicCode/busly-cli/tree/v0.64.27) - 2026-10-17
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.26...v0.64.27)
