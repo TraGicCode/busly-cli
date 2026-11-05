@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.29](https://github.com/TraGicCode/busly-cli/tree/v0.64.29) - 2026-11-05
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.28...v0.64.29)
+
+### Fixed
+
+- Bump qs from 6.15.2 to 6.15.4 in /website [#571](https://github.com/TraGicCode/busly-cli/pull/571) ([dependabot](https://github.com/dependabot))
+- Bump follow-redirects from 1.16.1 to 1.16.2 in /website [#570](https://github.com/TraGicCode/busly-cli/pull/570) ([dependabot](https://github.com/dependabot))
+- Bump joi from 17.13.8 to 17.13.9 in /website [#569](https://github.com/TraGicCode/busly-cli/pull/569) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.28](https://github.com/TraGicCode/busly-cli/tree/v0.64.28) - 2026-10-28
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.27...v0.64.28)
