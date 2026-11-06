@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.31](https://github.com/TraGicCode/busly-cli/tree/v0.64.31) - 2026-11-06
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.30...v0.64.31)
+
+### Fixed
+
+- Fix id-token permissions for publishing to nuget with trusted publishing [#575](https://github.com/TraGicCode/busly-cli/pull/575) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.64.30](https://github.com/TraGicCode/busly-cli/tree/v0.64.30) - 2026-11-06
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.29...v0.64.30)
