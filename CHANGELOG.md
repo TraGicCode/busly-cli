@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.32](https://github.com/TraGicCode/busly-cli/tree/v0.64.32) - 2026-11-17
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.31...v0.64.32)
+
+### Fixed
+
+- Bump the testcontainers group with 6 updates [#591](https://github.com/TraGicCode/busly-cli/pull/591) ([dependabot](https://github.com/dependabot))
+- Bump coverlet.collector from 10.1.0 to 10.1.1 [#590](https://github.com/TraGicCode/busly-cli/pull/590) ([dependabot](https://github.com/dependabot))
+- Bump dotnet-sdk from 10.0.403 to 11.0.100 [#589](https://github.com/TraGicCode/busly-cli/pull/589) ([dependabot](https://github.com/dependabot))
+- Bump Spectre.Console.Cli.Extensions.DependencyInjection from 0.32.0 to 0.34.0 [#588](https://github.com/TraGicCode/busly-cli/pull/588) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.AzureServiceBus from 6.5.1 to 6.5.2 [#587](https://github.com/TraGicCode/busly-cli/pull/587) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.11.1 to 18.12.0 [#586](https://github.com/TraGicCode/busly-cli/pull/586) ([dependabot](https://github.com/dependabot))
+- Bump System.Security.Cryptography.Pkcs from 10.0.14 to 11.0.0 [#584](https://github.com/TraGicCode/busly-cli/pull/584) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 18.11.0 to 18.11.1 [#583](https://github.com/TraGicCode/busly-cli/pull/583) ([dependabot](https://github.com/dependabot))
+- Bump Microsoft.Extensions.DependencyInjection and Microsoft.Extensions.DependencyInjection.Abstractions [#580](https://github.com/TraGicCode/busly-cli/pull/580) ([dependabot](https://github.com/dependabot))
+- Bump cake.tool from 6.3.0 to 7.0.0 [#579](https://github.com/TraGicCode/busly-cli/pull/579) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.AzureServiceBus from 6.5.0 to 6.5.1 [#578](https://github.com/TraGicCode/busly-cli/pull/578) ([dependabot](https://github.com/dependabot))
+- Bump docker/login-action from 4.7.0 to 4.8.0 [#577](https://github.com/TraGicCode/busly-cli/pull/577) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.31](https://github.com/TraGicCode/busly-cli/tree/v0.64.31) - 2026-11-06
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.30...v0.64.31)
