@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.64.33](https://github.com/TraGicCode/busly-cli/tree/v0.64.33) - 2026-11-28
+
+[Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.32...v0.64.33)
+
+### Fixed
+
+- Bump NServiceBus.Transport.SqlServer from 9.1.1 to 9.2.0 [#596](https://github.com/TraGicCode/busly-cli/pull/596) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.Transport.PostgreSql from 9.1.1 to 9.2.0 [#595](https://github.com/TraGicCode/busly-cli/pull/595) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus from 10.2.9 to 10.2.10 [#594](https://github.com/TraGicCode/busly-cli/pull/594) ([dependabot](https://github.com/dependabot))
+- Bump NServiceBus.RabbitMQ from 11.2.1 to 11.2.2 [#593](https://github.com/TraGicCode/busly-cli/pull/593) ([dependabot](https://github.com/dependabot))
+
 ## [v0.64.32](https://github.com/TraGicCode/busly-cli/tree/v0.64.32) - 2026-11-17
 
 [Full Changelog](https://github.com/TraGicCode/busly-cli/compare/v0.64.31...v0.64.32)
